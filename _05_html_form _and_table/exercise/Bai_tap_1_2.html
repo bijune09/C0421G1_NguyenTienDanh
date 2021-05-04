@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đơn đăng kí</title>
+        <style>
+            body {background-color: khaki}
+        </style>
+</head>
+<body>
+<form>
+    <table>
+        <tr><th style="background-color: aquamarine; color: blue" >ĐĂNG KÝ HỌC VIÊN</th></tr>
+        <tr>
+            <td><span style="color: cornflowerblue">Họ và tên</span></td>
+            <td><input type="text" name="yourname"></td>
+        </tr>
+        <tr>
+            <td><span style="color: cornflowerblue">Ngày sinh</span></td>
+            <td><input type="text;" name="dateofbirth"></td>
+        </tr>
+        <tr>
+            <td><span style="color: cornflowerblue">Giới tính</span></td>
+            <td><label><input name="Sex" value="male" type="radio" /> Nam</label>
+                <label><input name="Sex" value="female" type="radio" /> Nữ</label></td>
+        </tr>
+        <tr>
+            <td><span style="color: cornflowerblue">Địa chỉ</span></td>
+            <td>
+                <textarea cols="50" rows="4"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><span style="color: cornflowerblue">Lớp</span></td>
+            <td><select name="grade">
+                    <option value="0">-chọn lớp-</option>
+                    <option value="5">Lớp 5</option>
+                    <option value="6">Lớp 6</option>
+                    <option value="7">Lớp 7</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><span style="color: cornflowerblue">Email</span></td>
+            <td><input  type="email" name="email"></td>
+        </tr>
+        <tr>
+            <td><span style="color: cornflowerblue">Điện thoại</span></td>
+            <td><input  type="text" name="phonenumber" </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="2">
+                <input type="submit" value="Đăng kí">
+                <input type="reset" value="Nhập lại">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
