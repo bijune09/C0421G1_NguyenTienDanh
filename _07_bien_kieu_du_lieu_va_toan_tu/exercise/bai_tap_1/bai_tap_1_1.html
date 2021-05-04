@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let inputphysical;
+        let inputchemistry;
+        let inputbiological;
+        inputbiological = prompt("Enter bio scores");
+        inputchemistry = prompt("Enter chemistry scores");
+        inputphysical = prompt("Enter physical scores");
+        let physical = parseInt(inputphysical);
+        let chemistry = parseInt(inputchemistry);
+        let biological = parseInt(inputbiological);
+        let sum = physical + chemistry + biological;
+        document.write("sum is: " + sum);
+        let average = sum / 3;
+        document.write('<br/>')
+        document.write("Avr is : " + average);
+    </script>
+</body>
+</html>
