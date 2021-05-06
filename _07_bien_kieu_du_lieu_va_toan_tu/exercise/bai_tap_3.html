@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <form>-->
+        <input type="number" id="first">
+        <input type="number" id="second"> </br> </br>
+        <button onclick="doPlus()">Addition(+)</button>
+        <button onclick="doMinimus()">Subtraction(-)</button>
+        <button onclick="doMulti()">Multiplication(X)</button>
+        <button onclick="doDiv()">Division(/)</button>
+<!--    </form>-->
+    <p id="result"></p>
+    <script>
+        function doPlus() {
+            let a = parseFloat(document.getElementById("first").value);
+            let b = parseFloat(document.getElementById("second").value);
+            let sum = a + b
+            // document.write("Result : " + sum)
+            document.getElementById("result").innerText = "Result: " + sum;
+        }
+        function doMinimus() {
+            let a = parseFloat(document.getElementById("first").value);
+            let b = parseFloat(document.getElementById("second").value);
+            let min = a - b
+            document.getElementById("result").innerText = "Result: " + min;
+        }
+        function doMulti() {
+            let a = parseFloat(document.getElementById("first").value);
+            let b = parseFloat(document.getElementById("second").value);
+            let multi = a * b
+            document.getElementById("result").innerText = "Result: " + multi;
+        }
+        function doDiv() {
+            let a = parseFloat(document.getElementById("first").value);
+            let b = parseFloat(document.getElementById("second").value);
+            let div = a / b
+            document.getElementById("result").innerText = "Result: " + div;
+        }
+    </script>
+</body>
+</html>

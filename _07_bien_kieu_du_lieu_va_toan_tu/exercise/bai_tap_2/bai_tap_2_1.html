@@ -5,7 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-    <form>
         <table>
             <tr>
                 <th>Amount</th>
@@ -13,27 +12,31 @@
                 <th>To Currency</th>
             </tr>
             <tr>
-                <td><input type="text"></td>
+                <td><input type="number" name="amount" min="0" id="amount" </td>
                 <td style="text-align: center"; width="200px">
-                    <select name="Country">
-                        <option value ="Vn">VND</option>
-                        <option value="usa">Dollar</option>
+                    <select>
+                        <option value ="vnd">VND</option>
+                        <option value="usd">Dollar</option>
                         <option value="euro">Euro</option>
                     </select>
                 </td>
                 <td style="text-align: center"; width="200px">
-                    <select name="Country">
-                        <option value ="Vn">VND</option>
-                        <option value="usa">Dollar</option>
+                    <select>
+                        <option value ="usa">Dollar</option>
+                        <option value="vnd">VND</option>
                         <option value="euro">Euro</option>
                     </select>
                 </td>
-                <td style="width: 200px"><input type="submit" value="Convert"></input> </td>
+                <td style="width: 200px"><button onclick="doConvert()">Convert</button> </td>
             </tr>
         </table>
-    </form>
+        <p id="result"></p>
 </body>
 </html>
 <script>
-
+    function doConvert() {
+        let a = parseFloat(document.getElementById("amount").value);
+        let convert = a / 23000
+        document.getElementById("result").innerText = "Result: " + convert;
+    }
 </script>
