@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let a = parseFloat(prompt("Nhập doanh số"));
+        let commission1 = a * 0.01;
+        let commission2 = a * 0.02;
+        let commission3 = a * 0.03;
+        if ( a >= 10000){
+            document.write("Hoa hồng của bạn là : " + commission3);
+        } else if ( a >= 5000){
+            document.write("Hoa hồng của bạn là : "+ commission2);
+        } else {
+            document.write("Hoa hồng của bạn là : " + commission1);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputA = parseFloat(prompt("Nhập số a"));
+    let inputB = parseFloat(prompt("Nhập số b"));
+        if (inputA == 0) {
+            if (inputB == 0) {
+                document.write("Phương trình vô số nghiệm");
+            } else {
+                document.write("Phương trình vô nghiệm");
+            }
+        } else {
+            document.write("Phương trình có nghiệm là : " + (-inputB / inputA));
+        }
+</script>
+</body>
+</html>

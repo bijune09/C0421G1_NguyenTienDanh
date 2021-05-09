@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let inputIncome = parseInt(prompt("Vui lòng nhập thu nhập cá nhân",""));
+        let a = inputIncome * 0.05 // 60tr
+        let b = inputIncome * 0.1  // 60<a<120
+        let c = inputIncome * 0.15 // 120<a<216
+        let d = inputIncome * 0.2 // a>216
+        if (inputIncome > 216){
+            document.write("Thuế thu nhập cá nhân của bạn là :" + d);
+        } else if (inputIncome >= 120 ) {
+            document.write("Thuế thu nhập cá nhân của bạn là : " + c);
+        } else if (inputIncome >= 60) {
+            document.write("Thuế thu nhập cá nhân của bạn là : " + b);
+        } else {
+            document.write("Thuế thu nhập cá nhân của bạn là : " + a);
+        }
+    </script>
+</body>
+</html>
