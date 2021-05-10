@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let inputDegree = parseInt(prompt("Vui lòng nhập nhiệt độ"));
+        while (inputDegree > 100 || inputDegree < 20) {
+            if (inputDegree > 100) {
+                alert("Nhiệt độ quá cao");
+                inputDegree = parseInt(prompt("Vui lòng giảm nhiệt độ"));
+            } else if (inputDegree < 20) {
+                alert("Nhiệt độ quá thấp");
+                inputDegree = parseInt(prompt("Vui lòng tăng nhiệt độ"));
+            }
+        } alert("nhiệt độ bình thường")
+    </script>
+</body>
+</html>

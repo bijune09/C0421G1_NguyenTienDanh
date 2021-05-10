@@ -10,10 +10,13 @@
         let inputPrice = parseInt(prompt("Nhập số kW"), "");
         let hoGiaDinh = inputPrice * 1100;
         let doanhNghiep = inputPrice * 900;
+        let nhanuoc = inputPrice * 700
         if (inputName === "hộ gia đình") {
             document.write("Giá tiền của bạn là :" + hoGiaDinh);
         } else if (inputName === "doanh nghiệp") {
             document.write("Giá tiền của bạn là : "+ doanhNghiep);
+        } else {
+            document.write("Giá tiền của bạn là : " + nhanuoc);
         }
     </script>
 </body>

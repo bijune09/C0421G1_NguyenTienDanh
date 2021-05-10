@@ -7,10 +7,17 @@
 <body>
     <script>
         let a = parseInt(prompt("Nhập số tiền cần gửi"),"");
-        let b = parseInt(prompt("Nhập số tháng cần gửi"),"")
-        let c = parseFloat(prompt("Nhập lãi suất"),"");
-        let P = a * (c/12) * b
-        document.write("Số tiền bạn nhận được là :" + P);
+        let b = parseInt(prompt("Nhập số tháng cần gửi"),"");
+        let P1 = a * (0.04/12) * b // 1-3 tháng
+        let P2 = a * (0.06/12) * b // 6-12 tháng
+        let P3 = a * (0.09/12) * b // còn lại
+        if (b > 12) {
+            document.write("Số lãi tiền bạn có là : " + P3);
+        } else if (b > 6) {
+            document.write("số lãi tiền bạn có là : " + P2);
+        } else {
+            document.write("Số  lãi tiền bạn có là : " + P1);
+        }
     </script>
 </body>
 </html>

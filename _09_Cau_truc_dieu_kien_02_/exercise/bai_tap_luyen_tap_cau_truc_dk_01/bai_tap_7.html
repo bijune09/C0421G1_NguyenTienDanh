@@ -7,13 +7,15 @@
 <body>
     <script>
         let a = parseInt(prompt("Nhập số phút đã gọi :"));
-        let b = prompt("Người dùng :");
-        let sumA = a * 1100
-        let sumB = a * 900
-        if ( b === "tư nhân" ) {
-            document.write("Số cước của bạn là : " + sumA);
-        } else if ( b === "doanh nghiệp" ){
-            document.write("Số cước của bạn là : " + sumB);
+        let first = 600 * a // 50p đầu
+        let second = 400 * a  // 150p tiếp theo
+        let third = 200 * a // mỗi phút tiếp theo
+        if (a > 200) {
+            document.write("Thành tiền : " + third);
+        } else if (a > 50) {
+            document.write("Thành tiền :" + second);
+        } else {
+            document.write("Thành tiền: " + first);
         }
     </script>
 </body>
