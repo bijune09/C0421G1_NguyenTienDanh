@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let a = []
+        for (i = 1; i <= 10; i++){
+            let b = prompt("Nhập số vào mạng")
+            a.push(b);
+        } document.write("Các giá trị được nhập là: " + a);
+        document.write("<br>")
+        for (j = 0; j < a.length; j++) {
+            if (a[j] > 10) {
+                document.write("Các giá trị lớn hơn 10 là :" + a[j] + "<br>")
+            }
+        }
+    </script>
+</body>
+</html>

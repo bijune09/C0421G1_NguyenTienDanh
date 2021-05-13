@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhap">
+<button type="button" onclick="trans()">Dịch</button>
+<br><br>
+<p id="result"></p>
+<script>
+    let inputIn = document.getElementById("nhap").value;
+    let a = ["Từ điển","Biển","Gió","Cát"]
+    let b = ["Dictionary","Sea","Wind","Sand"]
+    function trans() {
+        for (let i = 0; i < a.length; i++) {
+            if (inputIn === a[i]) {
+                document.getElementById("result").innerHTML =  b[i]
+                break;
+            } else {
+                document.getElementById("result").innerHTML = "Not Found"
+            }
+        }
+    }
+</script>
+</body>
+</html>

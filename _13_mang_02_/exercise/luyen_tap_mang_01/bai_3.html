@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arrays = [];
+        let max = 0;
+        let index = 0;
+        let average = 0;
+        let inputA = parseInt(prompt("Nhập độ dài của mảng"));
+        for ( i = 0 ; i < inputA ; i++) {
+            arrays[i] = parseInt(prompt("Nhập số tại phần tử " +i))
+        }
+        document.write("Các giá trị được nhập là: " + arrays);
+        document.write("<br>" + "<br>")
+        for (let i = 0 ; i < arrays.length; i++) {
+            if (arrays[i] > max) {
+                max = arrays[i];
+                index = i;
+            }
+            average += arrays[i]
+        }
+        average = average/arrays.length
+        document.write("Giá trị lớn nhất là " + max + "<br>")
+        document.write("Trung bình cộng của mảng là " + average)
+    </script>
+</body>
+</html>
