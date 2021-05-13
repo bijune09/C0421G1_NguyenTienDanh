@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let F = 0;
+        let F0 = 1;
+        let F1;
+        let a = parseInt(prompt("Nhập số lượng fibonacci mong muốn"));
+        for (i = 1; i <= a; i++) {
+            document.write(F + "<br>");
+            F1 = F + F0;
+            F = F0;
+            F0 = F1;
+        }
+    </script>
+</body>
+</html>

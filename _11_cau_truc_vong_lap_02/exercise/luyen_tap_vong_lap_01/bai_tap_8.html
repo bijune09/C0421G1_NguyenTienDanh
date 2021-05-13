@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let number = Math.random();
+        let canDuoi = parseInt(prompt("nhập cận dưới: "));
+        let canTren = parseInt(prompt("Nhập cận trên: "));
+
+        ​
+    let result = Math.floor((Math.random()*(canTren - canDuoi + 1) + canDuoi));
+        document.write("Máy chọn " + result);
+        let input = parseInt(prompt("Nhập số dự đoán: "));
+        let count = 1;
+        do {
+            if(input > result){
+                input = parseInt(prompt("Nhập số bé hơn: "));
+                count++;
+            } else if (input < result){
+                input = parseInt(prompt("Nhập số lớn hơn: "));
+                count++;
+            } else {
+                alert("Chúc mừng");
+                break;
+            }
+        } while (count < 3)
+
+    </script>
+</body>
+</html>
