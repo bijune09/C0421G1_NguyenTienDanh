@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt("Nhập độ dài của chuỗi 1:"));
+        let arr1 = [];
+        for (i=0; i < a; i++) {
+            arr1[i] = prompt("Nhập phần tử vào vị trí " + i)
+        }
+        document.write("Chuỗi 1 gồm : [ " + arr1 + " ]" + "<br>")
+        let b = parseInt(prompt("Nhập độ dài của chuỗi 2:"))
+        let arr2 = [];
+        for (i = 0; i < b; i++) {
+            arr2[i] = prompt("Nhập phần tử vào vị trí " + i)
+        }
+        document.write("Chuỗi 2 gồm : [ " + arr2 + " ]" + "<br>")
+        let count = false
+        if (arr1.length != arr2.length){
+            document.write("2 chuỗi không giống nhau")
+        } else {
+            for (i = 0; i < arr1.length; i++) {
+                for (j=0; j < arr2.length; j++) {
+                    if (arr1[i] == arr2[j]){
+                        count = true;
+                    } else {
+                        count = false;
+                    }
+                }
+            }
+            if (count == false) {
+                document.write("2 chuỗi không giống nhau");
+            } else
+                document.write("2 chuỗi giống nhau");
+        }
+    </script>
+</body>
+</html>

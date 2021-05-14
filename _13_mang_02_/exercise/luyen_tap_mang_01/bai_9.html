@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arrays1 = [];
+        let arrays2 = [];
+        for (i = 0; i < 10; i++) {
+            arrays1[i] = parseInt(prompt("Nhập phần tử tại vị trí thứ " + i + " cho mảng A"))
+        }
+        for (i = 0; i < 10; i++) {
+            arrays2[i] = parseInt(prompt("Nhập phần tử tại vị trí thứ " + i + " cho mảng B"))
+        }
+        document.write("Các phần tử trong mảng A là: [" + arrays1 + " ]");
+        document.write("<br>");
+        document.write("Các phần tử trong mảng B là: [" + arrays2 + " ]")
+        let c = arrays1.concat(arrays2)
+        document.write("<br>");
+        document.write("Các phần tử trong mảng C là: [" + c + " ]")
+    </script>
+</body>
+</html>

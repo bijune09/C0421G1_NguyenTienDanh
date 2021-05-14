@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arraysA = [];
+        for (i = 0; i < 10; i++){
+            arraysA[i] = parseInt(prompt("Nhập giá trị tại vị trí " + i));
+        } document.write("Các giá trị trong mảng là: [" +arraysA + "]")
+        document.write("<br>");
+        let V = parseInt(prompt("Nhập giá trị cần tìm kiếm"));
+        let count = false;
+        for (i = 0; i < arraysA.length; i++) {
+            if ( V === arraysA[i]) {
+                count = true;
+                arraysA.splice(i,1)
+                arraysA.push(0)
+                document.write("Giá trị sau khi thay đổi là :" + arraysA);
+            }
+        }
+        if (count == false) {
+            document.write("Giá trị không bị sửa đổi")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arrays = [];
+        let inputA = parseInt(prompt("Nhập độ dài của mảng"));
+        for ( i = 0 ; i < inputA ; i++) {
+            arrays[i] = parseInt(prompt("Nhập số tại phần tử " + i))
+        }
+        document.write("Các giá trị được nhập là: " + arrays);
+        document.write("<br>" + "<br>")
+        arrays.reverse()
+        document.write("Giá trị đảo ngược: [ "+ arrays + " ]")
+    </script>
+</body>
+</html>

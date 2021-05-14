@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Từ điển Anh - Việt</h1>
+<input type="text" id="input">
+<input type="button" value="Dịch" onclick="trans()">
+<p id="dich"></p>
+<script>
+    function trans() {
+        let a = document.getElementById("input").value;
+        let b = ["snake", "eye", "go", "sand", "love", "cry"];
+        let c = ["rắn", "mắt", "đi", "cát", "yêu", "khóc"];
+        for (let i = 0; i < b.length; i++) {
+            if (a === b[i]) {
+                document.getElementById("dich").innerText = c[i];
+                break;
+            } else {
+                document.getElementById("dich").innerText = "Không tìm thấy";
+            }
+        }
+    }
+</script></body>
+</html>

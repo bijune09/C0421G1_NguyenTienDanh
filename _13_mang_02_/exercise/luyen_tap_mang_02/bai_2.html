@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arrayA = [];
+        let inputa = parseInt(prompt("Nhập số phần tử trong mảng"));
+        for (i =0; i < inputa; i++) {
+            arrayA[i] = (prompt("Nhập phần tử tại vị trí " + i));
+        }
+        document.write("Các giá trị được nhập là: " + arrayA);
+        document.write("<br>" + "<br>")
+        arrayA.reverse()
+        document.write("Các giá trị được bị đảo: " + arrayA);
+
+    </script>
+</body>
+</html>

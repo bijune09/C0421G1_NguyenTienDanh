@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arrays = [];
+        for (i = 0; i < 10; i++){
+            arrays[i] = parseInt(prompt("Nhập giá trị tại vị trí " + i));
+        } document.write("Các giá trị trong mảng là: [" +arrays + "]")
+        document.write("<br>");
+        arrays.sort(function (a, b) {
+            return b - a;
+        })
+        document.write("Các giá trị sau khi sắp xết từ lớn đến bé : " + arrays);
+    </script>
+</body>
+</html>
