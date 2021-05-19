@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arr1 = ["Polaris","Polaris","Deneb","Vega","Altair","Dubhe","Regulus"];
+        let arr2 = ["Ursa Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa Major","Leo"];
+        function findOut1(a) {
+            for (i = 0; i < arr1.length; i++){
+                if (a == arr1[i]){
+                    return arr2[i];
+                }
+            }
+            return "error"
+        }
+        let findStar = prompt("Nhập tên ngôi sao cần tìm");
+        let a = findOut1(findStar);
+        if (a == "error") {
+            document.write("Không tìm thấy ngôi sao nào");
+        } else {
+            document.write("Ngôi sao bạn tìm là :" + a)
+        }
+    </script>
+</body>
+</html>

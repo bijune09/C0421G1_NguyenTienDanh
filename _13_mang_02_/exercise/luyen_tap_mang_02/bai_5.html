@@ -10,10 +10,21 @@
         let b = prompt("nhập chuỗi thứ hai");
         document.write("Chuỗi 1: " + a + "<br>");
         document.write("Chuỗi 2: " + b);
-        if (a === b ) {
-            alert("Hai chuỗi giống nhau");
+        let compare = true;
+        if (a.length != b.length ) {
+            compare = false
         } else {
+            for (i =0; i< a.length; i++){
+                    if (a[i] != b[i]){
+                        compare = false;
+                        break;
+                    }
+            }
+        }
+        if (compare == false){
             alert("Hai chuỗi không giống nhau");
+        } else {
+            alert("Hai chuỗi giống nhau")
         }
         /* let a = parseInt(prompt("Nhập độ dài của chuỗi 1:"));
         let arr1 = [];
@@ -34,7 +45,7 @@
             for (i = 0; i < arr1.length; i++) {
                 for (j=0; j < arr2.length; j++) {
                     if (arr1[i] == arr2[j]){
-                        count = tru/e;
+                        count = true;
                     } else {
                         count = false;
                     }

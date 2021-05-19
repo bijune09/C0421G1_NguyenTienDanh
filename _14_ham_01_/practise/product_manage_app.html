@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Add New Product</h1>
+    <input type="text" id="nhapsp">
+    <button type="button" onclick="add()">Add</button>
+</body>
+</html>
+<script>
+    let arr2 = ["iPhone X","iPhone 6","iPhone Xs"];
+    function display() {
+        for (i = 0; i < arr2.length; i++) {
+            document.write("<table border='1' style='text-align: center' width='500px' >");
+            document.write("<td style='text-align: left' width='500px'>" + (i+1) + "</td>");
+            document.write("<td style='text-align: center' width='500px'>" + arr2[i] + "</td>");
+            document.write("<td style='text-align: center' width='500px'>"+"<button type='button' onclick='delete'>Delete</button>"+"</td>");
+            document.write("<table>");
+        }
+    }
+    display();
+    function add() {
+        let addProduct = document.getElementById("nhapsp").value;
+        arr2.push(addProduct);
+        document.getElementById("nhapsp").value;
+    }
+    add()
+</script>

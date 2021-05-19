@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arr1 = ["a","a","d","e","c"];
+        let a = prompt("Nhập kí tự");
+        function dem() {
+            let count = 0;
+            for (i = 0; i<arr1.length; i++){
+                if (a == arr1[i]){
+                    count++;
+                }
+            }
+            if (count > 0){
+                return count
+            } return -1
+        }
+        document.write(a+" xuất hiện " + dem(a))
+    </script>
+</body>
+</html>

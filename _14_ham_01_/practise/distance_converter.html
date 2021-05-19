@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function footToMeter(foot){
+            meter = 0.305 * foot
+            return meter
+        }
+        function meterToFoot(meter){
+            foot = 3.279 * meter
+            return foot
+        }
+        let a = prompt("Bạn muốn chuyển đổi sang ft hay m?");
+        let b = parseFloat(prompt("Nhập giá trị cần chuyển đổi"));
+        let hienthi = 0;
+        if (a == "ft"){
+            hienthi = meterToFoot(b)
+            document.write(b + " m đổi được :" +hienthi + " ft")
+        } else {
+            hienthi = footToMeter(b)
+            document.write(b+" ft đổi được :"+hienthi+ " meter")
+        }
+    </script>
+</body>
+</html>
