@@ -13,16 +13,21 @@
         document.write("<br>");
         let V = parseInt(prompt("Nhập giá trị cần tìm kiếm"));
         let count = false;
+        let vitri = 0;
         for (i = 0; i < arraysA.length; i++) {
             if ( V === arraysA[i]) {
                 count = true;
-                arraysA.splice(i,1)
-                arraysA.push(0)
-                document.write("Giá trị sau khi thay đổi là :" + arraysA);
+                vitri = i;
             }
         }
         if (count == false) {
             document.write("Giá trị không bị sửa đổi")
+        } else {
+            for (i = vitri; i< arraysA.length; i++){
+                arraysA[i] = arraysA[i+1]
+            }
+            arraysA [arraysA.length - 1] = 0
+            document.write(arraysA)
         }
     </script>
 </body>

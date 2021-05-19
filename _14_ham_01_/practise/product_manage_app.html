@@ -1,31 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
     <h1>Add New Product</h1>
-    <input type="text" id="nhapsp">
+    <input type="text" id="nhapsp" placeholder="New Product">
     <button type="button" onclick="add()">Add</button>
+    <h2>Display All Product</h2>
+    <div id="out"></div>
 </body>
 </html>
 <script>
-    let arr2 = ["iPhone X","iPhone 6","iPhone Xs"];
+    let arr = ["a","b","c"];
     function display() {
-        for (i = 0; i < arr2.length; i++) {
-            document.write("<table border='1' style='text-align: center' width='500px' >");
-            document.write("<td style='text-align: left' width='500px'>" + (i+1) + "</td>");
-            document.write("<td style='text-align: center' width='500px'>" + arr2[i] + "</td>");
-            document.write("<td style='text-align: center' width='500px'>"+"<button type='button' onclick='delete'>Delete</button>"+"</td>");
-            document.write("<table>");
-        }
+        let arrTalbe = "<table border='1'>"+
+                "<tr>"
+                    +"<th>Poduct Name</th>"
+                "</tr>"
+        for (let i = 0; i < arr.length;i++){
+            arrTalbe = arrTalbe +
+                "<tr>"+
+                "<td>"+arr[i]+"</td>"+
+                "<td><button onclick='edit("+i+")'>Edit</button></td>"+
+                "<td><button onclick='del("+i+")'>Delete</button></td>"+
+                "</tr>"
+            }
+        arrTalbe = arrTalbe + "</table>"
+        document.getElementById("out").innerHTML = arrTalbe;
     }
     display();
     function add() {
         let addProduct = document.getElementById("nhapsp").value;
-        arr2.push(addProduct);
-        document.getElementById("nhapsp").value;
+        arr.push(addProduct);
+        alert("Thêm thành công");
+        display();
+        document.getElementById("nhapsp").value = "";
     }
-    add()
+    function edit(vitri) {
+        let editProduct = document.getElementById("nhapsp").value;
+        arr.splice(vitri,1,editProduct);
+        display();
+    }
+    function del(vitri) {
+        if(confirm("Are you want delete product " + arr[vitri] + " ?")){
+            arr.splice(vitri,1);
+            display();
+        }
+    }
 </script>
