@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border: 1px solid #d3d3d3"></canvas>
+<script>
+    class rectangle {
+        constructor(width,height) {
+            this.width = width;
+            this.height = height;
+        }
+        getWidth(width){
+            return this.width;
+        }
+        getHeight(height){
+            return this.height;
+        }
+        acreage (width,height){
+            return this.width * this.height;
+        }
+        area (width,height){
+            return (this.height+this.width) * 2;
+        }
+        drawrectangle(width,height){
+            return document.getElementById("myCanvas").getContext("2d");
+        }
+    }
+    let hcn = new rectangle(500, 400);
+    document.write("Diện tích hình chữ nhật là: "+hcn.acreage()+"<br>");
+    document.write("Chu vi hình chữ nhất là : " + hcn.area());
+    let canvasHTML = hcn.drawrectangle(hcn.getWidth(),hcn.getHeight())
+    canvasHTML.fillStyle = "blue";
+    canvasHTML.fillRect(200,200,hcn.getWidth(),hcn.getHeight());
+</script>
+</body>
+</html>

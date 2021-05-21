@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class temperature {
+            constructor(nhietdo) {
+                this.nhietdo = nhietdo;
+            }
+            getNhietdo (nhietdo){
+                return this.nhietdo;
+            }
+            if (this.nhietdo > - 273)
+        }
+        let temp = new temperature(25);
+        document.write("Nhiệt độ ban đầu: "+temp.getNhietdo()+"<br>");
+        document.write("Độ F: "+temp.convertCtoF()+"<br>");
+        document.write("Độ K: "+temp.convertCtoK());
+    </script>
+</body>
+</html>
