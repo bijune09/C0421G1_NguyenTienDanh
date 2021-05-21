@@ -6,13 +6,17 @@
 </head>
 <body>
     <script>
-        function acreage(a,b) {
-            return a*b
+        function acreage(a) {
+            return a*a*3.14;
         }
-        let a = parseInt(prompt("Nhập chiều dài của HCN:"));
-        let b = parseInt(prompt("Nhập chiều rộng của HCN"));
-        let c = acreage(a,b);
-        document.write("Diện tích của HCN là: "+c);
+        function erea (a){
+            return 2*a*3.14;
+        }
+        let a = parseInt(prompt("Nhập bán kính  của hình tròn:"));
+        let c = acreage(a);
+        let d = erea(a);
+        document.write("Diện tích của hình tròn là: "+c+ "<br>");
+        document.write("Chu vi của hình tròn là: "+ d);
     </script>
 </body>
 </html>
