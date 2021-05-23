@@ -13,7 +13,32 @@
             this.memory2 = memory2;
             this.memory3 = memory3;
         }
-        checkOnOf(battery){
+        turnOn(){
+            alert("Điện thoại đang bật");
+        }
+        turnOff(){
+            alert("Điện thoại đang tắt");
+        }
+        chargeBattery(){
+            if (this.battery >= 100){
+                alert("Đầy pin!");
+            } else {
+                this.battery += 1;
+                alert("Điện thoại đang được sạc, có " + this.battery + " pin");
+            }
+        }
+        texting (message){
+            console.log(message);
+            this.battery--;
+        }
+        receive (){
+            this.battery--;
+        }
+        sendTexting (){
+            this.battery--;
+        }
+        CheckTexting(){
+
         }
     }
 </script>

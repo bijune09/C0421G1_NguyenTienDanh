@@ -13,12 +13,23 @@
             getNhietdo (nhietdo){
                 return this.nhietdo;
             }
-            if (this.nhietdo > - 273)
+            convertCtoF(nhietdo){
+                return this.getNhietdo()*1.8+32;
+            }
+            convertCtoK(nhietdo){
+                return this.getNhietdo()+273;
+            }
+            convert (nhietdo){
+                if (this.getNhietdo() > -273){
+                    return "Độ K: " +this.convertCtoK() +"<br>"+"Độ F:"+ this.convertCtoF();
+                } else {
+                    return alert("error")
+                }
+            }
         }
         let temp = new temperature(25);
         document.write("Nhiệt độ ban đầu: "+temp.getNhietdo()+"<br>");
-        document.write("Độ F: "+temp.convertCtoF()+"<br>");
-        document.write("Độ K: "+temp.convertCtoK());
+        document.write(temp.convert());
     </script>
 </body>
 </html>

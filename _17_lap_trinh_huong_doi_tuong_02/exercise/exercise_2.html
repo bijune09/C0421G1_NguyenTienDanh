@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam & Eva</title>
+</head>
+<body>
+<script>
+    // bài này em làm dựa theo mô tả chữ. Máy e bị lỗi hình ảnh.
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+        display(){
+            return this.weight;
+        }
+    }
+    class Humman {
+        constructor(name,sex,weight) {
+            this.name = name;
+            this.sex = sex;
+            this.weight = weight;
+        }
+        isMale(){
+            if (this.sex == "Male"){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        talk(text){
+            alert(this.name +":"+ text);
+        }
+        eat(objApple){
+            if (objApple.weight > 1){
+                this.weight += 1;
+                objApple.weight -= 1;
+                console.log("Cân nặng sau khi ăn táo: " + this.weight+". Quả táo còn : " + objApple.weight +"đv");
+            }
+        }
+        check(objApple){
+            if (objApple.weight > 1){
+                console.log("Quả táo còn: " +objApple.weight+" đv. Có thể ăn được");
+
+            } else {
+                console.log("Còn cái nịt");
+            }
+        }
+        infor(){
+            console.log("Đối tượng có tên: "+ this.name+".Giới tính :" + this.sex+".Cân nặng: "+ this.weight);
+        }
+    }
+    // táo > 0 đv;
+    let tao = new Apple(10);
+    let humman1 = new Humman("Bryan","Male",50);
+    humman1.talk("Good morning");
+    humman1.eat(tao);
+    humman1.infor()
+    humman1.check(tao);
+    tao.display()
+</script>
+</body>
+</html>

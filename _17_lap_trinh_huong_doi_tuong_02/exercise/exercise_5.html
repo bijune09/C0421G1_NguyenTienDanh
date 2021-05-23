@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote và Tivi</title>
+</head>
+<body>
+<script>
+    class TiVi {
+        constructor(channel,presentVolume,status) {
+            this.channel = channel;
+            this.presentVolume = presentVolume;
+            this.status = status;
+        }
+        check(){
+            if (this.status){
+                this.status = true;
+                return true;
+            } else {
+                this.status = false;
+                return false
+            }
+        }
+        turnOn(){
+            this.status = true;
+        }
+        changeChannel(codeRemote){
+            this.channel += codeRemote.switchChannel();
+            console.log("Channel đã được chuyển tới kênh " +this.channel)
+        }
+        changeVolumeUp(codeRemote){
+            this.presentVolume += codeRemote.switchVolume();
+            console.log("Volume hiện tại: "+this.presentVolume);
+        }
+        changeVolumeDown(codeRemote){
+            this.presentVolume -= codeRemote.switchVolume();
+            console.log("Volume hiện tại: "+this.presentVolume);
+        }
+    }
+    class Remote{
+        constructor(code) {
+            this.code = code;
+        }
+        switchChannel(){
+            this.code++;
+        }
+        switchVolume (){
+            this.code++;
+        }
+    }
+
+</script>
+</body>
+</html>
