@@ -7,38 +7,52 @@
 <body>
 <script>
     class moblie {
-        constructor(battery,memory1,memory2,memory3) {
+        constructor(battery,memory1,memory2,memory3,status) {
             this.battery = battery;
             this.memory1 = memory1;
             this.memory2 = memory2;
             this.memory3 = memory3;
+            this.status = status;
         }
-        turnOn(){
-            alert("Điện thoại đang bật");
-        }
-        turnOff(){
-            alert("Điện thoại đang tắt");
-        }
-        chargeBattery(){
-            if (this.battery >= 100){
-                alert("Đầy pin!");
-            } else {
-                this.battery += 1;
-                alert("Điện thoại đang được sạc, có " + this.battery + " pin");
+        decreaseBattery(){
+            if (this.battery > 0){
+                this.battery--
             }
         }
-        texting (message){
-            console.log(message);
-            this.battery--;
+        turnOn(){
+            this.status = true;
+            return true;
         }
-        receive (){
-            this.battery--;
+        turnOff(){
+            this.status = false;
+            return false;
         }
-        sendTexting (){
-            this.battery--;
-        }
-        CheckTexting(){
-
+        checkOnOff(){
+            if (this.status){
+                chargeBattery(){
+                    if (this.battery >= 100){
+                        alert("Đầy pin!");
+                    } else {
+                        this.battery += 1;
+                        alert("Điện thoại đang được sạc, có " + this.battery + " pin");
+                    }
+                }
+                texting (message){
+                    console.log(message);
+                    this.decreaseBattery();
+                }
+                receive (){
+                    this.decreaseBattery();
+                    return this.memory2;
+                }
+                sendTexting (){
+                    this.decreaseBattery();
+                }
+                CheckTexting(){
+                    this.decreaseBattery();
+                    return this.memory3;
+                }
+            }
         }
     }
 </script>
