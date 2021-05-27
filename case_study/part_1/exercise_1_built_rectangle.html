@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function drawRec(width,height) {
+        let a = "";
+        for (let i = 1;i<=height;i++){
+            for (let j = 1; j <= width;j++){
+                if ((j==1||j==width||i==1||i==height)){
+                    a += "*";
+                } else {
+                    a += "&nbsp;"+"&nbsp;"
+                }
+            }
+            a += "<br>";
+        }
+        return a;
+    }
+    let w = parseInt(prompt("Nhập chiều dài"));
+    let h = parseInt(prompt("Nhập chiều rộng"));
+    document.write(drawRec(w,h));
+</script>
+</body>
+</html>

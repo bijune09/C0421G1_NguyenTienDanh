@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thuế thu nhập cá nhân</title>
+</head>
+<body>
+<script>
+    function incomeTax(a) {
+        let income = 0;
+        let incomeTax = 0;
+        if(a >= 15000000){
+            incomeTax = (a * 0.2);
+            income = a - (a * 0.2);
+        } else if (a >=7000000){
+            incomeTax = (a * 0.1);
+            income = a - (a * 0.1);
+        } else {
+            incomeTax = (a * 0.05);
+            income = a - (a * 0.05);
+        }
+        return "Thuế thu nhập cá nhân là: "+ incomeTax+"VNĐ"+"<br>"+"Tiền lương sau khi trừ thuế: "+income+"VNĐ";
+    }
+    let thunhap = parseInt(prompt("Nhập thu nhập của bạn"));
+    document.write(incomeTax(thunhap));
+</script>
+</body>
+</html>

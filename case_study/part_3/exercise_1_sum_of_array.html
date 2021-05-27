@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng của mảng</title>
+</head>
+<body>
+<script>
+    function sum(a) {
+        let b = [];
+        let sum = 0;
+        for (let i =0; i < a.length; i++){
+            sum += a[i];
+            b.push(sum);
+        }
+        return b;
+    }
+    let a = [];
+    let n = parseInt(prompt("Nhập độ dài của mảng"));
+    for (let i =0; i<n; i++){
+        a[i] = parseInt(prompt("Nhập số nguyên ở vị trí "+i+" :"));
+    }
+    document.write("Mảng nhập được nhập là: ["+a+"]"+"<br>");
+    document.write("Tổng của mảng theo thứ tự: ["+sum(a)+"]");
+</script>
+</body>
+</html>

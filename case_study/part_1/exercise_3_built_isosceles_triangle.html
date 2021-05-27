@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function drawTriangle(height) {
+        let a = "";
+        for (let i = 0; i < height;i++){
+            for (let j = height -1; j>=i;j--){
+                a += "&nbsp;"+"&nbsp;";
+            }
+            for (let j = 1; j <= i*2+1;j++){
+                a += "*";
+            }
+            a += "<br>"
+        }
+        return a;
+    }
+    let height = parseInt(prompt("Nhập chiều cao của tam giác"));
+    document.write(drawTriangle(height));
+</script>
+</body>
+</html>

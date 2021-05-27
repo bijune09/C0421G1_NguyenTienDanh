@@ -25,6 +25,9 @@
         turnOn(){
             this.status = true;
         }
+        turnOff(){
+            this.status = false;
+        }
         changeChannel(codeRemote){
             this.channel += codeRemote.switchChannel();
             console.log("Channel đã được chuyển tới kênh " +this.channel)
@@ -42,11 +45,11 @@
         constructor(code) {
             this.code = code;
         }
-        switchChannel(){
-            this.code++;
+        switchChannel(changeChannel,television){
+            television.channel = changeChannel;
         }
-        switchVolume (){
-            this.code++;
+        switchVolume (ctrlVolume,television){
+            television.presentVolume += ctrlVolume;
         }
     }
 

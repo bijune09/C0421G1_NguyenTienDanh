@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function drawTriangle(height) {
+        let a = "";
+        for (let i = 1; i <= height;i++){
+            for (let j = 1; j < height*2;j++){
+                if  (i == height|| Math.abs(height-j) == i-1 ){
+                    a += "*";
+                } else {
+                    a += "&nbsp;"+"&nbsp;";
+                }
+            }
+            a += "<br>"
+        }
+        return a;
+    }
+    document.write(drawTriangle(6));
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập chiều dài của mảng tử "));
+    let tuso = [];
+    for (let i = 0; i<a;i++){
+        tuso = parseInt(prompt("Nhập tử số tại vị trí "+i));
+    }
+    let b = parseInt(prompt("Nhập chiều dài của mảng mẫu số"));
+    let mauso = [];
+    for (let i = 0; i<b;i++){
+        mauso = parseInt(prompt("Nhập mẫu số tại vị trí "+i));
+    }
+    let max = (mauso[0]/tuso[0]);
+    let vitri = 0;
+    for (let i = 0; i < mauso.length; i++){
+        if (max < (mauso[i]/tuso[i])){
+            max = (mauso[i]/tuso[i]);
+            vitri = i;
+        }
+    }
+    document.write(vitri+" có phân số lớn nhất");
+</script>
+</body>
+</html>

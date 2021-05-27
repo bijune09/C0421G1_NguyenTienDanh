@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function chuyen(arr) {
+        let d = "";
+        for (let i = 0; i < arr.length; i++) {
+            switch (arr[i]) {
+                case "1":
+                    d += "một "
+                    break;
+                case "2":
+                    d += "hai ";
+                    break;
+                case "3":
+                    d += "ba ";
+                    break;
+                case "4":
+                    d += "bốn ";
+                    break;
+                case "5":
+                    d += "năm ";
+                    break;
+                case "6":
+                    d += "sáu ";
+                    break;
+                case "7":
+                    d += "bảy ";
+                    break;
+                case "8":
+                    d += "tám ";
+                    break;
+                case "9":
+                    d += "chín ";
+                    break;
+                case "0":
+                    d += "không ";
+                    break;
+            }
+        }
+        return "đọc là : " + d;
+    }
+    let nhap = prompt("nhập chuỗi số");
+    let catchuoi = nhap.split("");
+    document.write(chuyen(catchuoi));
+</script>
+</body>
+</html>

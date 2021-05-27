@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkVowel(character) {
+        let text = ""
+        switch (character) {
+            case "u":
+            case "e":
+            case "o":
+            case "a":
+            case "i":
+            case "U":
+            case "E":
+            case "O":
+            case "A":
+            case "I":
+                text += character+ " là nguyên âm";
+                break;
+            default:
+                text += character+ " không phải là nguyên âm";
+        }
+        return text;
+    }
+    let a = prompt("Please input your character");
+    alert(checkVowel(a));
+</script>
+</body>
+</html>

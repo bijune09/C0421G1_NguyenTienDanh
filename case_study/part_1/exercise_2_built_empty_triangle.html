@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function drawTriangle(height) {
+        let a = "";
+        for (let i = 1; i <= height;i++){
+            for (let j = 1; j <= i;j++){
+                if (j==i||j==1||i==height){
+                    a += "*";
+                }else {
+                    a += "&nbsp;"+"&nbsp;"
+                }
+            }
+            a += "<br>"
+        }
+        return a;
+    }
+    let inputHeight = parseInt(prompt("nhập chiều cao"));
+    document.write(drawTriangle(inputHeight));
+</script>
+</body>
+</html>

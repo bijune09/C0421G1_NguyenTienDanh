@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Menu </h1>
+<div id="out"></div>
+<p id="prices"></p>
+</body>
+</html>
+<script>
+    let arr = ["cafe","cam vắt","nước ép cà rốt","nước ép cà chua","nước lọc","nước dừa","thoát"];
+    function display() {
+        let arrTalbe = "<table border='1' width='300px'>"+
+            "<tr>"
+            +"<th>Drink</th>"
+        "</tr>"
+        for (let i = 0; i < arr.length;i++){
+            arrTalbe = arrTalbe +
+                "<tr>"+
+                "<td>"+arr[i]+"</td>"+
+                "<td align='center'><button onclick='pick("+i+")'>Chọn</button></td>"+
+                "</tr>"
+        }
+        arrTalbe = arrTalbe + "</table>"
+        document.getElementById("out").innerHTML = arrTalbe;
+    }
+    display();
+    let arr2 =[20000,30000,35000,25000,10000,40000];
+    function pick(vitri) {
+        let a = prompt("Giá của "+ arr[vitri] + " là " +arr2[vitri]+" VNĐ. Vui lòng nhập số lượng");
+        let sum = a * arr2[vitri];
+        document.getElementById("prices").innerHTML =
+            "Tổng tiền thanh toán là cho " + a + " ly "+ arr[vitri] +" là: " +sum+ " VNĐ"
+    }
+</script>
+</body>
+</html>
