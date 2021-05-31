@@ -5,8 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-    <script>
-
-    </script>
+<script>
+    function renew(str) {
+        let arr = []; // khai báo 1 mảng rỗng
+        let b = ""; // khai báo biến b rỗng
+        let a = str.toLowerCase().split(" "); // chuyển chuôi thành mảng và dùng toLowerCase để chuyển về kí tự thường
+        for (let i = 0; i < a.length; i++) { // chạy vòng lặp
+            if (a[i] != "") { //điều kiện phần tử khác rỗng
+                // thực hiện chuyển kí tự đầu thành chữ hoa với charAt và toUpperCase
+                b = a[i].charAt(0).toUpperCase()+ a[i].substring(1);
+                arr.push(b)
+            }
+        }
+        return arr.join(" ");
+        }
+    let str = prompt("nhập chuỗi");
+    alert(renew(str));
+</script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findCharacter(s){
+        let symbol = [];
+        for (let i =0; i < s.length; i++ ){
+            if (symbol.indexOf(s[i]) === -1){
+                symbol.push(s[i]);
+            }
+        }
+        return symbol;
+    }
+    let s = prompt("Nhập chuỗi kí tự");
+    document.write("Các kí tự xuất hiện trong chuỗi: ["+findCharacter(s)+"]");
+</script>
+</body>
+</html>

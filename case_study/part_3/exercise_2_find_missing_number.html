@@ -7,17 +7,19 @@
 <body>
 <script>
     let a = [7,2,5,3,5,3] ;
-    let b = [7,2,5,4,6,3,5,3] ;
+    let b = [7,2,5,6,4,3,5,3,6,4] ;
     function findMissingNumber(a,b) {
         let c = [];
         for (let i = 0;i<b.length;i++){
-            if (a.indexOf(b[i]) === -1){
+            if (a.indexOf(b[i]) === -1 && c.indexOf(b[i])===-1){
                 c.push(b[i])
             }
         }
-        return c;
+        return c.sort(function (a,b) {
+            return a-b;
+        })
     }
-    document.write(findMissingNumber(a,b));
+    document.write("MissingValue :["+findMissingNumber(a,b)+"]");
 </script>
 </body>
 </html>

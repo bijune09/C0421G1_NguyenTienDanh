@@ -29,12 +29,21 @@
     }
     display();
     let arr2 =[20000,30000,35000,25000,10000,40000];
+    let total = 0;
     function pick(vitri) {
-        let a = prompt("Giá của "+ arr[vitri] + " là " +arr2[vitri]+" VNĐ. Vui lòng nhập số lượng");
-        let sum = a * arr2[vitri];
-        document.getElementById("prices").innerHTML =
-            "Tổng tiền thanh toán là cho " + a + " ly "+ arr[vitri] +" là: " +sum+ " VNĐ"
+        if (vitri == arr.length-1){
+            document.getElementById("prices").innerHTML =
+                "Cảm ơn bạn đã chọn dịch vụ. Tổng thanh toán của bạn là: " + total + " VNĐ"
+        } else {
+            let a = prompt("Giá của "+ arr[vitri] + " là " +arr2[vitri]+" VNĐ. Vui lòng nhập số lượng");
+            let sum = a * arr2[vitri];
+            total += sum;
+            document.getElementById("prices").innerHTML =
+                "Tiền thanh toán là cho " + a + " ly "+ arr[vitri] +" là: " +sum+ " VNĐ"
+        }
     }
+
+
 </script>
 </body>
 </html>

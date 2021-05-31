@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(number) {
+        if (number <= 1) {
+            return false
+        }
+        else if (number == 2 || number == 3) {
+            return true;
+        }
+        else if (number % 2 == 0) {
+            return false;
+        }
+        else {
+            for (i = 3; i < number; i += 2) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    let arrPrime = [];
+    let m = parseInt(prompt("Nhập số dòng"));
+    let arr = Array(m);
+    let count = 0;
+    for (let i=0; i<arr.length; i++){
+        let n = parseInt(prompt("Nhập n, độ dài của mảng "+i));
+        arr[i] = Array(n);
+        for ( let j = 0; j < arr[i].length; j++){
+            arr[i][j] = parseInt(prompt("Nhập số ở phần tử ["+i+"]"+"["+j+"]"));
+            if (isPrime(arr[i][j])){
+                count++
+                arrPrime.push(arr[i][j])
+            }
+        }
+    }
+    console.log(arr);
+    document.write("Có "+count+" số nguyên tố trong mảng"+"<br>");
+    document.write("Các số nguyên trong mảng là : ["+arrPrime+"]")
+</script>
+</body>
+</html>

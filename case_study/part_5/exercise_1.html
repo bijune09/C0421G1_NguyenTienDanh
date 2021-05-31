@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt("Nhập m :"));
+    let arr = Array(m);
+    let sum = 0;
+    for (let i=0; i<arr.length; i++){
+        let n = parseInt(prompt("Nhập n, độ dài của mảng "+i));
+        arr[i] = Array(n);
+        for ( let j = 0; j < arr[i].length; j++){
+            arr[i][j] = parseInt(prompt("Nhập số ở phần tử ["+i+"]"+"["+j+"]"));
+            if (arr[i][j] % 2 === 0){
+                sum += arr[i][j];
+            }
+        }
+    }
+    console.log(arr);
+    document.write("Tổng các số chẵn: "+ sum);
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Xổ số CodeGym</h1>
+<label>
+<input type="number" style="width: 50px" min="0" max="99" id="mot">
+<input type="number" style="width: 50px" min="0" max="99" id="hai">
+<input type="number" style="width: 50px" min="0" max="99" id="ba">
+<input type="number" style="width: 50px" min="0" max="99" id="bon">
+<input type="number" style="width: 50px" min="0" max="99" id="nam">
+<input type="number" style="width: 50px" min="0" max="99" id="sau">
+</label>
+<br><br>
+<button type="button" onclick="mua()">Mua vé</button>
+<button type="button" onclick="ketqua()">Xem kết quả</button>
+<div id="out"></div>
+<div id="out2"></div>
+<script>
+    class Vietlot {
+        constructor(serial) {
+            this.serial = serial;
+        }
+    }
+    let vietlot = new Vietlot(456);
+    let arr = [];
+    let arrBuy = [];
+    function random() {
+        for (let i =0; i <6;i++){
+            arr.push(Math.floor(Math.random()*99));
+        }
+        return arr;
+    }
+    function mua() {
+        let input = prompt("Bạn có 2 lựa chọn:\n" +
+            "1. Bạn muốn tự chọn số. \n" +
+            "2. Hệ thống tự random.");
+        if (input == 1){
+            arrBuy.push(document.getElementById("mot").value);
+            arrBuy.push(document.getElementById("hai").value)
+            arrBuy.push(document.getElementById("ba").value)
+            arrBuy.push(document.getElementById("bon").value)
+            arrBuy.push(document.getElementById("nam").value)
+            arrBuy.push(document.getElementById("sau").value)
+            document.getElementById("out").innerHTML = "Các số bạn đã chọn là: "+arrBuy;
+        } else {
+            document.getElementById("out").innerHTML = "Các số random : "+ random();
+        }
+    }
+    function ketqua() {
+        let count = 0;
+        for (let i=6 ; i>0;i--){
+            if (arrBuy[i]===arr[i]){
+                count++
+            }
+        }
+        switch (count) {
+            case 6:
+                alert("Bạn đã trúng giải nhất");
+                break;
+            case 5:
+                alert("Bạn đã trúng giải nhì");
+                break;
+            case 4:
+            case 3:
+                alert("Bạn đã trúng giải khuyến khích");
+                break;
+            default:
+                alert("Rất tiếc bạn đã không trúng giải")
+        }
+        document.getElementById("out2").innerHTML =
+            "Các số được random là: "+random()+"<br>"+
+                "Bạn đã trúng :" + count +" số"
+    }
+</script>
+</body>
+</html>
