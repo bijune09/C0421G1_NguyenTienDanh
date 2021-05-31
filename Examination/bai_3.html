@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findMaxScore(arr) {
+        let max = arr[0];
+        let vitri = 0;
+        for (let i =1; i<arr.length; i++){
+            if (arr[i]>=max){
+                max = arr[i]
+                vitri = i;
+            }
+        }
+        return "Giá trị cao nhất được tìm thấy trong mảng là "+max+" tại vị trí "+ vitri;
+    }
+    let arr = [];
+    let length = parseInt(prompt("Nhập chiều dài mãng"));
+    for (let i = 0; i< length; i++){
+        arr[i]= parseInt(prompt("Nhập giá trị tại "+i));
+    }
+    document.write(findMaxScore(arr));
+</script>
+</body>
+</html>

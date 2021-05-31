@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = new Array(5);
+    for (let i = 0; i<arr.length;i++){
+        arr[i]= parseInt(prompt("Nhập số tại " + i))
+    }
+    document.write("Mảng chưa được sắp xếp là: ["+arr+"]"+"<br>");
+    arr.sort(function (a,b) {
+        return a - b;
+    });
+    document.write("Thứ tự sắp xếp tăng dần trong mảng là : ["+arr+"]");
+</script>
+</body>
+</html>

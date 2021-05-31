@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class HocSinh{
+        constructor(index,name,dob,average) {
+            this.index = index;
+            this.name = name;
+            this.dob = dob;
+            this.average = average;
+        }
+        getIndex(){
+            return this.index;
+        }
+        getName(){
+            return this.name;
+        }
+        getDateOfBirth(){
+            return this.dob;
+        }
+        getAverage(){
+            return this.average;
+        }
+        setIndex(newIndex){
+            this.index = newIndex;
+        }
+        setName(newName){
+            this.name = newName;
+        }
+        setDateOfBirth(newDob){
+            this.dob = newDob;
+        }
+        setAverage(newAvr){
+            this.average = newAvr;
+        }
+    }
+    function checkAbility(average) {
+        let hocluc = ""
+        if (average>8){
+            hocluc += "học sinh GIỎI";
+        } else if (average>=6.5){
+            hocluc += "học sinh KHÁ";
+        } else if (average>=5){
+            hocluc += "học sinh TRUNG BÌNH";
+        } else if (average>3.5){
+            hocluc += "học sinh YẾU";
+        } else {
+            hocluc += "học sinh KÉM";
+        }
+        return hocluc;
+    }
+    function displayStudent(list){
+        for (let i = 0; i<list.length;i++){
+            document.write(
+                list[i].getIndex()+". "+list[i].getName()+", "+list[i].getDateOfBirth()+", "+checkAbility(list[i].getAverage())+"<br>");
+        }
+    }
+    let student1 = new HocSinh(1,"Nguyen Van A","22/10/1998",6);
+    let student2 = new HocSinh(2,"Jacob Smart","12/12/2000",8);
+    let student3 = new HocSinh(3,"Le Hoang Hung","23/09/1998",7)
+    let studentList = [student1,student2,student3];
+    displayStudent(studentList);
+    student1.setAverage(9);
+    displayStudent(studentList);
+</script>
+</body>
+</html>
