@@ -162,62 +162,96 @@ public class Exercise2 {
                     spellHundred = "Nine hundred and ";
                     break;
             }
-            switch (number%100/10){
-                case 2:
-                    spellTens = "twenty";
-                    break;
-                case 3:
-                    spellTens = "thirty";
-                    break;
-                case 4:
-                    spellTens = "forty";
-                    break;
-                case 5:
-                    spellTens = "fifty";
-                    break;
-                case 6:
-                    spellTens = "sixty";
-                    break;
-                case 7:
-                    spellTens = "seventy";
-                    break;
-                case 8:
-                    spellTens = "eighty";
-                    break;
-                case 9:
-                    spellTens = "ninety";
-                    break;
-            }
-            switch (number%10) {
-                case 1:
-                    spellOnes = "one";
-                    break;
-                case 2:
-                    spellOnes = "two";
-                    break;
-                case 3:
-                    spellOnes = "three";
-                    break;
-                case 4:
-                    spellOnes = "four";
-                    break;
-                case 5:
-                    spellOnes = "five";
-                    break;
-                case 6:
-                    spellOnes = "six";
-                    break;
-                case 7:
-                    spellOnes = "seven";
-                    break;
-                case 8:
-                    spellOnes = "eight";
-                    break;
-                case 9:
-                    spellOnes = "nine";
-                    break;
+            if (number%100/10>20){
+                switch (number%100/10){
+                    case 2:
+                        spellTens = "twenty";
+                        break;
+                    case 3:
+                        spellTens = "thirty";
+                        break;
+                    case 4:
+                        spellTens = "forty";
+                        break;
+                    case 5:
+                        spellTens = "fifty";
+                        break;
+                    case 6:
+                        spellTens = "sixty";
+                        break;
+                    case 7:
+                        spellTens = "seventy";
+                        break;
+                    case 8:
+                        spellTens = "eighty";
+                        break;
+                    case 9:
+                        spellTens = "ninety";
+                        break;
+                }
+                switch (number%10) {
+                    case 1:
+                        spellOnes = "one";
+                        break;
+                    case 2:
+                        spellOnes = "two";
+                        break;
+                    case 3:
+                        spellOnes = "three";
+                        break;
+                    case 4:
+                        spellOnes = "four";
+                        break;
+                    case 5:
+                        spellOnes = "five";
+                        break;
+                    case 6:
+                        spellOnes = "six";
+                        break;
+                    case 7:
+                        spellOnes = "seven";
+                        break;
+                    case 8:
+                        spellOnes = "eight";
+                        break;
+                    case 9:
+                        spellOnes = "nine";
+                        break;
+                }
+            }else {
+                switch (number%100){
+                    case 11:
+                        spellTens = "eleven";
+                        break;
+                    case 12:
+                        spellTens = "twelve";
+                        break;
+                    case 13:
+                        spellTens = "thirteen";
+                        break;
+                    case 14:
+                        spellTens = "fourteen";
+                        break;
+                    case 15:
+                        spellTens = "fifteen";
+                        break;
+                    case 16:
+                        spellTens = "sixteen";
+                        break;
+                    case 17:
+                        spellTens = "seventeen";
+                        break;
+                    case 18:
+                        spellTens = "eighteen";
+                        break;
+                    case 19:
+                        spellTens = "nineteen";
+                        break;
+                }
             }
             System.out.println(spellHundred+spellTens+" "+spellOnes);
+        } else if (number>1000){
+            System.out.println("Out of range!!");
         } else {
             System.out.println("Out of range!!");
         }
