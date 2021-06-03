@@ -250,8 +250,6 @@ public class Exercise2 {
                 }
             }
             System.out.println(spellHundred+spellTens+" "+spellOnes);
-        } else if (number>1000){
-            System.out.println("Out of range!!");
         } else {
             System.out.println("Out of range!!");
         }
