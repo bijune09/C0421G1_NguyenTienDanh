@@ -27,14 +27,15 @@ public class DeleteElementInArray {
         }
         if (count) {
             int h = index;
-            while (h < array.length) {
+            while (h < array.length-1) {
                 // Error!
                 array[h] = array[h + 1];
                 h++;
             }
             array[array.length - 1] = 0;
+            System.out.println("The array has change : ");
             for (int out : array) {
-                System.out.print("The elements has change :" + out + "\t");
+                System.out.print(out + "\t");
             }
         } else {
             System.out.println("Nothing change!!");

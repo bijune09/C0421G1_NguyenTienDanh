@@ -10,6 +10,10 @@ public class CountCharacter {
         String word;
         System.out.print("Input character you wanna find: ");
         word = scanner.nextLine();
-        
+        String[] arr;
+        arr = string.split(",");
+        for (String out : arr){
+            System.out.println(out);
+        }
     }
 }
