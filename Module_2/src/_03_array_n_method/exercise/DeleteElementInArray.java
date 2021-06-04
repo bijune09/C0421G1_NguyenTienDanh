@@ -15,24 +15,23 @@ public class DeleteElementInArray {
             array[i] = sc.nextInt();
             i++;
         }
-        System.out.println("Which is element you wanna delete in array? ");
+        System.out.println("Which element you wanna delete in array? ");
         int elementDelete = sc.nextInt();
-        boolean count = false;
+        boolean check = false;
         int index = 0;
         for (int j = 0; j < array.length; j++) {
             if (elementDelete == array[j]) {
-                count = true;
+                check = true;
                 index = j;
             }
         }
-        if (count) {
+        if (check) {
             int h = index;
             while (h < array.length-1) {
-                // Error!
                 array[h] = array[h + 1];
                 h++;
             }
-            array[array.length - 1] = 0;
+            array[array.length-1]=0;
             System.out.println("The array has change : ");
             for (int out : array) {
                 System.out.print(out + "\t");
