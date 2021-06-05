@@ -20,18 +20,23 @@ public class DeleteElementInArray {
         boolean check = false;
         int index = 0;
         for (int j = 0; j < array.length; j++) {
-            if (elementDelete == array[j]) {
+            if (array[j] == elementDelete) {
                 check = true;
                 index = j;
+                while (index<array.length-1){
+                    array[index] = array[index+1];
+                    index++;
+                }
+                array[array.length-1]=0;
             }
         }
         if (check) {
-            int h = index;
-            while (h < array.length-1) {
-                array[h] = array[h + 1];
-                h++;
-            }
-            array[array.length-1]=0;
+//            int h = index;
+//            while (h < array.length-1) {
+//                array[h] = array[h + 1];
+//                h++;
+//            }
+//            array[array.length-1]=0;
             System.out.println("The array has change : ");
             for (int out : array) {
                 System.out.print(out + "\t");
@@ -40,4 +45,5 @@ public class DeleteElementInArray {
             System.out.println("Nothing change!!");
         }
     }
+
 }

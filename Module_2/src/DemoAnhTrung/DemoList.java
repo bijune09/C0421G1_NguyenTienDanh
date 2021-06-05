@@ -1,6 +1,8 @@
+package DemoAnhTrung;
+
 import java.util.Scanner;
 
-public class Demo {
+public class DemoList {
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("--Chương trình quản lý sinh viên--");
