@@ -6,7 +6,7 @@ public class DemoList {
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("--Chương trình quản lý sinh viên--");
-        String[] students = new String[50];
+        Students[] students = new Students[50];
         while (true){
             System.out.println("Menu chương trình");
             System.out.println("1. Xem danh sách sinh viên");
@@ -38,27 +38,31 @@ public class DemoList {
         }
     }
     private static String inputFromKeyboard(String messsage){
-        System.out.println(messsage);
+        System.out.print(messsage);
         String output = scanner.nextLine();
         return output;
     }
-    private static void displayStudent (String[] students){
-        for (String student : students){
+    private static void displayStudent (Students[] students){
+        for (Students student : students){
             if (student != null){
                 System.out.println(student);
             }
         }
     }
-    private static void deleteStudent (String[] students){
-        String deleteStudent = inputFromKeyboard("Nhập tên sinh viên muốn xóa: ");
-        for (int i = 0; i<students.length; i++){
-            if (deleteStudent.equals(students[i])){
-                students[i]=null;
-            }
-        }
+    private static void deleteStudent (Students[] students){
+        int deleteStudent = Integer.parseInt(inputFromKeyboard("Nhập tên sinh viên muốn xóa: "));
+//        for (int i = 0; i<students.length; i++){
+//            if (deleteStudent.equals(students[i])){
+//                students[i]=null;
+//            }
+//        }
     }
-    private static void addStudent (String[] students){
-        String newStudent = inputFromKeyboard("Nhập tên sinh viên mới: ");
+    private static void addStudent (Students[] students){
+        int id = Integer.parseInt(inputFromKeyboard("Nhập id cho sinh viên mới: "));
+        String name = inputFromKeyboard("Nhập tên cho sinh viên mới: ");
+        int age = Integer.parseInt(inputFromKeyboard("Nhập tuổi cho sinh viên mới: "));
+        String address = inputFromKeyboard("Nhập địa chỉ cho sinh viên mới: ");
+        Students newStudent = new Students(id, name, age , address);
         for (int i = 0; i< students.length; i++){
             if (students[i]==null){
                 students[i] = newStudent;

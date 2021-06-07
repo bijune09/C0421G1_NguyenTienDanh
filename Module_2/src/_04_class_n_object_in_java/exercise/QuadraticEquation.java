@@ -37,7 +37,7 @@ public class QuadraticEquation {
                     "The first root is: "+this.getRoot1()+"\n"+
                     "The second root is:"+this.getRoot2();
         } else if (this.getDelta()==0){
-            return "The equation has one root :"+ this.getRoot1();
+            return "The equation has one root :"+ -this.b/2*this.a;
         } else {
             return "The equation has no roots";
         }

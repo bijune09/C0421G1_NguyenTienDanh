@@ -45,5 +45,4 @@ public class DeleteElementInArray {
             System.out.println("Nothing change!!");
         }
     }
-
 }
