@@ -4,9 +4,16 @@ import java.util.Scanner;
 
 public class DemoList {
     private static Scanner scanner = new Scanner(System.in);
+    public static Students[] students;
+    static {
+        students = new Students[50];
+        students[0]= new Students(1,"Trung",33,"Đà Nẵng");
+        students[1]= new Students(2,"Nhật",23,"Quảng Nam");
+        students[2]= new Students(3,"Tài",24,"Quảng Ngãi");
+        students[3]= new Students(4,"Minh",25,"Vinh");
+    }
     public static void main(String[] args) {
         System.out.println("--Chương trình quản lý sinh viên--");
-        Students[] students = new Students[50];
         while (true){
             System.out.println("Menu chương trình");
             System.out.println("1. Xem danh sách sinh viên");

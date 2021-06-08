@@ -1,7 +1,7 @@
 package _05_access_modier_static_method_static_property.exercise.Ex1;
 
 public class Circle {
-    private final double PI = 3.14159;
+    private static final double PI = 3.14159;
     private double radius = 1.0;
     private String color = "red";
 
