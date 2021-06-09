@@ -52,13 +52,13 @@ public class MovablePoint  extends Point{
     public String  toString() {
         return "MovablePoint{" +
                 "x=" + getX() +
-                ", y=" + getX() +
+                ", y=" + getY() +
                 '}'+"\n speed = ("+ Arrays.toString(getSpeed()) +")";
     }
 
     public void move(){
-        this.setX(this.getX()+this.getxSpeed());
-        this.setY(this.getY()+this.getySpeed());
+        this.setX(getX()+getxSpeed());
+        this.setY(getY()+getySpeed());
     }
 
     public static void main(String[] args) {
