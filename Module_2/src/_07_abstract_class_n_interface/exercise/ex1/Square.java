@@ -1,0 +1,45 @@
+package _07_abstract_class_n_interface.exercise.ex1;
+
+public class Square  extends Rectangle implements Rezieable{
+    public Square(){
+    }
+
+    public Square(double side) {
+        super(side, side);
+    }
+
+    public Square(String color, boolean fill, double side) {
+        super(color, fill, side, side);
+    }
+
+    public double getSide(){
+        return this.getWidth();
+    }
+    public void setSide(double side){
+        setWidth(side);
+        setLength(side);
+    }
+
+    public double getArea(){
+        return this.getSide()*this.getSide();
+    }
+
+    @Override
+    public void setWidth(double width) {
+        super.setWidth(width);
+    }
+
+    @Override
+    public void setLength(double length) {
+        super.setLength(length);
+    }
+
+    @Override
+    public String toString() {
+        return "A square with side="+ getSide()+", which is a subclass of "+ super.toString();
+    }
+    @Override
+    public double resize(double percent) {
+        return getArea()*Math.random()*percent;
+    }
+}

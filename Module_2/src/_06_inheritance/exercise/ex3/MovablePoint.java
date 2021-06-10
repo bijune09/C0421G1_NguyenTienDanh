@@ -64,8 +64,10 @@ public class MovablePoint  extends Point{
 
     public static void main(String[] args) {
         MovablePoint movablePoint = new MovablePoint(3,4,5,6);
+        System.out.println("Before move");
         System.out.println(movablePoint);
         movablePoint.move();
+        System.out.println("After move");
         System.out.println(movablePoint);
     }
 }
