@@ -1,6 +1,6 @@
 package _07_abstract_class_n_interface.exercise.ex1;
 
-public class Square  extends Rectangle implements Rezieable{
+public class Square  extends Rectangle implements Rezieable,Colorable{
     public Square(){
     }
 
@@ -41,5 +41,10 @@ public class Square  extends Rectangle implements Rezieable{
     @Override
     public double resize(double percent) {
         return getArea()*Math.random()*percent;
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color is all for sides");
     }
 }

@@ -1,6 +1,6 @@
 package _07_abstract_class_n_interface.exercise.ex1;
 
-public class TestInterface {
+public class TestInterfaceAndColorable {
     public static void main(String[] args) {
         Shape[] shapes = new Shape[3];
         shapes[0] = new Circle();
@@ -18,6 +18,7 @@ public class TestInterface {
             } else if (shape instanceof Square) {
                 System.out.println("Square");
                 System.out.println(((Square) shape).resize(100));
+                ((Square) shape).howToColor();
             } else if (shape instanceof Rectangle) {
                 System.out.println("Rectangle");
                 System.out.println(((Rectangle) shape).resize(100));
