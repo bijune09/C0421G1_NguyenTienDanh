@@ -56,9 +56,10 @@ public class MovablePoint  extends Point{
                 '}'+"\n speed = ("+ Arrays.toString(getSpeed()) +")";
     }
 
-    public void move(){
+    public MovablePoint move(){
         this.setX(getX()+getxSpeed());
         this.setY(getY()+getySpeed());
+        return this;
     }
 
     public static void main(String[] args) {
