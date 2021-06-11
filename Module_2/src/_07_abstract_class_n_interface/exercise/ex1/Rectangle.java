@@ -42,12 +42,12 @@ public class Rectangle extends Shape  implements Rezieable{
     public String toString() {
         return "Rectangle{" +
                 "width=" + getWidth() +
-                ", length=" + getLength() +
-                ", which is a subclass of "+ super.toString();
+                ", length=" + getLength() + ", area = "+getArea();
     }
 
     @Override
-    public double resize(double percent) {
-        return getArea()*Math.random()*percent;
+    public void resize(double percent) {
+        setLength(getLength()*percent);
+        setWidth(getWidth()*percent);
     }
 }

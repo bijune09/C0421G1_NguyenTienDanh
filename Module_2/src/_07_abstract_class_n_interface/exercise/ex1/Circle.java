@@ -34,14 +34,12 @@ public class Circle extends Shape implements Rezieable{
     @Override
     public String toString() {
         return "A Circle with radius="
-                + getRadius()+" and area = " +getArea()
-                + ", which is a subclass of "
-                + super.toString();
+                + getRadius()+" and area = " +getArea();
     }
 
     @Override
-    public double resize(double percent) {
-        return getArea()*Math.random()*percent;
+    public void resize(double percent) {
+        setRadius(getRadius()*percent);
     }
 
     public static void main(String[] args) {
@@ -49,6 +47,7 @@ public class Circle extends Shape implements Rezieable{
         System.out.println("Before resize");
         System.out.println(circle.getArea());
         System.out.println("After resized");
-        System.out.println(circle.resize(99));
+        circle.resize(Math.random()*100);
+        System.out.println(circle);
     }
 }

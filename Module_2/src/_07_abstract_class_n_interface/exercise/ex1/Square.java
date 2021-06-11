@@ -36,11 +36,11 @@ public class Square  extends Rectangle implements Rezieable,Colorable{
 
     @Override
     public String toString() {
-        return "A square with side="+ getSide()+", which is a subclass of "+ super.toString();
+        return "A square with side="+ getSide()+ " , area = " +getArea();
     }
     @Override
-    public double resize(double percent) {
-        return getArea()*Math.random()*percent;
+    public void resize(double percent) {
+        setSide(getSide()*percent);
     }
 
     @Override
