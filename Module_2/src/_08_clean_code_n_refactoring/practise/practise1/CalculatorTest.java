@@ -1,24 +1,22 @@
 package _08_clean_code_n_refactoring.practise.practise1;
-import org.junit.Test;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import static _08_clean_code_n_refactoring.practise.practise1.Calculator.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CalculatorTest {
+class CalculatorTest {
 
     @Test
     @DisplayName("Testing addition")
     void testCalculateAdd() {
         int firstOperand = 1;
         int secondOperand = 1;
-        char operator = ADDITION;
+        char operator = '+';
         int expected = 2;
 
         int result = Calculator.calculate(firstOperand, secondOperand, operator);
-        assertEquals(expected,result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -26,7 +24,7 @@ public class CalculatorTest {
     void testCalculateSub() {
         int firstOperand = 2;
         int secondOperand = 1;
-        char operator = SUBTRACTION;
+        char operator = '-';
         int expected = 1;
 
         int result = Calculator.calculate(firstOperand, secondOperand, operator);
@@ -38,7 +36,7 @@ public class CalculatorTest {
     void testCalculateMul() {
         int firstOperand = 2;
         int secondOperand = 2;
-        char operator = MULTIPLICATION;
+        char operator = '*';
         int expected = 4;
 
         int result = Calculator.calculate(firstOperand, secondOperand, operator);
@@ -50,7 +48,7 @@ public class CalculatorTest {
     void testCalculateDiv() {
         int firstOperand = 6;
         int secondOperand = 3;
-        char operator = DIVISION;
+        char operator = '/';
         int expected = 2;
 
         int result = Calculator.calculate(firstOperand, secondOperand, operator);

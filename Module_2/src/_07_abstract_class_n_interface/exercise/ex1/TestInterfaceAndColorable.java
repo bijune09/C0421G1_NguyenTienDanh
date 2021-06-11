@@ -22,7 +22,8 @@ public class TestInterfaceAndColorable {
                 System.out.println("Square");
                 ((Square) shape).resize(Math.random()*100);
                 System.out.println(shape);
-                ((Square) shape).howToColor();
+                ((Colorable) shape).howToColor();
+//                ((Square) shape).howToColor();
             } else if (shape instanceof Rectangle) {
                 System.out.println("Rectangle");
                 ((Rectangle) shape).resize(Math.random()*100);

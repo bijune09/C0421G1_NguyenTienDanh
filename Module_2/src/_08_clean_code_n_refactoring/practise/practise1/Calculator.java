@@ -2,24 +2,23 @@ package _08_clean_code_n_refactoring.practise.practise1;
 
 public class Calculator {
     public static final char ADDITION = '+';
-    public static final char SUBTRACTION = '-';
-    public static final char MULTIPLICATION = '*';
-    public static final char DIVISION = '/';
+    public static final char SUBTRACTION  = '-';
+    public static final char MULTIPLICATION  = '*';
+    public static final char DIVISION  = '/';
 
-    public static int calculate(int firstOperand, int secondOperand, char operator){
-        switch (operator){
+    public static int calculate(int firstOperand, int secondOperand, char operator) {
+        switch (operator) {
             case ADDITION:
-                return firstOperand+secondOperand;
+                return firstOperand + secondOperand;
             case SUBTRACTION:
-                return firstOperand-secondOperand;
+                return firstOperand - secondOperand;
             case MULTIPLICATION:
-                return firstOperand*secondOperand;
+                return firstOperand * secondOperand;
             case DIVISION:
-                if (secondOperand!=0){
-                    return firstOperand/secondOperand;
-                } else {
-                    throw new RuntimeException("Can't divide by 0");
-                }
+                if (secondOperand != 0)
+                    return firstOperand / secondOperand;
+                else
+                    throw new RuntimeException("Can not divide by 0");
             default:
                 throw new RuntimeException("Unsupported operation");
         }
