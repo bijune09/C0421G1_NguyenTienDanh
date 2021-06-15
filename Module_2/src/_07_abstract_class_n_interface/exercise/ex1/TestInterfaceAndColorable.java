@@ -18,7 +18,7 @@ public class TestInterfaceAndColorable {
                 System.out.println("Circle");
                 ((Circle) shape).resize(Math.random()*100);
                 System.out.println(shape);
-            } else if (shape instanceof Square) {
+            } else if (shape instanceof Colorable) {
                 System.out.println("Square");
                 ((Square) shape).resize(Math.random()*100);
                 System.out.println(shape);

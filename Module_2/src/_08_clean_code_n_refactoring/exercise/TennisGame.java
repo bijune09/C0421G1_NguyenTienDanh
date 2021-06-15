@@ -1,63 +1,82 @@
-package com.codegym;
+package _08_clean_code_n_refactoring.exercise;
 
 public class TennisGame {
-
-    public static String getScore(String player1Name, String player2Name, int m_score1, int m_score2) {
+    public static String caseDrawScore(int playerScore) {
         String score = "";
-        int tempScore=0;
-        if (m_score1==m_score2)
-        {
-            switch (m_score1)
-            {
+        switch (playerScore) {
+            case 0:
+                score = "Love-All";
+                break;
+            case 1:
+                score = "Fifteen-All";
+                break;
+            case 2:
+                score = "Thirty-All";
+                break;
+            case 3:
+                score = "Forty-All";
+                break;
+            default:
+                score = "Deuce";
+                break;
+        }
+        return score;
+    }
+
+    public static String casePlayerScoreForty(int playerOneScore, int playerTwoScore) {
+        String score = "";
+        int minusResult = playerOneScore - playerTwoScore;
+        boolean playerOneAdvantage = minusResult == 1;
+        boolean playerTwoAdvantage = minusResult == -1;
+        boolean playerOneWin = minusResult >= 2;
+        if (playerOneAdvantage) {
+            score = "Advantage player1";
+        } else if (playerTwoAdvantage) {
+            score = "Advantage player2";
+        } else if (playerOneWin) {
+            score = "Win for player1";
+        } else {
+            score = "Win for player2";
+        }
+        return score;
+    }
+
+    public static String casePlayerScored(int playerOneScore, int playerTwoScore){
+        String score = "";
+        int tempScore = 0;
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) tempScore = playerOneScore;
+            else {
+                score += "-";
+                tempScore = playerTwoScore;
+            }
+            switch (tempScore) {
                 case 0:
-                    score = "Love-All";
+                    score += "Love";
                     break;
                 case 1:
-                    score = "Fifteen-All";
+                    score += "Fifteen";
                     break;
                 case 2:
-                    score = "Thirty-All";
+                    score += "Thirty";
                     break;
                 case 3:
-                    score = "Forty-All";
+                    score += "Forty";
                     break;
-                default:
-                    score = "Deuce";
-                    break;
-
-            }
-        }
-        else if (m_score1>=4 || m_score2>=4)
-        {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
-            else score ="Win for player2";
-        }
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
             }
         }
         return score;
     }
+
+    public static String getScore(String playerOneName, String playerTwoName, int playerOneScore, int playerTwoScore) {
+        boolean drawScore = playerOneScore == playerTwoScore;
+        if (drawScore) {
+            return caseDrawScore(playerOneScore);
+        } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
+            return casePlayerScoreForty(playerOneScore, playerTwoScore);
+        } else {
+            return casePlayerScored(playerOneScore,playerTwoScore);
+        }
+    }
+
 }
