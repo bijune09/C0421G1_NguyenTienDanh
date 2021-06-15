@@ -54,7 +54,7 @@ public class MyList<E> {
     }
 
     public int getSize() {
-        return size = elements.length;
+        return size;
     }
 
     public boolean contains(E o) {
