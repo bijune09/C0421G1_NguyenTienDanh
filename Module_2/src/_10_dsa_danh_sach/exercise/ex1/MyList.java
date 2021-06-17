@@ -27,6 +27,11 @@ public class MyList<E> {
     }
 
     public void add(int index, E element) {
+        if (size == elements.length){
+            ensureCapacity();
+        } else if (size > elements.length){
+            throw new IndexOutOfBoundsException();
+        }
         for (int i = size - 1; i >= index; i--) {
             elements[i + 1] = elements[i];
         }
@@ -39,6 +44,7 @@ public class MyList<E> {
             ensureCapacity();
         }
         elements[size++] = element;
+        size++;
         return true;
     }
 

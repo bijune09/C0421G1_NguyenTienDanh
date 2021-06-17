@@ -21,28 +21,17 @@ public class MyLinkedList<E> {
     }
 
     public void add(int index, E data) {
-//        if (index == 0) addFirst(e); //
-//        else if (index >= numNodes) addLast(e);
-//        else {
-//            Node current = head;
-//            for (int i = 1; i < index; i++)
-//                current = current.next;
-//            Node temp = current.next;
-//            current.next = new Node(e);
-//            (current.next).next = temp;
-//            numNodes++;
-//        }
-        Node temp = head;
-        Node holder;
-
-        for (int i = 0; i < index - 1 && temp.next != null; i++) {
-            temp = temp.next;
+        if (index == 0) addFirst(data); //
+        else if (index >= numNodes) addLast(data);
+        else {
+            Node current = head;
+            for (int i = 1; i < index; i++)
+                current = current.next;
+            Node temp = current.next;
+            current.next = new Node(data);
+            (current.next).next = temp;
+            numNodes++;
         }
-
-        holder = temp.next;
-        temp.next = new Node(data);
-        temp.next.next = holder;
-        numNodes++;
     }
 
     public void addFirst(E element) {//1,2,3,4
@@ -102,15 +91,15 @@ public class MyLinkedList<E> {
         }
     }
 
-    public boolean remove(E element){
-        if (head.data.equals(element)){
+    public boolean remove(E element) {
+        if (head.data.equals(element)) {
             remove(0);
             return true;
         } else {
             Node temp = head;
 
-            while (temp.next != null){
-                if (temp.next.data.equals(element)){
+            while (temp.next != null) {
+                if (temp.next.data.equals(element)) {
                     temp.next = temp.next.next;
                     numNodes--;
                     return true;
@@ -121,15 +110,15 @@ public class MyLinkedList<E> {
         }
     }
 
-    public MyLinkedList<E> clone(){
-        if (numNodes==0){
+    public MyLinkedList<E> clone() {
+        if (numNodes == 0) {
             throw new NullPointerException();
         }
-        MyLinkedList<E> temp =new MyLinkedList<E>();
+        MyLinkedList<E> temp = new MyLinkedList<E>();
         Node tempNode = head;
         temp.addFirst((E) tempNode.data);
         tempNode = tempNode.next;
-        while (tempNode!= null){
+        while (tempNode != null) {
             temp.addLast((E) tempNode.data);
             tempNode = tempNode.next;
         }

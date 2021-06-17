@@ -18,6 +18,7 @@ public class Test {
         myList.add(7);
         myList.add(8);
         myList.add(9);
+        myList.add(3,10);
         System.out.println(myList);
         myList.remove(-1);
         System.out.println(myList.contains(3));
