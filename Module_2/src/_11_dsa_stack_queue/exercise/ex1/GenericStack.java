@@ -32,15 +32,15 @@ public class GenericStack {
             wStack.push(string);
         }
         String outPut = "";
-        for (int i =0; i < wStack.size(); i++){
+        for (int i = mWord.length-1; i > 0; i--){
             mWord[i] = wStack.pop();
-            outPut += mWord[i]+" ";
+
         }
+        outPut += mWord;
         System.out.println(outPut);
     }
 
     public static void main(String[] args) {
-        stackOfInteger();
         stackOfString();
     }
 }
