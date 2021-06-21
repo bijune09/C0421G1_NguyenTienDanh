@@ -52,6 +52,18 @@ public class ProductManager {
         }
     }
 
+    public static void search(){
+        System.out.println("Input name of product");
+        String name = scanner.nextLine();
+        for (Product sc : products){
+            if (sc.getName().equals(name)){
+                System.out.println(sc);
+            } else {
+                System.out.println("Not found!!");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
     }
