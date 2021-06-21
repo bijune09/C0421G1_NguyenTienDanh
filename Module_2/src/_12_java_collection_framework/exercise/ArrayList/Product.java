@@ -1,4 +1,4 @@
-package _12_java_collection_framework.exercise;
+package _12_java_collection_framework.exercise.ArrayList;
 
 public class Product {
     private String name;
@@ -46,4 +46,6 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+
 }
