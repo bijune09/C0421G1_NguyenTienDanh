@@ -8,7 +8,6 @@ public class ProductManager {
     private static boolean check = false;
 
     public static void main(String[] args) {
-
         while (true) {
             System.out.println("Menu of product");
             System.out.println("1. Add new product");
@@ -96,9 +95,13 @@ public class ProductManager {
         for (Product sc : products) {
             if (sc.getId() == id) {
                 products.remove(sc);
-            } else {
-                System.out.println("Not found!!");
+                check = true;
+                System.out.println("The product has been deleted!");
+                break;
             }
+        }
+        if (check == false){
+            System.out.println("Not found!!");
         }
     }
 
