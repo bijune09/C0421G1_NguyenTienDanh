@@ -1,4 +1,4 @@
-package _12_java_collection_framework.exercise.ArrayList;
+package _12_java_collection_framework.exercise;
 
 public class Product {
     private String name;
