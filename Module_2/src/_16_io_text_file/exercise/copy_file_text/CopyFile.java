@@ -4,6 +4,8 @@ import java.io.*;
 
 public class CopyFile {
     public static void main(String[] args) {
+        BufferedReader bufferedReader = null;
+        BufferedWriter bufferedWriter = null;
         try {
             File file =
                     new File("D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\_16_io_text_file\\exercise\\copy_file_text\\Text.txt");
@@ -12,9 +14,8 @@ public class CopyFile {
             if (!file.exists() || !result.exists()) {
                 throw new FileNotFoundException();
             }
-
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(result));
+            bufferedReader = new BufferedReader(new FileReader(file));
+            bufferedWriter = new BufferedWriter(new FileWriter(result));
 
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
@@ -22,10 +23,17 @@ public class CopyFile {
                 System.out.println(line);
             }
 
-            bufferedReader.close();
-            bufferedWriter.close();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bufferedReader.close();
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
