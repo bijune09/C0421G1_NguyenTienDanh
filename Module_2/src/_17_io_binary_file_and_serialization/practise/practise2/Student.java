@@ -51,20 +51,6 @@ public class Student implements Serializable {
                 '}';
     }
 
-    public static void writeToFile(String path, List<Student> students) {
-        try {
-            FileOutputStream fos = new FileOutputStream(path);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(students);
-            oos.close();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static List<Student> readDataFromFile(String path) {
         List<Student> students = new ArrayList<>();
         try {
@@ -77,6 +63,20 @@ public class Student implements Serializable {
             ex.printStackTrace();
         }
         return students;
+    }
+
+    public static void writeToFile(String path, List<Student> students) {
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(students);
+            oos.close();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
