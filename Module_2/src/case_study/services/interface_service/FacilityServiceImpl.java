@@ -23,7 +23,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void add() {
-
+        displayAddNewService();
     }
 
     @Override
@@ -33,7 +33,13 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void edit() {
-
+        System.out.println("Input key");
+        String key = input().nextLine();
+        if (facilityMap.containsKey(key)){
+            System.out.println("New Key");
+            String newKey = input().nextLine();
+            facilityMap.replace(newKey,facilityMap.get(key));
+        }
     }
 
     @Override
@@ -59,12 +65,13 @@ public class FacilityServiceImpl implements FacilityService {
             int choice = input().nextInt();
             switch (choice){
                 case 1:
+                    addNewVilla();
                     break;
                 case 2:
-
+                    addNewHouse();
                     break;
                 case 3:
-
+                    addNewRoom();
                     break;
                 case 4:
                     new FacilityManagement().displayFacilityManagement();
@@ -77,17 +84,17 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void addNewVilla() {
-        
+        facilityMap.put("Villa",facilityMap.get("Villa")+1);
     }
 
     @Override
     public void addNewHouse() {
-
+        facilityMap.put("House",facilityMap.get("House")+1);
     }
 
     @Override
     public void addNewRoom() {
-
+        facilityMap.put("Room",facilityMap.get("Room")+1);
     }
 
 }

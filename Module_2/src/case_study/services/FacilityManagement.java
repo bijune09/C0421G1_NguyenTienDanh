@@ -27,6 +27,7 @@ public class FacilityManagement {
                     new FacilityServiceImpl().add();
                     break;
                 case 3:
+                    new FacilityServiceImpl().edit();
                     break;
                 case 4:
                     new FuramaController().displayMenu();
