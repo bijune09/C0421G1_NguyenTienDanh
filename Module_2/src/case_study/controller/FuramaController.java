@@ -1,6 +1,10 @@
 package case_study.controller;
 
-import case_study.services.*;
+import case_study.services.booking_and_contract.BookingManagement;
+import case_study.services.customer.CustomerManagement;
+import case_study.services.employee.EmployeeManagement;
+import case_study.services.facility.FacilityManagement;
+import case_study.services.promotion.PromotionManagement;
 
 import java.util.Scanner;
 
@@ -12,7 +16,7 @@ public class FuramaController {
 
     public void displayMenu(){
         while (true){
-            System.out.println("----Menu----");
+            System.out.println("----Main Menu----");
             System.out.println("1. Employee Management");
             System.out.println("2. Customer Management");
             System.out.println("3. Facility Management");

@@ -1,6 +1,6 @@
 package case_study.models.booking;
 
-public class Booking {
+public class Booking implements Comparable<Booking>{
     private int idBooking;
     private String first;
     private String last;
@@ -80,4 +80,12 @@ public class Booking {
                 '}';
     }
 
+
+    @Override
+    public int compareTo(Booking o) {
+        if (this.getFirst().equals(o.getFirst())){
+            return this.getLast().compareTo(o.getLast());
+        }
+        return this.getFirst().compareTo(o.getFirst());
+    }
 }
