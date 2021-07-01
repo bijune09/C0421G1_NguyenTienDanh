@@ -1,5 +1,10 @@
 package case_study.services.facility;
 
+import case_study.models.facility.Facility;
+import case_study.models.facility.House;
+import case_study.models.facility.Room;
+import case_study.models.facility.Villa;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -11,20 +16,18 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     static boolean check = false;
-    public static Map<String, Integer> facilityMap = new LinkedHashMap<>();
+    public static Map<Facility, Integer> facilityMap = new LinkedHashMap<>();
     static {
-        facilityMap.put("Villa", 0);
-        facilityMap.put("House", 0);
-        facilityMap.put("Room", 0);
+        //CE: tiêu chuẩn châu âu
+        //TCVN
+        Villa villa = new Villa("Ocean Villa", 150, 10000000, 10, "Day", "CE", 20, 2);
+        House house = new House("Oat House", 100, 7000000, 8, "Week", "TCVN", 3);
+        Room room = new Room("Jasmine Room", 50, 250000, 2, "Hours", "Netflix and snacks");
+        facilityMap.put(villa, 0);
+        facilityMap.put(house, 0);
+        facilityMap.put(room, 0);
     }
 
-    public static Map<String, Integer> facilityMaintenance = new LinkedHashMap<>();
-    static {
-        facilityMaintenance.put("Cooker",2);
-        facilityMaintenance.put("Fan",2);
-        facilityMaintenance.put("Air Conditioner",1);
-        facilityMaintenance.put("Bicycle",5);
-    }
 
     @Override
     public void add() {
@@ -35,7 +38,6 @@ public class FacilityServiceImpl implements FacilityService {
     public void remove() {
     }
 
-    //sai rooiiii
     @Override
     public void edit() {
 
@@ -46,7 +48,7 @@ public class FacilityServiceImpl implements FacilityService {
         if (facilityMap.isEmpty()) {
             System.out.println("Nothing");
         } else {
-            for (Map.Entry<String, Integer> facility : facilityMap.entrySet()) {
+            for (Map.Entry<Facility, Integer> facility : facilityMap.entrySet()) {
                 System.out.println(facility);
             }
         }
@@ -54,15 +56,15 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayAddNewService() {
-        while (true){
-            System.out.println("--Add new service");
+        while (true) {
+            System.out.println("--Add new service--");
             System.out.println("1. Add New Villa");
             System.out.println("2. Add New House");
             System.out.println("3. Add New Room");
             System.out.println("4. Back to Menu");
             System.out.println("Choice:");
             int choice = input().nextInt();
-            switch (choice){
+            switch (choice) {
                 case 1:
                     addNewVilla();
                     break;
@@ -83,41 +85,45 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void addNewVilla() {
-        if (facilityMap.get("Villa")>5){
-            System.out.println("Maintenance!!");
-            facilityMap.put("Villa",facilityMap.get("Villa")-1);
-        } else {
-            facilityMap.put("Villa",facilityMap.get("Villa")+1);
+        for (Facility facility : facilityMap.keySet()) {
+            if (facilityMap.containsKey(facility)) {
+                facilityMap.put(facility, facilityMap.get(facility) + 1);
+                break;
+            }
         }
     }
 
     @Override
     public void addNewHouse() {
-        if (facilityMap.get("House")>5){
-            System.out.println("Maintenance!!");
-            facilityMap.put("House",facilityMap.get("House")-1);
-        } else {
-            facilityMap.put("House",facilityMap.get("House")+1);
+        for (Facility facility : facilityMap.keySet()) {
+            if (facility.getName().equals("Oat House")) {
+                if (facilityMap.get(facility) >= 5) {
+                    System.out.println("Out of service");
+                    break;
+                }
+                facilityMap.put(facility, facilityMap.get(facility) + 1);
+            }
         }
     }
 
     @Override
     public void addNewRoom() {
-        if (facilityMap.get("Room")>5){
-            System.out.println("Maintenance!!");
-            facilityMap.put("Room",facilityMap.get("Room")-1);
-        } else {
-            facilityMap.put("Room",facilityMap.get("Room")+1);
+        for (Facility facility : facilityMap.keySet()) {
+            if (facility.getName().equals("Jasmine Room")) {
+                if (facilityMap.get(facility) >= 5) {
+                    System.out.println("Out of service");
+                    break;
+                }
+                facilityMap.put(facility, facilityMap.get(facility) + 1);
+            }
         }
     }
 
     @Override
     public void displayMaintenanceList() {
-        if (facilityMaintenance.isEmpty()){
-            System.out.println("Nothing");
-        } else {
-            for (Map.Entry<String,Integer> display: facilityMaintenance.entrySet()){
-                System.out.println(display);
+        for (Map.Entry<Facility, Integer> maintenanceFacilityList : facilityMap.entrySet()) {
+            if (maintenanceFacilityList.getValue()>=5){
+                System.out.println(maintenanceFacilityList);
             }
         }
     }

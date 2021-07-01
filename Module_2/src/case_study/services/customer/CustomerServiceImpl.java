@@ -1,6 +1,7 @@
 package case_study.services.customer;
 
 import case_study.models.person.Customer;
+import case_study.services.read_and_write_file.ReadAndWriteFile;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     static boolean check = false;
-
+    public final String FILE_PATH = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\customer.csv";
     public static List<Customer> customers = new LinkedList<>();
     static {
         customers.add(new Customer(1,"Khach hang a","12/12/1998","Male","201098123","0984271641","khachhangA@gmail.com","Diamond","192 nguyen luong bang"));
@@ -44,6 +45,11 @@ public class CustomerServiceImpl implements CustomerService {
         String address = input().nextLine();
         Customer newCustomer = new Customer(id,name,dob,gender,identityNumber,phoneNumber,email,typeOfCustomer,address);
         customers.add(newCustomer);
+        String line = id + "," + name +
+                "," + gender + "," + identityNumber + "," +
+                phoneNumber + "," + email + "," +typeOfCustomer+
+                ","+address;
+        new ReadAndWriteFile().writeFile(FILE_PATH,line);
         System.out.println("Customer has been added");
     }
 

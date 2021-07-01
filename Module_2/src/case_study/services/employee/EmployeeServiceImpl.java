@@ -1,24 +1,26 @@
 package case_study.services.employee;
 
 import case_study.models.person.Employee;
+import case_study.services.read_and_write_file.ReadAndWriteFile;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeServiceImpl implements EmployeeService{
-    public static Scanner input(){
+public class EmployeeServiceImpl implements EmployeeService {
+    public static Scanner input() {
         Scanner sc = new Scanner(System.in);
         return sc;
     }
 
     static boolean check = false;
     public static List<Employee> employees = new ArrayList<>();
+    public final String FILE_PATH = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\employee.csv";
     static {
-        employees.add(new Employee(1,"Nguyen Van A","12/12/1990","Male","2221638403","0932545644","vana@gmail.com","TrungCap","Lễ tân",250000));
-        employees.add(new Employee(2,"Nguyen Van B","21/10/1998","Female","2229384018","0906301810","vanB@gmail.com","DaiHoc","Phục vụ",200000));
-        employees.add(new Employee(3,"Nguyen Van C","04/05/1995","Male","2224029184","01214525325","vanC@gmail.com","CaoDang","Giám sát",500000));
-        employees.add(new Employee(4,"Nguyen Van D","03/07/1997","Female","2221920485","0923814619","vanD@gmail.com","DaiHoc","Quản lý",500000));
+        employees.add(new Employee(1, "Nguyen Van A", "12/12/1990", "Male", "2221638403", "0932545644", "vana@gmail.com", "TrungCap", "Lễ tân", 250000));
+        employees.add(new Employee(2, "Nguyen Van B", "21/10/1998", "Female", "2229384018", "0906301810", "vanB@gmail.com", "DaiHoc", "Phục vụ", 200000));
+        employees.add(new Employee(3, "Nguyen Van C", "04/05/1995", "Male", "2224029184", "01214525325", "vanC@gmail.com", "CaoDang", "Giám sát", 500000));
+        employees.add(new Employee(4, "Nguyen Van D", "03/07/1997", "Female", "2221920485", "0923814619", "vanD@gmail.com", "DaiHoc", "Quản lý", 500000));
     }
 
     @Override
@@ -43,7 +45,12 @@ public class EmployeeServiceImpl implements EmployeeService{
         String position = input().nextLine();
         System.out.println("Salary: ");
         double salary = input().nextDouble();
-        employees.add(new Employee(id,name,dob,gender,identityNumber,phoneNumber,email,education,position,salary));
+        employees.add(new Employee(id, name, dob, gender, identityNumber, phoneNumber, email, education, position, salary));
+        String line = id + "," + name +
+                "," + gender + "," + identityNumber + "," +
+                phoneNumber + "," + email + "," +education+
+                ","+position+","+salary;
+        new ReadAndWriteFile().writeFile(FILE_PATH,line);
         System.out.println("Employee has been added");
     }
 
@@ -51,14 +58,14 @@ public class EmployeeServiceImpl implements EmployeeService{
     public void remove() {
         System.out.println("Input Id: ");
         int id = input().nextInt();
-        for (Employee out : employees){
-            if (out.getId()==id){
+        for (Employee out : employees) {
+            if (out.getId() == id) {
                 employees.remove(out);
                 check = true;
                 break;
             }
         }
-        if (check){
+        if (check) {
             System.out.println("Invalid id");
         }
     }
@@ -67,8 +74,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     public void edit() {
         System.out.println("Input id:");
         int id = input().nextInt();
-        for (Employee out : employees){
-            if (out.getId()==id){
+        for (Employee out : employees) {
+            if (out.getId() == id) {
                 System.out.println("Name:");
                 String newName = input().nextLine();
                 System.out.println("Date of birth:");
@@ -99,17 +106,17 @@ public class EmployeeServiceImpl implements EmployeeService{
                 check = true;
             }
         }
-        if (check){
+        if (check) {
             System.out.println("Invalid id");
         }
     }
 
     @Override
     public void display() {
-        if (employees.isEmpty()){
+        if (employees.isEmpty()) {
             System.out.println("Nothing");
         } else {
-            for (Employee employee: employees){
+            for (Employee employee : employees) {
                 System.out.println(employee);
             }
         }
