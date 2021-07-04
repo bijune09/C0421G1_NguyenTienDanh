@@ -1,6 +1,7 @@
-package case_study.services.employee;
+package case_study.controller;
 
 import case_study.controller.FuramaController;
+import case_study.services.employee.EmployeeServiceImpl;
 
 import java.util.Scanner;
 
@@ -12,9 +13,9 @@ public class EmployeeManagement {
     public void displayEmployeeManagement(){
         while (true){
             System.out.println("--Employee Management Menu--");
-            System.out.println("1. Display list employee");
-            System.out.println("2. Add new employee");
-            System.out.println("3. Edit employee");
+            System.out.println("1. Display list employee.cvs");
+            System.out.println("2. Add new employee.cvs");
+            System.out.println("3. Edit employee.cvs");
             System.out.println("4. Return main menu");
             System.out.println("Your choice");
             int choice = input().nextInt();

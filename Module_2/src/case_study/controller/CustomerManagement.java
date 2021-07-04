@@ -1,32 +1,33 @@
-package case_study.services.facility;
+package case_study.controller;
 
 import case_study.controller.FuramaController;
+import case_study.services.customer.CustomerServiceImpl;
 
 import java.util.Scanner;
 
-public class FacilityManagement {
+public class CustomerManagement {
     public static Scanner input(){
         Scanner sc = new Scanner(System.in);
         return sc;
     }
-    public void displayFacilityManagement(){
+    public void displayCustomerManagement(){
         while (true){
-            System.out.println("--Facility Management Menu--");
-            System.out.println("1. Display list facility");
-            System.out.println("2. Add new facility");
-            System.out.println("3. Display facility maintenance");
+            System.out.println("--Customer Management Menu--");
+            System.out.println("1. Display list customer");
+            System.out.println("2. Add new customer");
+            System.out.println("3. Edit customer");
             System.out.println("4. Return main menu");
             System.out.println("Your choice");
             int choice = input().nextInt();
             switch (choice){
                 case 1:
-                    new FacilityServiceImpl().display();
+                    new CustomerServiceImpl().display();
                     break;
                 case 2:
-                    new FacilityServiceImpl().add();
+                    new CustomerServiceImpl().add();
                     break;
                 case 3:
-                    new FacilityServiceImpl().displayMaintenanceList();
+                    new CustomerServiceImpl().edit();
                     break;
                 case 4:
                     new FuramaController().displayMenu();

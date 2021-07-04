@@ -1,6 +1,8 @@
-package case_study.services.booking_and_contract;
+package case_study.controller;
 
 import case_study.controller.FuramaController;
+import case_study.services.booking_and_contract.BookingServiceImpl;
+import case_study.services.booking_and_contract.ContractServiceImpl;
 
 import java.util.Scanner;
 
