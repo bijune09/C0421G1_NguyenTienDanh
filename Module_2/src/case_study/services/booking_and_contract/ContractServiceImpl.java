@@ -1,35 +1,69 @@
 package case_study.services.booking_and_contract;
 
+import case_study.models.booking.Booking;
 import case_study.models.booking.Contract;
+import case_study.utils.read_and_write_file.ReadAndWriteFile;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
-public class ContractServiceImpl implements ContractService {
-    public static Scanner input(){
+public class ContractServiceImpl extends ReadAndWriteFile implements ContractService {
+    public static Scanner input() {
         Scanner sc = new Scanner(System.in);
         return sc;
     }
 
-    public static Queue<Contract> contracts = new LinkedList<>();
-    static {
+    private static final String FILE_PATH_BOOKING
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\booking.csv";
+
+    private static final String FILE_PATH_CONTRACT
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\contract.csv";
+
+    public static Queue<Booking> bookingQueue = new PriorityQueue<>();
+    public static Set<Booking> bookings = new TreeSet<>();
+    public static List<Contract> contracts = new ArrayList<>();
+
+    public Set<Booking> readBookingFromFile() {
+        List<String> lines = readFile(FILE_PATH_BOOKING);
+        for (String line : lines) {
+            String[] splitLine = line.split(",");
+            Booking booking = new Booking(Integer.parseInt(splitLine[0]), splitLine[1], splitLine[2],
+                    Integer.parseInt(splitLine[3]), splitLine[4], splitLine[5]);
+            bookings.add(booking);
+        }
+        return bookings;
+    }
+
+    public List<Contract> readContractFromFile() {
+        List<String> lines = readFile(FILE_PATH_CONTRACT);
+        for (String line : lines) {
+            String[] splitLine = line.split(",");
+            Contract contract = new Contract(Integer.parseInt(splitLine[0]), Integer.parseInt(splitLine[1]),
+                    Double.parseDouble(splitLine[2]), Double.parseDouble(splitLine[3]), Integer.parseInt(splitLine[4]));
+            contracts.add(contract);
+        }
+        return contracts;
     }
 
     @Override
     public void add() {
-        System.out.println("ID Contract");
-        int idContract = input().nextInt();
-        System.out.println("ID Booking");
-        int idBooking = input().nextInt();
-        System.out.println("Deposit");
-        double deposit = input().nextDouble();
-        System.out.println("Amount has been paid");
-        double amountPaid = input().nextDouble();
-        System.out.println("ID Customer");
-        int idCustomer = input().nextInt();
-        Contract newContract = new Contract(idContract,idBooking,deposit,amountPaid,idCustomer);
-        contracts.add(newContract);
+        bookings = readBookingFromFile();
+        bookingQueue.addAll(bookings);
+        for (Booking bookingContract : bookingQueue) {
+            System.out.println("----------------");
+            System.out.println("ID Customer: " + bookingContract.getIdCustomer());
+            int idCustomer = bookingContract.getIdCustomer();
+            System.out.println("ID Booking:" + bookingContract.getIdBooking());
+            int idBooking = bookingContract.getIdBooking();
+            System.out.println("ID Contract: ");
+            int idContract = input().nextInt();
+            System.out.println("Input Deposit: ");
+            double deposit = input().nextDouble();
+            System.out.println("Amount paid: ");
+            double amountPaid = input().nextDouble();
+            String line = idContract + "," + idBooking + "," + deposit + "," + amountPaid + "," + idCustomer;
+            writeFile(FILE_PATH_CONTRACT, line, true);
+            System.out.println("---------------");
+        }
     }
 
     @Override
@@ -37,12 +71,22 @@ public class ContractServiceImpl implements ContractService {
 
     }
 
+    public void addNewContractWhenEdit() {
+        String newContract;
+        for (Contract contract : contracts) {
+            newContract = contract.getIdContract() + "," + contract.getIdBooking() + "," + contract.getDeposit()
+                    + "," +contract.getAmountPaid() + "," +contract.getIdCustomer();
+            writeFile(FILE_PATH_CONTRACT,newContract,true);
+        }
+    }
+
     @Override
     public void edit() {
+        contracts = readContractFromFile();
         System.out.println("Please input ID Contract");
         int findID = input().nextInt();
-        for (Contract contract : contracts){
-            if (contract.getIdContract()==findID){
+        for (Contract contract : contracts) {
+            if (contract.getIdContract() == findID) {
                 System.out.println("ID Booking");
                 int newIdBooking = input().nextInt();
                 System.out.println("Deposit");
@@ -55,16 +99,21 @@ public class ContractServiceImpl implements ContractService {
                 contract.setDeposit(newDeposit);
                 contract.setAmountPaid(newAmountPaid);
                 contract.setIdCustomer(newIdCustomer);
+                deleteContentFromCSV(FILE_PATH_CONTRACT);
+                addNewContractWhenEdit();
                 System.out.println("Success!!");
                 break;
             }
         }
+        contracts.clear();
     }
 
     @Override
     public void display() {
-        for (Contract contract : contracts){
+        contracts = readContractFromFile();
+        for (Contract contract : contracts) {
             System.out.println(contract);
         }
+        contracts.clear();
     }
 }

@@ -1,6 +1,8 @@
 package case_study.models.booking;
 
-public class Booking implements Comparable<Booking>{
+import java.io.Serializable;
+
+public class Booking implements Comparable<Booking>, Serializable {
     private int idBooking;
     private String first;
     private String last;

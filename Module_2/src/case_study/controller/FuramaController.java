@@ -1,11 +1,5 @@
 package case_study.controller;
 
-import case_study.services.booking_and_contract.BookingManagement;
-import case_study.services.customer.CustomerManagement;
-import case_study.services.employee.EmployeeManagement;
-import case_study.services.facility.FacilityManagement;
-import case_study.services.promotion.PromotionManagement;
-
 import java.util.Scanner;
 
 public class FuramaController {
