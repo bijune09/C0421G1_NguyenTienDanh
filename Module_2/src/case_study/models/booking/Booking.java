@@ -1,6 +1,9 @@
 package case_study.models.booking;
 
 import java.io.Serializable;
+import java.util.Queue;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Booking implements Comparable<Booking>, Serializable {
     private int idBooking;
@@ -90,4 +93,5 @@ public class Booking implements Comparable<Booking>, Serializable {
         }
         return this.getFirst().compareTo(o.getFirst());
     }
+
 }

@@ -64,6 +64,7 @@ public class ContractServiceImpl extends ReadAndWriteFile implements ContractSer
             writeFile(FILE_PATH_CONTRACT, line, true);
             System.out.println("---------------");
         }
+        deleteContentFromCSV(FILE_PATH_BOOKING);
     }
 
     @Override
@@ -75,7 +76,7 @@ public class ContractServiceImpl extends ReadAndWriteFile implements ContractSer
         String newContract;
         for (Contract contract : contracts) {
             newContract = contract.getIdContract() + "," + contract.getIdBooking() + "," + contract.getDeposit()
-                    + "," +contract.getAmountPaid() + "," +contract.getIdCustomer();
+                    + "," +contract.getAmountPaid( ) + "," +contract.getIdCustomer();
             writeFile(FILE_PATH_CONTRACT,newContract,true);
         }
     }

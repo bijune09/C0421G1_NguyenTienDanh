@@ -32,6 +32,8 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
         return sc;
     }
 
+    static boolean check = false;
+
     public static Set<Booking> bookings = new TreeSet<>();
 
     @Override
@@ -99,8 +101,6 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
                     break;
                 }
                 facilityMap.put(facility, facilityMap.get(facility) + 1);
-//                String line = facility.getName() + ","+ facilityMap.get(facility);
-//                writeFile(FILE_PATH_VALUE,line,true);
                 break;
             }
         }
