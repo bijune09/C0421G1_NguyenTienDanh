@@ -15,11 +15,19 @@ import java.util.Scanner;
 
 public class FacilityServiceImpl extends ReadAndWriteFile implements FacilityService {
     private static final String FILE_PATH_VILLA
+<<<<<<< HEAD
             = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\villa.csv";
     private static final String FILE_PATH_HOUSE
             = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
     private static final String FILE_PATH_ROOM
             = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
+=======
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\villa.csv";
+    private static final String FILE_PATH_HOUSE
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
+    private static final String FILE_PATH_ROOM
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
 
     public static Scanner input() {
         Scanner sc = new Scanner(System.in);
@@ -158,6 +166,10 @@ public class FacilityServiceImpl extends ReadAndWriteFile implements FacilitySer
         }
     }
 
+<<<<<<< HEAD
+=======
+    //name,area,price,capacity,gueststay,standard,swimmingpool
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
     @Override
     public void addNewVilla() {
         System.out.println("Name: ");
@@ -180,6 +192,10 @@ public class FacilityServiceImpl extends ReadAndWriteFile implements FacilitySer
         String line = name + "," + area + "," + price + "," + capacity + "," + guestStay + "," + standard
                 + "," + swimmingPoolArea + "," + floor + "," + 0;
         new ReadAndWriteFile<>().writeFile(FILE_PATH_VILLA, line, true);
+<<<<<<< HEAD
+=======
+        facilityMap.clear();
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
     }
 
     @Override
@@ -227,6 +243,10 @@ public class FacilityServiceImpl extends ReadAndWriteFile implements FacilitySer
         String line = name + "," + area + "," + price + "," + capacity + "," + guestStay + "," + standard
                 + "," + floor + "," + 0;
         new ReadAndWriteFile<>().writeFile(FILE_PATH_HOUSE, line, true);
+<<<<<<< HEAD
+=======
+        facilityMap.clear();
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
     }
 
     @Override
@@ -294,6 +314,10 @@ public class FacilityServiceImpl extends ReadAndWriteFile implements FacilitySer
         String line = name + "," + area + "," + price + "," + capacity + "," + guestStay + ","
                 + freeService + "," + 0;
         new ReadAndWriteFile<>().writeFile(FILE_PATH_ROOM, line, true);
+<<<<<<< HEAD
+=======
+        facilityMap.clear();
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
     }
 
     @Override

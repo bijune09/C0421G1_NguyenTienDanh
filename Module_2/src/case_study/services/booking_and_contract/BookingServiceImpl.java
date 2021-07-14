@@ -14,6 +14,7 @@ import java.util.*;
 
 public class BookingServiceImpl extends ReadAndWriteFile implements BookingService {
     private static final String FILE_PATH_CUSTOMER
+<<<<<<< HEAD
             = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\customer.csv";
     private static final String FILE_PATH_BOOKING
             = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\booking.csv";
@@ -23,6 +24,22 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
             = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
     private static final String FILE_PATH_ROOM
             = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
+=======
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\customer.csv";
+
+    private static final String FILE_PATH_BOOKING
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\booking.csv";
+
+    private static final String FILE_PATH_CONTRACT
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\contract.csv";
+
+    private static final String FILE_PATH_VILLA
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\villa.csv";
+    private static final String FILE_PATH_HOUSE
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
+    private static final String FILE_PATH_ROOM
+            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
 
 
     public static Scanner input() {
@@ -30,6 +47,7 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
         return sc;
     }
 
+<<<<<<< HEAD
     static boolean check = false;
 
     public static Set<Booking> bookings = new TreeSet<>();
@@ -43,6 +61,15 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
                     Integer.parseInt(splitLine[3]), splitLine[4], splitLine[5]);
             bookings.add(booking);
         }
+=======
+    public static Set<Booking> bookings = new TreeSet<>();
+
+    static {
+        bookings.add(new Booking(1, "12/01/2021", "15/01/2021", 2, "Karaoke tay vịn", "***"));
+        bookings.add(new Booking(2, "12/01/2021", "12/01/2021", 2, "Limousine Car", "***"));
+        bookings.add(new Booking(3, "16/01/2021", "16/01/2021", 5, "Bicycle", "**"));
+        bookings.add(new Booking(4, "17/01/2021", "18/01/2021", 4, "Board", "****"));
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
     }
 
     public static Queue<Booking> bookingQueue = new LinkedList<>();
@@ -90,6 +117,7 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
         }
     }
 
+<<<<<<< HEAD
 
     private void checkFacility(String name) {
         for (Facility facility : facilityMap.keySet()) {
@@ -128,13 +156,19 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
         }
     }
 
+=======
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
     @Override
     public void add() {
         readFacilityFromFile();
         displayCustomerFromFile();
         System.out.println("ID List of Customer: ");
         for (Customer customer : customers) {
+<<<<<<< HEAD
             System.out.println("ID :" + customer.getId() + ", Name: " + customer.getName());
+=======
+            System.out.println("ID :"+customer.getId()+", Name: "+customer.getName());
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
         }
         System.out.println("--------");
         System.out.println("List of Service: ");
@@ -142,7 +176,12 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
             System.out.println(facility.getName());
         }
         System.out.println("--------");
+<<<<<<< HEAD
         System.out.println("ID booking:");
+=======
+
+        System.out.println("ID Booking");
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
         int idBooking = input().nextInt();
         //check facility
         System.out.println("Service Name");
@@ -157,9 +196,14 @@ public class BookingServiceImpl extends ReadAndWriteFile implements BookingServi
         int idCustomer = input().nextInt();
         System.out.println("Type Of Service");
         String typeOfService = input().nextLine();
+<<<<<<< HEAD
         String line = idBooking + "," + first + "," + last + "," + idCustomer + "," + nameOfService
                 + "," + typeOfService;
         writeFile(FILE_PATH_BOOKING, line, true);
+=======
+        Booking newBooking = new Booking(idBooking, first, last, idCustomer, nameOfService, typeOfService);
+        bookings.add(newBooking);
+>>>>>>> e84db6c9c9dc6c1c095e1f67df68f1b60ddb3f28
         System.out.println("Booking Success");
         customers.clear();
         facilityMap.clear();
