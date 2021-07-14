@@ -9,13 +9,13 @@ import java.util.Scanner;
 
 public class CustomerServiceImpl extends ReadAndWriteFile implements CustomerService {
     public static Scanner input() {
-        Scanner sc = new Scanner(System.in);
-        return sc;
+        Scanner scanner = new Scanner(System.in);
+        return scanner;
     }
 
     static boolean check = false;
     private final String FILE_PATH =
-            "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\customer.csv";
+            "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\customer.csv";
     public static List<Customer> customers = new LinkedList<>();
 
     @Override
@@ -31,7 +31,7 @@ public class CustomerServiceImpl extends ReadAndWriteFile implements CustomerSer
 
     @Override
     public void addNewCustomerWhenEdit() {
-        String newCustomer = null;
+        String newCustomer;
         for (Customer customer : customers) {
             newCustomer = customer.getId() + "," + customer.getName() + "," + customer.getDateOfBirth() + "," +
                     customer.getGender() + "," + customer.getIdentityNumber() + "," + customer.getPhoneNumber() + ","
@@ -43,7 +43,7 @@ public class CustomerServiceImpl extends ReadAndWriteFile implements CustomerSer
     @Override
     public void add() {
         readCustomerFromFile();
-        int id = 0;
+        int id;
         if (customers.isEmpty()) {
             id = 1;
         } else {
@@ -81,7 +81,16 @@ public class CustomerServiceImpl extends ReadAndWriteFile implements CustomerSer
     public void edit() {
         readCustomerFromFile();
         System.out.println("Input id:");
-        int id = input().nextInt();
+        int id = 0;
+        boolean checkValid = false;
+        while (!checkValid) {
+            try {
+                id = input().nextInt();
+                checkValid = true;
+            } catch (NumberFormatException exception) {
+                System.out.println("YOU MUST INPUT NUMBER!!!");
+            }
+        }
         for (Customer out : customers) {
             if (out.getId() == id) {
                 System.out.println("Name:");
@@ -114,7 +123,7 @@ public class CustomerServiceImpl extends ReadAndWriteFile implements CustomerSer
                 System.out.println("Success");
             }
         }
-        if (check == false) {
+        if (!check) {
             System.out.println("Invalid id");
         }
         customers.clear();
@@ -132,6 +141,5 @@ public class CustomerServiceImpl extends ReadAndWriteFile implements CustomerSer
         }
         customers.clear();
     }
-
 
 }

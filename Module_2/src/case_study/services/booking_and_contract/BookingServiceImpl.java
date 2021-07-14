@@ -14,17 +14,15 @@ import java.util.*;
 
 public class BookingServiceImpl extends ReadAndWriteFile implements BookingService {
     private static final String FILE_PATH_CUSTOMER
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\customer.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\customer.csv";
     private static final String FILE_PATH_BOOKING
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\booking.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\booking.csv";
     private static final String FILE_PATH_VILLA
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\villa.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\villa.csv";
     private static final String FILE_PATH_HOUSE
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
     private static final String FILE_PATH_ROOM
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
-    private static final String FILE_PATH_VALUE =
-            "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\value.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
 
 
     public static Scanner input() {

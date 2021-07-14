@@ -21,7 +21,16 @@ public class BookingManagement {
             System.out.println("5. Edit contracts");
             System.out.println("6. Return menu");
             System.out.println("Your choice");
-            int choice = input().nextInt();
+            int choice =0;
+            boolean checkValid = false;
+            while(!checkValid){
+                try {
+                    choice = input().nextInt();
+                    checkValid = true;
+                } catch (NumberFormatException exception){
+                    System.out.println("YOU MUST INPUT NUMBER!!!");
+                }
+            }
             switch (choice){
                 case 1:
                     new BookingServiceImpl().add();

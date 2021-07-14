@@ -48,12 +48,13 @@ public class ContractServiceImpl extends ReadAndWriteFile implements ContractSer
     public void add() {
         bookings = readBookingFromFile();
         bookingQueue.addAll(bookings);
-        for (Booking bookingContract : bookingQueue) {
+        while (!bookingQueue.isEmpty()) {
             System.out.println("----------------");
-            System.out.println("ID Customer: " + bookingContract.getIdCustomer());
-            int idCustomer = bookingContract.getIdCustomer();
-            System.out.println("ID Booking:" + bookingContract.getIdBooking());
-            int idBooking = bookingContract.getIdBooking();
+            Booking newContract = bookingQueue.poll();
+            System.out.println("ID Customer: " + newContract.getIdCustomer());
+            int idCustomer = newContract.getIdCustomer();
+            System.out.println("ID Booking:" + newContract.getIdBooking());
+            int idBooking = newContract.getIdBooking();
             System.out.println("ID Contract: ");
             int idContract = input().nextInt();
             System.out.println("Input Deposit: ");
@@ -85,7 +86,17 @@ public class ContractServiceImpl extends ReadAndWriteFile implements ContractSer
     public void edit() {
         contracts = readContractFromFile();
         System.out.println("Please input ID Contract");
-        int findID = input().nextInt();
+        int findID = 0;
+        int choice =0;
+        boolean checkValid = false;
+        while(!checkValid){
+            try {
+                findID = input().nextInt();
+                checkValid = true;
+            } catch (NumberFormatException exception){
+                System.out.println("YOU MUST INPUT NUMBER!!!");
+            }
+        }
         for (Contract contract : contracts) {
             if (contract.getIdContract() == findID) {
                 System.out.println("ID Booking");

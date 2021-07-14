@@ -15,11 +15,11 @@ import java.util.Scanner;
 
 public class FacilityServiceImpl extends ReadAndWriteFile implements FacilityService {
     private static final String FILE_PATH_VILLA
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\villa.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\villa.csv";
     private static final String FILE_PATH_HOUSE
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\house.csv";
     private static final String FILE_PATH_ROOM
-            = "D:\\C0421G1_NguyenTienDanh_New\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
+            = "D:\\C0421G1_NguyenTienDanh\\Module_2\\src\\case_study\\data\\room.csv";
 
     public static Scanner input() {
         Scanner sc = new Scanner(System.in);
@@ -79,6 +79,7 @@ public class FacilityServiceImpl extends ReadAndWriteFile implements FacilitySer
                 System.out.println(facility);
             }
         }
+        facilityMap.clear();
     }
 
     @Override
@@ -179,7 +180,6 @@ public class FacilityServiceImpl extends ReadAndWriteFile implements FacilitySer
         String line = name + "," + area + "," + price + "," + capacity + "," + guestStay + "," + standard
                 + "," + swimmingPoolArea + "," + floor + "," + 0;
         new ReadAndWriteFile<>().writeFile(FILE_PATH_VILLA, line, true);
-
     }
 
     @Override
@@ -320,11 +320,13 @@ public class FacilityServiceImpl extends ReadAndWriteFile implements FacilitySer
 
     @Override
     public void displayMaintenanceList() {
+        readFacilityFromFile();
         for (Map.Entry<Facility, Integer> maintenanceFacilityList : facilityMap.entrySet()) {
             if (maintenanceFacilityList.getValue() >= 5) {
                 System.out.println(maintenanceFacilityList);
             }
         }
+        facilityMap.clear();
     }
 
 }

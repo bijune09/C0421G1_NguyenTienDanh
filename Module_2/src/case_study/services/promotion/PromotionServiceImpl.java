@@ -5,6 +5,8 @@ import case_study.services.booking_and_contract.BookingServiceImpl;
 import case_study.services.customer.CustomerServiceImpl;
 
 public class PromotionServiceImpl implements PromotionService {
+    PromotionServiceImpl(float x){
+    }
     @Override
     public void add() {
         
@@ -29,4 +31,5 @@ public class PromotionServiceImpl implements PromotionService {
     public void listOfCustomer() {
         new BookingServiceImpl().display();
     }
+
 }

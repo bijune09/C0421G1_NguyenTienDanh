@@ -18,7 +18,16 @@ public class FacilityManagement {
             System.out.println("3. Display facility maintenance");
             System.out.println("4. Return main menu");
             System.out.println("Your choice");
-            int choice = input().nextInt();
+            int choice =0;
+            boolean checkValid = false;
+            while(!checkValid){
+                try {
+                    choice = input().nextInt();
+                    checkValid = true;
+                } catch (NumberFormatException exception){
+                    System.out.println("YOU MUST INPUT NUMBER!!!");
+                }
+            }
             switch (choice){
                 case 1:
                     new FacilityServiceImpl().display();
