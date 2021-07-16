@@ -1,4 +1,7 @@
 create database bai_tap;
+
+use student_management;
+
 create table `class` (
 	id INT,
     `name` varchar(50)
