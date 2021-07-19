@@ -26,12 +26,9 @@ public class DrawingMenu {
                     break;
                 case 2:
                     System.out.println("Your square: ");
-                    System.out.println("******");
-                    System.out.println("******");
-                    System.out.println("******");
-                    System.out.println("******");
-                    System.out.println("******");
-                    System.out.println("******");
+                    for (int i = 0; i < 6; i++){
+                        System.out.println("******");
+                    }
                     break;
                 case 3:
                     System.out.println("Your Rectangle");
