@@ -52,11 +52,11 @@ insert into order_details values (2,3,3);
 select order_id, order_date, order_price from `order`;
 -- Hiển thị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách;
 select customer_name, product_name from customer
-inner join `order` on customer.customer_id = `order`.customer_id
-inner join order_details on `order`.order_id = order_details.order_id
-inner join product on product.product_id = order_details.product_id;
+join `order` on customer.customer_id = `order`.customer_id
+join order_details on `order`.order_id = order_details.order_id
+join product on product.product_id = order_details.product_id;
 -- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào;
-select customer_name, product_name from customer
+select customer_name,product_name from customer
 left join `order` on customer.customer_id = `order`.customer_id
 left join order_details on `order`.order_id = order_details.order_id
 left join product on product.product_id = order_details.product_id
@@ -66,4 +66,4 @@ where `order`.customer_id is null;
 select `order`.order_id, `order`.order_date, sum(order_details.order_quantity*product_price) as order_price from `order`
 join order_details on `order`.order_id = order_details.order_id
 join product on product.product_id = order_details.product_id
-group by `order`.order_id;
+group by order_details.order_id;
