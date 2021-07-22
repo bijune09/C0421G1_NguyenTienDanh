@@ -4,6 +4,7 @@ select * from `subject`
 where Credit = (select max(Credit) from `subject`);
 -- Hiển thị các thông tin môn học có điểm thi lớn nhất.
 select * from mark
+join `subject` on `subject`.SubId = mark.SubId
 where Mark = (select max(Mark) from mark);
 -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
 select *, avg(Mark) as "avg mark" from student
