@@ -62,7 +62,7 @@ from khach_hang;
 
 select ho_ten
 from khach_hang
-group by id_khach_hang;
+group by ho_ten;
 
 -- 9.Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 select *, count(id_khach_hang) as 'so_lan_dat'
