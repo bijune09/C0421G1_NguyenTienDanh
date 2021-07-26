@@ -7,6 +7,7 @@ join hop_dong hd on hd.id_hop_dong = hdct.id_hop_dong
 join khach_hang kh on kh.id_khach_hang = hd.id_khach_hang
 join loai_khach lk on lk.id_loai_khach = kh.id_loai_khach
 where ten_loai_khach = 'Diamond' and (dia_chi = 'Quảng Ngãi' or dia_chi = 'Vinh');
+-- dia_chi in ('Quảng Ngãi, 'Vinh')
 -- 12.Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc 
 -- của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.
 select hd.id_hop_dong,nv.ho_ten,kh.ho_ten,kh.sdt,dv.ten_dich_vu,hdct.so_luong,hd.tien_dat_coc
@@ -46,7 +47,16 @@ where (year(hd.ngay_lam_hop_dong) in (2018,2019))
 group by nv.id_nhan_vien
 having so_lan_lap_hop_dong >= 3;
 -- 16.Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+create temporary table temp_table
+(select nv.id_nhan_vien
+from nhan_vien nv 
+left join hop_dong hd on hd.id_nhan_vien = nv.id_nhan_vien
+where year(ngay_lam_hop_dong) in (2017,2018,2019) or hd.id_hop_dong is null);
 
+delete from nhan_vien
+where id_nhan_vien not in(select * from temp_table);
+
+drop temporary table temp_table;
 -- 17.Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 -- chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
 create temporary table temp_table 
@@ -67,23 +77,35 @@ where id_khach_hang in
 
 drop temporary table temp_table;
 -- 18.Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
+create temporary table temp_table
+(select kh.id_khach_hang
+from khach_hang kh
+join hop_dong hd on hd.id_khach_hang = kh.id_khach_hang
+where year(ngay_lam_hop_dong) = 2016);
 
+delete from khach_hang
+where id_khach_hang in (select * from temp_table);
 
+drop temporary table temp_table;
 -- 19.Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
-create temporary table temp_table 
-(select sum(so_luong) as 'so_lan_su_dung',dvdk.id_dich_vu_di_kem
-from dich_vu_di_kem dvdk
-join hop_dong_chi_tiet hdct on hdct.id_dich_vu_di_kem = dvdk.id_dich_vu_di_kem
+create temporary table temp_table(
+select hdct.id_dich_vu_di_kem 'id_dich_vu_di_kem', sum(so_luong) as 'so_lan_su_dung'
+from hop_dong_chi_tiet hdct
 join hop_dong hd on hd.id_hop_dong = hdct.id_hop_dong
+join dich_vu_di_kem dvdk on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
 where year(ngay_lam_hop_dong) = 2019
-group by hdct.id_dich_vu_di_kem
-having so_lan_su_dung >10);
+group by dvdk.id_dich_vu_di_kem
+having so_lan_su_dung > 10);
 
 update dich_vu_di_kem
-set gia = (gia * 2)
-where id_dich_di_kem in 
-(select * from temp_table);
+set gia = (gia*2)
+where id_dich_vu_di_kem in ( select id_dich_vu_di_kem from temp_table);
 
 drop temporary table temp_table;
 -- 20.Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm 
 -- ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
+select id_nhan_vien,ho_ten,email,sdt,ngay_sinh,dia_chi 
+from nhan_vien
+union 
+select id_khach_hang,ho_ten,email,sdt,ngay_sinh,dia_chi
+from khach_hang
