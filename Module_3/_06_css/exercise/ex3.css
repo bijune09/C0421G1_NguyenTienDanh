@@ -1,0 +1,34 @@
+h1 {
+    text-shadow: 5px 3px navajowhite;
+    color: chocolate;
+    font-style: italic;
+}
+div {
+    background-color: burlywood;
+    text-align: justify;
+}
+ul {
+    text-decoration: none;
+}
+.first {
+    background-color: cadetblue;
+    width: 55px;
+}
+.second{
+    background-color: coral;
+    width: 37px;
+
+}
+.third{
+    background-color: cyan;
+    width: 50px;
+
+}
+.forth {
+    background-color: darkcyan;
+    width: 50px;
+}
+#manhWa{
+    color: ivory;
+}
+
