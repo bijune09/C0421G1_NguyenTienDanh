@@ -28,18 +28,49 @@ begin
             insert into hop_dong (id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong,ngay_ket_thuc,tien_dat_coc)
             values (p_id_nhan_vien,p_id_khach_hang,p_id_dich_vu,p_ngay_lam_hop_dong,p_ngay_ket_thuc,p_tien_dat_coc);
     else
-		select 'Sai thông tin, vui lòng nhập lại';
+		SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT = 'Wrong';
 	end if;
 end;
 // delimiter ;
 call sp_2(2,2,2,'2020-10-20','2020-10-21',50);
 call sp_2(10,10,10,'2020-10-20','2020-10-21',50);
 -- 25.	Tạo triggers có tên Tr_1 Xóa bản ghi trong bảng HopDong thì hiển thị tổng số lượng bản ghi còn lại có trong bảng HopDong ra giao diện console của database
+delimiter //
+create trigger tr_1	
+after DELETE
+on hop_dong for each row
+begin
+	set @message = (select count(id_hop_dong) from hop_dong);
+end;
+// delimiter ;
+DELETE
+from hop_dong
+WHERE id_hop_dong = 5;
+SELECT @message;
 
 -- 26.	Tạo triggers có tên Tr_2 Khi cập nhật Ngày kết thúc hợp đồng, cần kiểm tra xem thời gian cập nhật có phù hợp hay không, 
 -- với quy tắc sau: Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày. Nếu dữ liệu hợp lệ thì cho phép cập nhật, 
 -- nếu dữ liệu không hợp lệ thì in ra thông báo “Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database
+delimiter //
+create trigger tr_2
+before update
+on hop_dong for each row
+begin
+-- 	DECLARE thong_bao_sai VARCHAR(250);
+--     set thong_bao_sai = 'sai rồi ngày kết thúc hợp đồng phải cách ít nhất 2 ngày với ngày làm hợp đồng';
+    if datediff(new.ngay_ket_thuc,old.ngay_lam_hop_dong) <= 2 then
+    SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT = 'Sai, đọc lại đề';
+    end if;
+end;
+// delimiter ;
+DROP TRIGGER IF EXISTS tr_2;
+update hop_dong
+set ngay_ket_thuc = '2018-02-15'
+where id_hop_dong = 1;
 
+update hop_dong
+set ngay_ket_thuc = '2018-02-12'
+where id_hop_dong = 1;	
 -- 27.	Tạo user function thực hiện yêu cầu sau:
 -- a.	Tạo user function func_1: Đếm các dịch vụ đã được sử dụng với Tổng tiền là > 2.000.000 VNĐ.
 
@@ -49,3 +80,19 @@ call sp_2(10,10,10,'2020-10-20','2020-10-21',50);
 
 -- 28.	Tạo Store procedure Sp_3 để tìm các dịch vụ được thuê bởi khách hàng với loại dịch vụ là “Room” từ đầu năm 2015 đến hết năm 2019 để xóa thông tin của các dịch vụ đó 
 -- (tức là xóa các bảng ghi trong bảng DichVu) và xóa những HopDong sử dụng dịch vụ liên quan (tức là phải xóa những bản gi trong bảng HopDong) và những bản liên quan khác.
+create temporary table temp_table
+(select hd.id_dich_vu from dich_vu dv 
+join hop_dong hd on dv.id_dich_vu = hd.id_dich_vu
+join loai_dich_vu ldv on ldv.id_loai_dich_vu = dv.id_loai_dich_vu
+where ten_loai_dich_vu = 'Room' and (year(ngay_lam_hop_dong) = 2015 and year(ngay_ket_thuc) = 2019)
+);
+
+delimiter // 
+create procedure sp_3()
+begin
+	delete from hop_dong
+    where id_dich_vu in ( select * from temp_table);
+end;
+// delimiter ; 
+
+call sp_3();
