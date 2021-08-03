@@ -19,17 +19,15 @@ public class CalculatorServlet extends HttpServlet {
         double firstNumber = Double.parseDouble(request.getParameter("first"));
         String operator = request.getParameter("operator");
         double secondNumber = Double.parseDouble(request.getParameter("second"));
-        double result = 0;
-        String error = "";
+        String result = "";
 
         try{
-            result = Calculator.calculate(firstNumber,secondNumber,operator);
-        }catch (ArithmeticException e){
-            error = e.getMessage();
+            result = String.valueOf(Calculator.calculate(firstNumber,secondNumber,operator));
+        }catch (Exception ex){
+            result = ex.getMessage();
         }
 
         request.setAttribute("result",result);
-        request.setAttribute("error",error);
         request.setAttribute("firstNumber",firstNumber);
         request.setAttribute("secondNumber",secondNumber);
 

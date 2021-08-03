@@ -17,6 +17,5 @@
 <p><c:out value="${firstNumber}"></c:out> +
     <c:out value="${secondNumber}"></c:out> =
     <c:out value="${result}"></c:out></p>
-<p><c:out value="${error}"></c:out></p>
 </body>
 </html>
