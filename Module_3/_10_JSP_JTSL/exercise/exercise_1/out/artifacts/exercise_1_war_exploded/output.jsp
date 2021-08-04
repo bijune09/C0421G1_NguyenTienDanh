@@ -13,18 +13,21 @@
 </head>
 <body>
 <h1>Customer List</h1>
-<table style="border: 1px solid black">
+<table border="1">
     <tr>
         <th>Name</th>
         <th>Dob</th>
         <th>Address</th>
         <th>Img</th>
     </tr>
-    <c:forEach items="${customerList}" var="list">
+    <c:forEach items="${customerList}" var="customer">
         <tr>
-            <td><c:out value="${list.name}"></c:out></td>
-            <td><c:out value="${list.dob}"></c:out></td>
-            <td><c:out value="${list.address}"></c:out></td>
+            <td><c:out value="${customer.name}"></c:out></td>
+            <td><c:out value="${customer.dob}"></c:out></td>
+            <td><c:out value="${customer.address}"></c:out></td>
+            <td>
+                <img src="${customer.imgURL}" width="50px" height="50px">
+            </td>
         </tr>
     </c:forEach>
 </table>

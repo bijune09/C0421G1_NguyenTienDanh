@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5592d6de-1b80-4037-8928-8beeeb7a11bf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../_11_mvc_model/practise/src/main/java/com/codegym/controller/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise_2/excercise_2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise_2/src/servlet/CalculatorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/excercise_2/src/servlet/CalculatorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/excercise_2/web/output.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/excercise_2/web/output.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/exercise_1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/WEB-INF/classes/CustomerClass/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/WEB-INF/classes/CustomerClass/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/WEB-INF/classes/servlet/DisplayCustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/WEB-INF/classes/servlet/DisplayCustomerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/output.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/output.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/out/production/exercise_1/CustomerClass/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/out/production/exercise_1/CustomerClass/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/out/production/exercise_1/servlet/DisplayCustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/out/production/exercise_1/servlet/DisplayCustomerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/src/CustomerClass/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/src/CustomerClass/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/src/servlet/DisplayCustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/src/servlet/DisplayCustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise_1/web/output.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/exercise_1/web/output.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1wF4hJpOBvy86BArrmzDVONkaqv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5592d6de-1b80-4037-8928-8beeeb7a11bf" name="Default Changelist" comment="" />
+      <created>1628041120705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628041120705</updated>
+      <workItem from="1628041121995" duration="207000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="248" y="0" key="#Project_Structure" timestamp="1628041229453">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="248" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1628041229453" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1628041234015">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1628041234015" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1628041174227">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1628041174227" />
+  </component>
+</project>

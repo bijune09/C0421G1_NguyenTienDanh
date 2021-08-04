@@ -4,14 +4,16 @@ public class Customer {
     String name;
     String dob;
     String address;
+    String imgURL;
 
     public Customer() {
     }
 
-    public Customer(String name, String dob, String address) {
+    public Customer(String name, String dob, String address, String imgURL) {
         this.name = name;
         this.dob = dob;
         this.address = address;
+        this.imgURL = imgURL;
     }
 
     public String getName() {
@@ -38,5 +40,11 @@ public class Customer {
         this.address = address;
     }
 
+    public String getImgURL() {
+        return imgURL;
+    }
 
+    public void setImgURL(String imgURL) {
+        this.imgURL = imgURL;
+    }
 }

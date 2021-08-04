@@ -30,6 +30,7 @@ public class CalculatorServlet extends HttpServlet {
         request.setAttribute("result",result);
         request.setAttribute("firstNumber",firstNumber);
         request.setAttribute("secondNumber",secondNumber);
+        request.setAttribute("operator",operator);
 
         request.getRequestDispatcher("output.jsp").forward(request,response);
     }

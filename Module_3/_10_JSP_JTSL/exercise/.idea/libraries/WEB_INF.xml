@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="WEB-INF">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/WEB-INF/taglibs-standard-spec-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/exercise_1/out/artifacts/exercise_1_war_exploded/WEB-INF/taglibs-standard-impl-1.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
