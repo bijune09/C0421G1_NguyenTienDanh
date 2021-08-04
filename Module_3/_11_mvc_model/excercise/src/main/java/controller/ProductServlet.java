@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ProductServlet", urlPatterns = "/products")
+@WebServlet(name = "ProductServlet", urlPatterns = {"","/products"})
 public class ProductServlet extends HttpServlet {
     private ProductService productService = new ProductServiceImpl();
 
@@ -33,14 +33,12 @@ public class ProductServlet extends HttpServlet {
                 deleteProduct(request, response);
                 break;
             case "search":
-                searchProduct(request,response);
+                searchProduct(request, response);
                 break;
             default:
                 break;
         }
     }
-
-
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,28 +57,53 @@ public class ProductServlet extends HttpServlet {
                 showDeleteForm(request, response);
                 break;
             case "view":
-                showDetails(request,response);
+                showDetails(request, response);
                 break;
+//            case "search":
+//                showSearchProduct(request, response);
             default:
                 listProduct(request, response);
                 break;
         }
     }
 
+//    private void showSearchProduct(HttpServletRequest request, HttpServletResponse response) {
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("product/view.jsp");
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("productName");
-        this.productService.search(name);
-        
+        List<Product> product = this.productService.search(name);
+        RequestDispatcher dispatcher;
+        if (product == null) {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            request.setAttribute("product",product);
+            dispatcher = request.getRequestDispatcher("product/search_form.jsp");
+        }
+        try {
+            dispatcher.forward(request, response);
+        } catch (IOException | ServletException e) {
+            e.printStackTrace();
+        }
+        Math.random()
     }
 
     private void showDetails(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
-        if (product==null){
+        if (product == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
-            request.setAttribute("product",product);
+            request.setAttribute("product", product);
             dispatcher = request.getRequestDispatcher("product/view.jsp");
         }
         try {
@@ -94,13 +117,13 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
-        if (product==null) {
+        if (product == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             this.productService.remove(id);
             try {
                 response.sendRedirect("/products");
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -110,10 +133,10 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
-        if (product==null){
+        if (product == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
-            request.setAttribute("product",product);
+            request.setAttribute("product", product);
             dispatcher = request.getRequestDispatcher("product/delete.jsp");
         }
         try {

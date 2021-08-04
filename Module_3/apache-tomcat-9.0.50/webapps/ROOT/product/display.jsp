@@ -35,7 +35,7 @@
 </table>
 <hr>
 <h2>Find product by name</h2>
-<form method="post">
+<form method="post" action="/products?action=search">
     <input type="text" name="productName" id="productName" placeholder="Product Name">
     <input type="submit" value="Search">
 </form>
