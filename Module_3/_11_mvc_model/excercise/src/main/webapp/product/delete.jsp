@@ -13,9 +13,9 @@
 <body>
 <h1>Delete Product</h1>
 <form method="post">
-    <h3>Do u wanna change you mind?</h3>
+    <h3>Are you sure you wanna delete this product?</h3>
     <p>
-        <a href="/products">Back to product list</a>
+        <a href="/products">No, back to product list</a>
     </p>
     <fieldset>
         <legend>Product Infor</legend>

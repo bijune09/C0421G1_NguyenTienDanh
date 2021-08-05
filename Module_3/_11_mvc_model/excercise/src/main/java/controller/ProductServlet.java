@@ -93,7 +93,7 @@ public class ProductServlet extends HttpServlet {
         } catch (IOException | ServletException e) {
             e.printStackTrace();
         }
-        Math.random()
+
     }
 
     private void showDetails(HttpServletRequest request, HttpServletResponse response) {
