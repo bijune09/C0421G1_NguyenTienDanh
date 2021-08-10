@@ -78,15 +78,18 @@
                     <td>
                         <a class="btn btn-primary" href="/employees?action=edit&id=${employee.getEmployee_id()}"
                            role="button">Edit</a>
-                        <a class="btn btn-primary" href="#" role="button">Delete</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" onclick="deleteEmployee(${employee.getEmployee_id()})">
+                            Delete
+                        </button>
                     </td>
                 </tr>
+
             </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
-
 
 <%--footer--%>
 <div class="container-fluid bg-dark p-lg-3">
@@ -97,8 +100,38 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want delete ${employee.getEmployee_name()}?
+            </div>
+            <form action="/employees" method="post">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" value="" id="idEmployee">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-primary">Yup</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
+<script>
+    function deleteEmployee(id) {
+        document.getElementById("idEmployee").value = id;
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>

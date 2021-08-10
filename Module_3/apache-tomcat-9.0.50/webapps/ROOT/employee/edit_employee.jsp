@@ -40,47 +40,47 @@
     <form method="post">
         <div class="mb-3">
             <label class="form-label">Name: </label>
-            <input type="number" class="form-control" name="nameEmployee" value="${employee.employee_id()}">
+            <input type="text" class="form-control" name="name" value="${employee.employee_name}">
         </div>
         <div class="mb-3">
             <label class="form-label">Birthday:</label>
-            <input type="date" class="form-control" name="birthday" value="${employee.employee_birthday()}">
+            <input type="date" class="form-control" name="birthday" value="${employee.employee_birthday}">
         </div>
         <div class="mb-3">
             <label class="form-label">ID Card:</label>
-            <input type="text" class="form-control" name="idCard" value="${employee.employee_id_card()}">
+            <input type="text" class="form-control" name="idCard" value="${employee.employee_id_card}">
         </div>
         <div class="mb-3">
             <label class="form-label">Salary:</label>
-            <input type="number" class="form-control" name="salary" value="${employee.employee_salary()}">
+            <input type="number" class="form-control" name="salary" value="${employee.employee_salary}">
         </div>
         <div class="mb-3">
             <label class="form-label">Phone Number:</label>
-            <input type="tel" class="form-control" name="phone" value="${employee.employee_phone()}">
+            <input type="tel" class="form-control" name="phone" value="${employee.employee_phone}">
         </div>
         <div class="mb-3">
             <label class="form-label">Email:</label>
-            <input type="email" class="form-control" name="email" value="${employee.employee_email()}">
+            <input type="email" class="form-control" name="email" value="${employee.employee_email}">
         </div>
         <div class="mb-3">
             <label class="form-label">Address:</label>
-            <input type="tel" class="form-control" name="address" value="${employee.employee_address()}">
+            <input type="tel" class="form-control" name="address" value="${employee.employee_address}">
         </div>
         <div class="mb-3">
             <label class="form-label">Position ID:</label>
-            <input type="number" class="form-control" name="positionId" value="${employee.employee_id_position()}">
+            <input type="number" class="form-control" name="positionId" value="${employee.employee_id_position}">
         </div>
         <div class="mb-3">
             <label class="form-label">Education ID:</label>
-            <input type="number" class="form-control" name="educationId" value="${employee.employee_id_education()}" >
+            <input type="number" class="form-control" name="educationId" value="${employee.employee_id_education}" >
         </div>
         <div class="mb-3">
             <label class="form-label">Division ID:</label>
-            <input type="number" class="form-control" name="divisionId" value="${employee.employee_id_division()}">
+            <input type="number" class="form-control" name="divisionId" value="${employee.employee_id_division}">
         </div>
         <div class="mb-3">
             <label class="form-label">Username:</label>
-            <input type="text" class="form-control" name="username" value="${employee.employee_user_name()}">
+            <input type="text" class="form-control" name="username" value="${employee.employee_user_name}">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

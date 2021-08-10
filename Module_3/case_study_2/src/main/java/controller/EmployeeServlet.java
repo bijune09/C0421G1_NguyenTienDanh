@@ -39,13 +39,22 @@ public class EmployeeServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
+            case "delete":
+                deleteEmployee(request,response);
+                break;
         }
     }
 
-    private void editEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
-
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("nameEmployee");
+        this.employeeService.deleteEmployee(id);
+        response.sendRedirect("/employees");
+    }
+
+    private void editEmployee(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ParseException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
         String idCard = request.getParameter("idCard");
         double salary = Double.parseDouble(request.getParameter("salary"));
@@ -55,12 +64,13 @@ public class EmployeeServlet extends HttpServlet {
         int position = Integer.parseInt(request.getParameter("positionId"));
         int education = Integer.parseInt(request.getParameter("educationId"));
         int division = Integer.parseInt(request.getParameter("divisionId"));
-        String username = request.getParameter("username");
+//        String username = request.getParameter("username");
 
         Employee newEmployee = new Employee(id,name,position,education,division,birthday,idCard,salary,phone,email,
-                address,username);
+                address);
 
         this.employeeService.editEmployee(newEmployee);
+        request.setAttribute("employee",newEmployee);
         request.getRequestDispatcher("employee/edit_employee.jsp").forward(request,response);
 
     }
@@ -93,9 +103,6 @@ public class EmployeeServlet extends HttpServlet {
             case "create":
                 showCreateForm(request, response);
                 break;
-//            case "delete":
-////                showForm(request, response);
-//                break;
             case "edit":
                 showEditForm(request, response);
                 break;
