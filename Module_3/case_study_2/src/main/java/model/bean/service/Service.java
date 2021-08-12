@@ -9,13 +9,15 @@ public class Service {
     private double rent_cost;
     private int idRentType;
     private int idServiceType;
-    private String status;
+    private String description;
+    private String standard;
+    private double poolArea;
 
     public Service() {
     }
 
     public Service(String nameService, int serviceArea, int floor, int capacity, double rent_cost, int idRentType,
-                   int idServiceType, String status) {
+                   int idServiceType, String description, String standard, double poolArea) {
         this.nameService = nameService;
         this.serviceArea = serviceArea;
         this.floor = floor;
@@ -23,11 +25,13 @@ public class Service {
         this.rent_cost = rent_cost;
         this.idRentType = idRentType;
         this.idServiceType = idServiceType;
-        this.status = status;
+        this.description = description;
+        this.standard = standard;
+        this.poolArea = poolArea;
     }
 
     public Service(int idService, String nameService, int serviceArea, int floor, int capacity, double rent_cost,
-                   int idRentType, int idServiceType, String status) {
+                   int idRentType, int idServiceType, String description, String standard, double poolArea) {
         this.idService = idService;
         this.nameService = nameService;
         this.serviceArea = serviceArea;
@@ -36,7 +40,9 @@ public class Service {
         this.rent_cost = rent_cost;
         this.idRentType = idRentType;
         this.idServiceType = idServiceType;
-        this.status = status;
+        this.description = description;
+        this.standard = standard;
+        this.poolArea = poolArea;
     }
 
     public int getIdService() {
@@ -103,11 +109,27 @@ public class Service {
         this.idServiceType = idServiceType;
     }
 
-    public String getStatus() {
-        return status;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStandard() {
+        return standard;
+    }
+
+    public void setStandard(String standard) {
+        this.standard = standard;
+    }
+
+    public double getPoolArea() {
+        return poolArea;
+    }
+
+    public void setPoolArea(double poolArea) {
+        this.poolArea = poolArea;
     }
 }

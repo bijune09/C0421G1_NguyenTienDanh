@@ -1,10 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <html>
 <head>
     <title>Employee Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
 <%--navbar--%>
@@ -19,13 +20,13 @@
                     <a class="nav-link" href="/employees">Employee</a>
                 </li>
                 <li class="nav-item me-lg-5">
-                    <a class="nav-link" href="#">Customer</a>
+                    <a class="nav-link" href="/customers">Customer</a>
                 </li>
                 <li class="nav-item me-lg-5">
-                    <a class="nav-link" href="#">Service</a>
+                    <a class="nav-link" href="/services">Service</a>
                 </li>
                 <li class="nav-item me-lg-5">
-                    <a class="nav-link" href="#">Contract</a>
+                    <a class="nav-link" href="/contracts">Contract</a>
                 </li>
             </ul>
             <form class="d-flex">
@@ -65,9 +66,57 @@
                 <tr>
                     <td>${employee.getEmployee_id()}</td>
                     <td>${employee.getEmployee_name()}</td>
-                    <td>${employee.getEmployee_id_position()}</td>
-                    <td>${employee.getEmployee_id_education()}</td>
-                    <td>${employee.getEmployee_id_division()}</td>
+<%--                    <td>${employee.getEmployee_id_position()}</td>--%>
+                    <c:choose>
+                        <c:when test="${employee.getEmployee_id_position()=='1'}">
+                            <td>Lễ Tân</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_position()=='2'}">
+                            <td>Phục vụ</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_position()=='3'}">
+                            <td>Chuyên viên</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_position()=='4'}">
+                            <td>Giám sát</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_position()=='5'}">
+                            <td>Quản lý</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td>Giám đốc</td>
+                        </c:otherwise>
+                    </c:choose>
+<%--                    <td>${employee.getEmployee_id_education()}</td>--%>
+                    <c:choose>
+                        <c:when test="${employee.getEmployee_id_education()=='1'}">
+                            <td>Trung cấp</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_education()=='2'}">
+                            <td>Cao đẳng</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_education()=='3'}">
+                            <td>Đại học</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td>Sau đại học</td>
+                        </c:otherwise>
+                    </c:choose>
+<%--                    <td>${employee.getEmployee_id_division()}</td>--%>
+                    <c:choose>
+                        <c:when test="${employee.getEmployee_id_division()=='1'}">
+                            <td>Sale-Marketing</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_division()=='2'}">
+                            <td>Hành chính</td>
+                        </c:when>
+                        <c:when test="${employee.getEmployee_id_division()=='3'}">
+                            <td>Phục vụ</td>
+                        </c:when>
+                        <c:otherwise>
+                            <td>Quản lý</td>
+                        </c:otherwise>
+                    </c:choose>
                     <td>${employee.getEmployee_birthday()}</td>
                     <td>${employee.getEmployee_id_card()}</td>
                     <td>${employee.getEmployee_salary()}</td>

@@ -55,7 +55,7 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid m-lg-5">
+<div class="container-fluid m-lg-3">
     <div class="row">
         <div class="col-lg-3">
             <div class="list-group" id="list-tab" role="tablist">

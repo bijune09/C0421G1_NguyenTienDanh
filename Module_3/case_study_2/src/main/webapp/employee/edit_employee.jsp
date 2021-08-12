@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -68,15 +69,31 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Position ID:</label>
-            <input type="number" class="form-control" name="positionId" value="${employee.employee_id_position}">
+            <label class="form-label" for="position">Position ID:</label>
+            <%--            <input type="number" class="form-control" name="positionId">--%>
+            <select name="positionId" id="position" class="form-select">
+                <c:forEach items="${positionList}" var="position">
+                    <option value="${position.getPositionId()}">${position.getPositionName()}</option>
+                </c:forEach>
+            </select>
         </div>
         <div class="mb-3">
-            <label class="form-label">Education ID:</label>
-            <input type="number" class="form-control" name="educationId" value="${employee.employee_id_education}" >
+            <label class="form-label" for="education">Education ID:</label>
+            <%--            <input type="number" class="form-control" name="educationId">--%>
+            <select name="educationId" id="education" class="form-select">
+                <c:forEach items="${educationList}" var="education">
+                    <option value="${education.getEducationId()}">${education.getEducationName()}</option>
+                </c:forEach>
+            </select>
         </div>
         <div class="mb-3">
-            <label class="form-label">Division ID:</label>
-            <input type="number" class="form-control" name="divisionId" value="${employee.employee_id_division}">
+            <label class="form-label" for="division">Division ID:</label>
+            <%--            <input type="number" class="form-control" name="divisionId">--%>
+            <select name="divisionId" id="division" class="form-select">
+                <c:forEach items="${divisionList}" var="division">
+                    <option value="${division.getDivisionId()}">${division.getDivisionName()}</option>
+                </c:forEach>
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Username:</label>

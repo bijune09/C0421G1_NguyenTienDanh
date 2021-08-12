@@ -3,6 +3,7 @@ package controller;
 import model.bean.employee.Employee;
 import model.service.employee.EmployeeServiceImpl;
 import model.service.employee.IEmployeeService;
+import model.service.employee.tag.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,9 @@ import java.util.List;
 @WebServlet(name = "EmployeeServlet", urlPatterns = "/employees")
 public class EmployeeServlet extends HttpServlet {
     private IEmployeeService employeeService = new EmployeeServiceImpl();
+    private IDivisionService divisionService = new DivisionServiceImpl();
+    private IEducationService educationService = new EducationServiceImpl();
+    private IPositionService positionService = new PositionServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -120,10 +124,16 @@ public class EmployeeServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Employee existEmployee = this.employeeService.findById(id);
         request.setAttribute("employee",existEmployee);
+        request.setAttribute("positionList",this.positionService.selectAll());
+        request.setAttribute("educationList",this.educationService.selectAll());
+        request.setAttribute("divisionList",this.divisionService.selectAll());
         request.getRequestDispatcher("employee/edit_employee.jsp").forward(request, response);
     }
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("positionList",this.positionService.selectAll());
+        request.setAttribute("educationList",this.educationService.selectAll());
+        request.setAttribute("divisionList",this.divisionService.selectAll());
         RequestDispatcher dispatcher = request.getRequestDispatcher("employee/create_employee.jsp");
         dispatcher.forward(request, response);
     }
