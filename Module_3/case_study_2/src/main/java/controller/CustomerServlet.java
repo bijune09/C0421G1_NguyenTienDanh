@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet",urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
@@ -72,17 +73,18 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
 
         Customer customer = new Customer(typeCustomer,name,date,gender,idCard,phone,email,address,code);
-        List<String> message =  this.customerService.createCustomer(customer);
+        Map<String,String> message =  this.customerService.createCustomer(customer);
 
         if (message.isEmpty()){
             showCustomer(request,response);
         } else {
-            request.setAttribute("msgCustomerCode",message.get(0));
-            request.setAttribute("msgCustomerName",message.get(1));
-            request.setAttribute("msgIdCard",message.get(2));
-            request.setAttribute("msgPhone",message.get(3));
-            request.setAttribute("msgEmail",message.get(4));
+            request.setAttribute("msgCustomerCode",message.get("Code"));
+            request.setAttribute("msgCustomerName",message.get("Name"));
+            request.setAttribute("msgIdCard",message.get("IdCard"));
+            request.setAttribute("msgPhone",message.get("Phone"));
+            request.setAttribute("msgEmail",message.get("Email"));
             request.setAttribute("customerTypeList",this.customerTypeService.selectAll());
+            request.setAttribute("customer",customer);
             request.getRequestDispatcher("customer/create_customer.jsp").forward(request,response);
         }
     }

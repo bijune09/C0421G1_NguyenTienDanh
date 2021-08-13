@@ -19,13 +19,13 @@
             <form method="post">
                 <div class="mb-3">
                     <label class="form-label">Customer Code</label>
-                    <input type="text" name="customerCode" class="form-control">
-                    <p>${msgCustomerCode}</p>
+                    <input type="text" name="customerCode" class="form-control" value="${customer.getCustomerCode()}">
+                    <p class="text-warning">${msgCustomerCode}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Name: </label>
-                    <input type="text" name="name" class="form-control">
-                    <p>${msgCustomerName}</p>
+                    <input type="text" name="name" class="form-control" value="${customer.getCustomerName()}">
+                    <p class="text-warning">${msgCustomerName}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="typeOfCustomer">Type Customer</label>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Birthday</label>
-                    <input type="date" name="birthday" class="form-control">
+                    <input type="date" name="birthday" class="form-control" value="${customer.getCustomerBirthday()}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="customerGender">Gender</label>
@@ -48,22 +48,22 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">ID Card</label>
-                    <input type="text" name="idCard" class="form-control">
-                    <p>${msgIdCard}</p>
+                    <input type="text" name="idCard" class="form-control" value="${customer.getCustomerIdCard()}">
+                    <p class="text-warning">${msgIdCard}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Phone number</label>
-                    <input type="text" name="phone" class="form-control">
-                    <p>${msgPhone}</p>
+                    <input type="text" name="phone" class="form-control" value="${customer.getCustomerPhone()}">
+                    <p class="text-warning">${msgPhone}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control">
-                    <p>${msgEmail}</p>
+                    <input type="email" name="email" class="form-control" value="${customer.getCustomerEmail()}">
+                    <p class="text-warning">${msgEmail}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Address</label>
-                    <input type="text" name="address" class="form-control">
+                    <input type="text" name="address" class="form-control" value="${customer.getCustomerAddress()}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -6,7 +6,9 @@ import model.repository.customer.ICustomerRepo;
 import model.service.common.Regex;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerServiceImpl implements ICustomerService, Regex {
     private ICustomerRepo customerRepo = new CustomerRepoImpl();
@@ -31,39 +33,39 @@ public class CustomerServiceImpl implements ICustomerService, Regex {
     }
 
     @Override
-    public List<String> createCustomer(Customer customer) {
-        List<String> message = new ArrayList<>();
+    public Map<String, String> createCustomer(Customer customer) {
+        Map<String,String> message = new HashMap<>();
         boolean check = true;
         String msg = null;
 
         if (!customer.getCustomerCode().matches(CUSTOMER_CODE)) {
             check = false;
             msg = "Incorrect, Please Try Again.(Ex:KH-XXXX,X is number)";
-            message.add(msg);
+            message.put("Code",msg);
         }
 
         if (!customer.getCustomerName().matches(REGEX_NAME)) {
             check = false;
             msg = "Incorrect name, Please try again";
-            message.add(msg);
+            message.put("Name",msg);
         }
 
         if (!customer.getCustomerIdCard().matches(ID_CARD)) {
             check = false;
             msg = "Incorrect format, Please try again";
-            message.add(msg);
+            message.put("IdCard",msg);
         }
 
         if (!customer.getCustomerPhone().matches(PHONE_NUMBER)) {
             check = false;
             msg = "Incorrect format, Please try again";
-            message.add(msg);
+            message.put("Phone",msg);
         }
 
         if (!customer.getCustomerEmail().matches(EMAIL)) {
             check = false;
             msg = "Incorrect format, Please try again";
-            message.add(msg);
+            message.put("Email",msg);
         }
 
         if (check){
