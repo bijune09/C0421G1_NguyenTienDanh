@@ -9,14 +9,64 @@
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
-<div class="container-fluid m-lg-5">
+<div class="container-fluid m-lg-3">
     <div class="row">
         <div class="col-lg-3">
             <jsp:include page="/side_column.jsp"></jsp:include>
         </div>
         <div class="col-lg-9">
-            <h3>Create new contract</h3>
-
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Create new contract</h3>
+                    <legend>Create Form</legend>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Start Day:</label>
+                            <input type="date" name="start" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">End Day: </label>
+                            <input type="date" name="end" class="form-control">
+                        </div>
+                        <%--                employee--%>
+                        <div class="mb-3">
+                            <label class="form-label" for="employeeList">Employee:</label>
+                            <select name="idEmployee" id="employeeList" class="form-select">
+                                <c:forEach var="employee" items="${employeeList}">
+                                    <option value="${employee.getEmployee_id()}">${employee.getEmployee_name()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <%--                customer--%>
+                        <div class="mb-3">
+                            <label class="form-label" for="customerList">Customer:</label>
+                            <select name="idCustomer" id="customerList" class="form-select">
+                                <c:forEach var="customer" items="${customerList}">
+                                    <option value="${customer.getIdCustomer()}">${customer.getCustomerName()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <%--                service--%>
+                        <div class="mb-3">
+                            <label class="form-label" for="serviceList">Service:</label>
+                            <select name="idService" id="serviceList" class="form-select">
+                                <c:forEach var="service" items="${serviceList}">
+                                    <option value="${service.getIdService()}">${service.getNameService()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Deposit:</label>
+                            <input type="number" name="deposit" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Total: </label>
+                            <input type="number" name="total" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

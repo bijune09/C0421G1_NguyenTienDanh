@@ -9,5 +9,5 @@ public interface ICustomerService {
     Customer findById(int id);
     void editCustomer(Customer customer);
     void deleteCustomer(int id);
-    void createCustomer(Customer customer);
+    List<String> createCustomer(Customer customer);
 }

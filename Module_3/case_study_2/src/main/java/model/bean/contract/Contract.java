@@ -10,11 +10,12 @@ public class Contract {
     private String startDate;
     private String endDate;
     private double totalMoney;
+    private double deposit;
 
     public Contract() {
     }
 
-    public Contract(int idContract, int idEmployee, int idCustomer, int idService, String startDate, String endDate, double totalMoney) {
+    public Contract(int idContract, int idEmployee, int idCustomer, int idService, String startDate, String endDate, double totalMoney, double deposit) {
         this.idContract = idContract;
         this.idEmployee = idEmployee;
         this.idCustomer = idCustomer;
@@ -22,15 +23,25 @@ public class Contract {
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalMoney = totalMoney;
+        this.deposit = deposit;
     }
 
-    public Contract(int idEmployee, int idCustomer, int idService, String startDate, String endDate, double totalMoney) {
+    public Contract(int idEmployee, int idCustomer, int idService, String startDate, String endDate, double totalMoney, double deposit) {
         this.idEmployee = idEmployee;
         this.idCustomer = idCustomer;
         this.idService = idService;
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalMoney = totalMoney;
+        this.deposit = deposit;
+    }
+
+    public double getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(double deposit) {
+        this.deposit = deposit;
     }
 
     public int getIdContract() {

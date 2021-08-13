@@ -20,10 +20,12 @@
                 <div class="mb-3">
                     <label class="form-label">Customer Code</label>
                     <input type="text" name="customerCode" class="form-control">
+                    <p>${msgCustomerCode}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Name: </label>
                     <input type="text" name="name" class="form-control">
+                    <p>${msgCustomerName}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="typeOfCustomer">Type Customer</label>
@@ -47,14 +49,17 @@
                 <div class="mb-3">
                     <label class="form-label">ID Card</label>
                     <input type="text" name="idCard" class="form-control">
+                    <p>${msgIdCard}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Phone number</label>
                     <input type="text" name="phone" class="form-control">
+                    <p>${msgPhone}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
                     <input type="email" name="email" class="form-control">
+                    <p>${msgEmail}</p>
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Address</label>

@@ -17,9 +17,8 @@ public class ContractRepo implements IContractRepo {
         Contract contract = null;
         try {
             PreparedStatement preparedStatement = this.baseRepository.getConnection().
-                    prepareStatement("select id_hop_dong,id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hop_dong," +
-                            "ngay_ket_thuc,tien_dat_coc" +
-                            "from hop_dong");
+                    prepareStatement("SELECT id_hop_dong, id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc\n" +
+                            " FROM case_study.hop_dong;");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 contract = new Contract();

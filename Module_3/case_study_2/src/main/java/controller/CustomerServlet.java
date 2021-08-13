@@ -72,9 +72,19 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
 
         Customer customer = new Customer(typeCustomer,name,date,gender,idCard,phone,email,address,code);
-        this.customerService.createCustomer(customer);
+        List<String> message =  this.customerService.createCustomer(customer);
 
-        showCustomer(request,response);
+        if (message.isEmpty()){
+            showCustomer(request,response);
+        } else {
+            request.setAttribute("msgCustomerCode",message.get(0));
+            request.setAttribute("msgCustomerName",message.get(1));
+            request.setAttribute("msgIdCard",message.get(2));
+            request.setAttribute("msgPhone",message.get(3));
+            request.setAttribute("msgEmail",message.get(4));
+            request.setAttribute("customerTypeList",this.customerTypeService.selectAll());
+            request.getRequestDispatcher("customer/create_customer.jsp").forward(request,response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
