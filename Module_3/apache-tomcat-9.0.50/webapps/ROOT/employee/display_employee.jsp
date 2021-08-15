@@ -1,155 +1,119 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Employee Page</title>
+    <title>Display employee</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 </head>
 <body>
-<%--navbar--%>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5">
-                <li class="nav-item me-lg-5">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                </li>
-                <li class="nav-item me-lg-5">
-                    <a class="nav-link" href="/employees">Employee</a>
-                </li>
-                <li class="nav-item me-lg-5">
-                    <a class="nav-link" href="/customers">Customer</a>
-                </li>
-                <li class="nav-item me-lg-5">
-                    <a class="nav-link" href="/services">Service</a>
-                </li>
-                <li class="nav-item me-lg-5">
-                    <a class="nav-link" href="/contracts">Contract</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light  " type="submit">Search</button>
-            </form>
-        </div>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div class="col-lg-12">
-        <a class="btn btn-primary" href="/employees?action=create" role="button">Create employee</a>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="col-lg-12">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Position</th>
-                <th scope="col">Education</th>
-                <th scope="col">Division</th>
-                <th scope="col">Birthday</th>
-                <th scope="col">ID Card</th>
-                <th scope="col">Salary</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Address</th>
-                <th scope="col">User_name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${employeeList}" var="employee">
-                <tr>
-                    <td>${employee.getEmployee_id()}</td>
-                    <td>${employee.getEmployee_name()}</td>
-<%--                    <td>${employee.getEmployee_id_position()}</td>--%>
-                    <c:choose>
-                        <c:when test="${employee.getEmployee_id_position()=='1'}">
-                            <td>Lễ Tân</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_position()=='2'}">
-                            <td>Phục vụ</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_position()=='3'}">
-                            <td>Chuyên viên</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_position()=='4'}">
-                            <td>Giám sát</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_position()=='5'}">
-                            <td>Quản lý</td>
-                        </c:when>
-                        <c:otherwise>
-                            <td>Giám đốc</td>
-                        </c:otherwise>
-                    </c:choose>
-<%--                    <td>${employee.getEmployee_id_education()}</td>--%>
-                    <c:choose>
-                        <c:when test="${employee.getEmployee_id_education()=='1'}">
-                            <td>Trung cấp</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_education()=='2'}">
-                            <td>Cao đẳng</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_education()=='3'}">
-                            <td>Đại học</td>
-                        </c:when>
-                        <c:otherwise>
-                            <td>Sau đại học</td>
-                        </c:otherwise>
-                    </c:choose>
-<%--                    <td>${employee.getEmployee_id_division()}</td>--%>
-                    <c:choose>
-                        <c:when test="${employee.getEmployee_id_division()=='1'}">
-                            <td>Sale-Marketing</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_division()=='2'}">
-                            <td>Hành chính</td>
-                        </c:when>
-                        <c:when test="${employee.getEmployee_id_division()=='3'}">
-                            <td>Phục vụ</td>
-                        </c:when>
-                        <c:otherwise>
-                            <td>Quản lý</td>
-                        </c:otherwise>
-                    </c:choose>
-                    <td>${employee.getEmployee_birthday()}</td>
-                    <td>${employee.getEmployee_id_card()}</td>
-                    <td>${employee.getEmployee_salary()}</td>
-                    <td>${employee.getEmployee_phone()}</td>
-                    <td>${employee.getEmployee_email()}</td>
-                    <td>${employee.getEmployee_address()}</td>
-                    <td>${employee.getEmployee_user_name()}</td>
-                    <td>
-                        <a class="btn btn-primary" href="/employees?action=edit&id=${employee.getEmployee_id()}"
-                           role="button">Edit</a>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop" onclick="deleteEmployee(${employee.getEmployee_id()})">
-                            Delete
-                        </button>
-                    </td>
-                </tr>
-
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<%--footer--%>
-<div class="container-fluid bg-dark p-lg-3">
+<jsp:include page="/header.jsp"></jsp:include>
+<div class="container-fluid m-2">
     <div class="row">
-        <div class="col-lg-12 text-center text-color text-white">
-            this is footer
+        <div class="col-lg-3">
+            <jsp:include page="/side_column.jsp"></jsp:include>
+        </div>
+        <div class="col-lg-9">
+            <h3>Employee List</h3>
+            <div class="container-fluid">
+                <div class="col-lg-12">
+                    <a class="btn btn-primary" href="/employees?action=create" role="button">Create employee</a>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Birthday</th>
+                    <th scope="col">ID Card</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Education</th>
+                    <th scope="col">Division</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="employee" items="${employeeList}">
+                    <tr>
+                        <td>${employee.id}</td>
+                        <td>${employee.name}</td>
+                        <td>${employee.birthday}</td>
+                        <td>${employee.idCard}</td>
+                        <td>${employee.salary}</td>
+                        <td>${employee.phone}</td>
+                        <td>${employee.email}</td>
+                        <td>${employee.address}</td>
+                        <c:choose>
+                            <c:when test="${employee.positionId=='2'}">
+                                <td>Phục vụ</td>
+                            </c:when>
+                            <c:when test="${employee.positionId=='2'}">
+                                <td>Phục vụ</td>
+                            </c:when>
+                            <c:when test="${employee.positionId=='3'}">
+                                <td>Chuyên viên</td>
+                            </c:when>
+                            <c:when test="${employee.positionId=='4'}">
+                                <td>Giám sát</td>
+                            </c:when>
+                            <c:when test="${employee.positionId=='5'}">
+                                <td>Quản lý</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>Giám đốc</td>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${employee.educationId=='1'}">
+                                <td>Trung cấp</td>
+                            </c:when>
+                            <c:when test="${employee.educationId=='2'}">
+                                <td>Cao đẳng</td>
+                            </c:when>
+                            <c:when test="${employee.educationId=='3'}">
+                                <td>Đại học</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>Sau Đại học</td>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${employee.divisionId=='1'}">
+                                <td>Sale-Marketing</td>
+                            </c:when>
+                            <c:when test="${employee.divisionId=='2'}">
+                                <td>Hành chính</td>
+                            </c:when>
+                            <c:when test="${employee.divisionId=='3'}">
+                                <td>Phục vụ</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>Quản lý</td>
+                            </c:otherwise>
+                        </c:choose>
+                        <td>
+                            <a class="btn btn-primary" href="/employees?action=edit&id=${employee.id}"
+                               role="button">Edit</a>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"
+                                    onclick="deleteEmployee('${employee.id}','${employee.name}')">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+<jsp:include page="/footer.jsp"></jsp:include>
 
-<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -159,7 +123,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Do you want delete ${employee.getEmployee_name()}?
+                Do you want delete <span id="nameEmployee" value="">${employee.name}?</span>
             </div>
             <form action="/employees" method="post">
                 <input type="hidden" name="action" value="delete">
@@ -173,12 +137,12 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
 <script>
-    function deleteEmployee(id) {
+    function deleteEmployee(id,name) {
         document.getElementById("idEmployee").value = id;
+        document.getElementById("nameEmployee").value = name;
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
