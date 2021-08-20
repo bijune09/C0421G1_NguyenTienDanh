@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="084b472c-6786-40d4-9c18-7be86f39566f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/build/libs/abcxyz-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/build/libs/abcxyz-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/employee/create_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/employee/create_employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/employee/display_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/employee/display_employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/employee/edit_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/employee/edit_employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/abcxyz/src/main/webapp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/employee/create_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/employee/create_employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/employee/display_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/employee/display_employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/employee/edit_employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/employee/edit_employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/apache-tomcat-9.0.50/webapps/ROOT/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/case_study_2/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/case_study_2/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/case_study_2/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/case_study_2/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/case_study_2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/case_study_2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/case_study_2/src/main/webapp/customer/display_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/case_study_2/src/main/webapp/customer/display_customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module_3/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module_3/test.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1wwrXtoElNEEFXGKjcH6VrWnsqT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="084b472c-6786-40d4-9c18-7be86f39566f" name="Default Changelist" comment="" />
+      <created>1629380534147</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629380534147</updated>
+      <workItem from="1629380535330" duration="373000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1629380906303">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1629380906303" />
+    <state x="209" y="23" key="new project wizard" timestamp="1629380908966">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="23" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1629380908966" />
+  </component>
+</project>

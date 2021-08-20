@@ -79,7 +79,7 @@
                                 <td>${customer.getCustomerEmail()}</td>
                                 <td>${customer.getCustomerAddress()}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="/customers?action=edit&id=${customer.getIdCustomer()}"
+                                    <a class="btn btn-primary me-1" href="/customers?action=edit&id=${customer.getIdCustomer()}"
                                        role="button">Edit</a>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#staticBackdrop" onclick="deleteCustomer(${customer.getIdCustomer()})">

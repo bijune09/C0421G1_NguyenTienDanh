@@ -9,6 +9,12 @@
 <html>
 <head>
     <title>Create Employee</title>
+    <style>
+        body{
+            width: auto;!important;
+            overflow-x: hidden;!important;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="/header.jsp"></jsp:include>
@@ -19,9 +25,8 @@
         </div>
         <div class="col-lg-9">
             <h3>Create Employee</h3>
-            <legend>Create new employee</legend>
-            <form method="post">
-                <%--        <input type="hidden" name="action" value="create">--%>
+            <legend class="">Create new employee</legend>
+            <form method="post" class="w-50">
                 <div class="mb-3">
                     <label class="form-label">Name: </label>
                     <input type="text" class="form-control" name="name">

@@ -29,7 +29,7 @@
                 </li>
 
             </ul>
-            <form class="d-flex" method="post" action="/employees?action=search">
+            <form class="d-flex me-lg-5" method="post" action="/employees?action=search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
