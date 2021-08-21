@@ -15,9 +15,6 @@
     <c:if test="${result!= null}">
       Result: ${result}
     </c:if>
-    <c:if test="${result==null}">
-      Not Found!!!
-    </c:if>
   </h3>
   </body>
 </html>
