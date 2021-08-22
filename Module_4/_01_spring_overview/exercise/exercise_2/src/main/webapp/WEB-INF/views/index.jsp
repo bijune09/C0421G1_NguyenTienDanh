@@ -8,7 +8,7 @@
   <body>
   <h1>Simple dictionary</h1>
   <form action="/dictionary" method="post">
-    <input type="text" name="word" placeholder="Input....">
+    <input type="text" name="word" placeholder="Input...." value="${word}">
     <input type="submit" value="Search">
   </form>
   <h3>

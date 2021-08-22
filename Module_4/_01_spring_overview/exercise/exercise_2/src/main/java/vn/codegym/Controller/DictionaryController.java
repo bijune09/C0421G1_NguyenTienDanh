@@ -22,6 +22,7 @@ public class DictionaryController {
     @PostMapping(value = "/dictionary")
     public String result(@RequestParam String word, Model model){
         model.addAttribute("result",dictionary.findWord(word));
+        model.addAttribute("word",word);
         return "index";
     }
 }
