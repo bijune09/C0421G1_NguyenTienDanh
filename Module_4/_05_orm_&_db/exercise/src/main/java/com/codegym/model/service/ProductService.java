@@ -18,7 +18,7 @@ public class ProductService implements IProductService {
 
     @Override
     public List<Product> selectAll() {
-        return productRepository.selectAll();
+        return productRepository.findAll();
     }
 
     @Override
@@ -28,16 +28,22 @@ public class ProductService implements IProductService {
 
     @Override
     public Product findById(int id) {
-        return productRepository.findById(id);
+        return productRepository.findById(id).get();
     }
 
     @Override
     public void remove(Product product) {
-        productRepository.remove(product);
+        productRepository.delete(product);
     }
 
     @Override
     public Product findByName(String name) {
         return productRepository.findByName(name);
+    }
+
+    @Override
+    public List<Product> findByNameProductContainingOrPriceBetween(String name, String price1, String price2) {
+//        return productRepository.findByNameProductContainingOrPriceBetween(name,price1,price2);
+        return null;
     }
 }

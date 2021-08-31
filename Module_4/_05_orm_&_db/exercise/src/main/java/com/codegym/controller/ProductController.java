@@ -70,4 +70,10 @@ public class ProductController {
         model.addAttribute("product",productService.findByName(search));
         return "/view";
     }
+//
+//    @PostMapping("/advancedSearch")
+//    public String advanced(@RequestParam String name, String price1, String price2, Model model){
+//        model.addAttribute("productList",this.productService.findByNameProductContainingOrPriceBetween(name,price1,price2));
+//        return "/list";
+//    }
 }

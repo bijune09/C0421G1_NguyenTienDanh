@@ -11,7 +11,7 @@ public interface IBlogService {
 
     void save(Blog blog);
 
-    Optional<Blog> findById(int id);
+    Blog findById(int id);
 
     void remove(int id);
 }

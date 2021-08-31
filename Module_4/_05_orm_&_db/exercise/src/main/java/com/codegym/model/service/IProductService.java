@@ -10,4 +10,5 @@ public interface IProductService {
     Product findById(int id);
     void remove(Product product);
     Product findByName(String name);
+    List<Product> findByNameProductContainingOrPriceBetween(String name,String price1,String price2);
 }
