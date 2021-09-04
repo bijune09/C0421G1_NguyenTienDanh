@@ -16,15 +16,19 @@
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label>Title</label>
-            <input type="text" th:field="*{tile}"/>
+            <input type="text" th:field="*{title}"/>
         </div>
         <div>
             <label>Content</label>
-            <input type="text" th:field="*{cost}"/>
+            <input type="text" th:field="*{content}"/>
         </div>
         <div>
             <label>Signature</label>
             <input type="text" th:field="*{signature}"/>
+        </div>
+        <div>
+            <label>Category</label>
+            <input type="text" th:field="*{category}"/>
         </div>
         <input type="submit" value="Remove"/>
     </form>

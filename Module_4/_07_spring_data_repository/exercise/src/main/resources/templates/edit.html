@@ -28,10 +28,10 @@
         </div>
         <div>
             <label>Category</label>
-            <option th:field="*{category}">
-                <select th:each="category:${categoryList}" th:text="${category.categoryName}" th:value="${category.id}">
-                </select>
-            </option>
+            <select th:field="*{category}">
+                <option th:each="category:${categoryList}" th:text="${category.categoryName}" th:value="${category.id}">
+                </option>
+            </select>
         </div>
         <input type="submit" value="Edit"/>
     </form>
