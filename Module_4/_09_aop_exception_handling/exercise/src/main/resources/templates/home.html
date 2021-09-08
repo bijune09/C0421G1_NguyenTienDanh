@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>List of Book</h2>
-<div class= "w-50">
+<div class="w-50">
     <form th:action="@{/payBack}" method="post">
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Input your code</label>
@@ -38,7 +38,9 @@
         <td th:text="${book.name}"></td>
         <td th:text="${book.amount}"></td>
         <td>
-            <a th:href="@{/{id}/detail(id=${book.id})}">Borrow</a>
+            <button class="btn btn-dark">
+                <a th:href="@{/{id}/detail(id=${book.id})}" class="text-decoration-none text-white">Borrow</a>
+            </button>
         </td>
     </tr>
     </tbody>

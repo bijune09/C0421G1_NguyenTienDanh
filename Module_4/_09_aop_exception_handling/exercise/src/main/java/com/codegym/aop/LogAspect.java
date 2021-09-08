@@ -11,7 +11,7 @@ import java.util.Arrays;
 @Component
 @Aspect
 public class LogAspect {
-    private int numberOfVisiting = 0;
+    private int count = 0;
     @Pointcut("execution(* com.codegym.controller.LibraryController.do*(..))")
     public void logAfterRunMethod(){
     }
@@ -27,8 +27,8 @@ public class LogAspect {
 
     @After("visiting()")
     public void afterAllMethodCall(JoinPoint joinPoint){
-        numberOfVisiting++;
+        count++;
         System.err.println("Guess has been visited, Method "+joinPoint.getSignature().getName()+" has been called.\n"+
-                "Number of visits : "+numberOfVisiting);
+                "Number of visits : "+count);
     }
 }
