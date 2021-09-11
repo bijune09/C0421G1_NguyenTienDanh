@@ -1,13 +1,15 @@
 package com.codegym.model.bean;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "id")
 @Entity
 public class Category {
 
@@ -16,6 +18,7 @@ public class Category {
     private int id;
     private String categoryName;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "category")
     private Set<Blog> blogSet;
 
