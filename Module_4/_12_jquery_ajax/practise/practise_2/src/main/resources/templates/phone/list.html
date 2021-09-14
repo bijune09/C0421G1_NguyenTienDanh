@@ -29,13 +29,13 @@
     </table>
 </form>
 <h1>Smartphone List</h1>
-<table id="smartphoneList">
+<table id="smartphoneList" class="table table-striped table-hover">
     <tr>
-        <td>Producer</td>
-        <td>Model</td>
-        <td>Price</td>
-        <td>Delete</td>
-        <td>Edit</td>
+        <th>Producer</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Delete</th>
+        <th>Edit</th>
     </tr>
     <th:block th:each="smartphone: ${smartphones}">
         <tr>
@@ -49,25 +49,7 @@
     </th:block>
 </table>
 
-
 <br><br>
-<!--<form id="edit-smartphone" style="display: none" class="form-control">-->
-<!--    <input type="hidden" id="id">-->
-<!--    <div class="mb-3">-->
-<!--        <label>Producer:</label>-->
-<!--        <input type="text" id="updateProducer" value="">-->
-<!--    </div>-->
-<!--    <div class="mb-3">-->
-<!--        <label>Model:</label>-->
-<!--        <input type="text" id="updateModel" value="">-->
-<!--    </div>-->
-<!--    <div class="mb-3">-->
-<!--        <label>Price:</label>-->
-<!--        <input type="text" id="updatePrice" value="">-->
-<!--    </div>-->
-<!--    <input type="submit" value="Save Changes" id="updateSmartphone">-->
-<!--</form>-->
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -128,7 +110,11 @@
             type: "POST",
             data: JSON.stringify(newSmartphone),
             url: "/smartphones",
-            success: successHandler()
+            success: function () {
+                window.setTimeout(function () {
+                    location.reload();
+                },500)
+            }
 
         });
         event.preventDefault();
@@ -158,7 +144,7 @@
     function getSmartphone(smartphone) {
         return `<tr><td >${smartphone.producer}</td><td >${smartphone.model}</td><td >${smartphone.price}</td>` +
             `<td><a class="deleteSmartphone" href="${smartphone.id}">Delete</a></td>` +
-            `<td><a class="editSmartphone" href="/edit/{id}(id=${smartphone.id})">Edit</a></td></tr>`;
+            `<td><a class="editSmartphone" href="${smartphone.id}">Edit</a></td></tr>`;
     }
 
     $(document).ready(function () {
@@ -179,9 +165,8 @@
         });
 
 
-        // lấy thông tin edit
+        // lấy thông tin edit, cũng là xem chi tiết nghen a lĩnh
         $('.editSmartphone').click(function () {
-            // $('#edit-smartphone').show();
             let idSmartphone = $(this).attr("href");
             $.ajax({
                 type: "GET",
@@ -194,8 +179,6 @@
                 }
             })
             event.preventDefault();
-            // $('#edit-smartphone').show();
-
         })
         //edit
         $("#updateSmartphone").click(function () {
