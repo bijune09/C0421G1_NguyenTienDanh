@@ -83,5 +83,10 @@ public class BlogController {
         return "home";
     }
 
+    @GetMapping("/login")
+    public String loginForm(){
+        return "/login";
+    }
+
 
 }
