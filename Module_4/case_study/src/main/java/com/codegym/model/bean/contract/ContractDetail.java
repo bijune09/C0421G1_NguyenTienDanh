@@ -1,4 +1,4 @@
-package com.codegym.model.contract;
+package com.codegym.model.bean.contract;
 
 import javax.persistence.*;
 

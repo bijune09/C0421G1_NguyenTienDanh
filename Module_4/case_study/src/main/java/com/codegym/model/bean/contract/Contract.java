@@ -1,8 +1,8 @@
-package com.codegym.model.contract;
+package com.codegym.model.bean.contract;
 
-import com.codegym.model.customer.Customer;
-import com.codegym.model.employee.Employee;
-import com.codegym.model.service.Service;
+import com.codegym.model.bean.customer.Customer;
+import com.codegym.model.bean.employee.Employee;
+import com.codegym.model.bean.service.Service;
 
 import javax.persistence.*;
 import java.util.List;

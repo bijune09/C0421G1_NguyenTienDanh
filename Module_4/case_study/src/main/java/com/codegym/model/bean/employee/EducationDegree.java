@@ -1,20 +1,21 @@
-package com.codegym.model.employee;
+package com.codegym.model.bean.employee;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Division {
+@Table(name = "education_degree")
+public class EducationDegree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    @OneToMany(mappedBy = "division")
+    @OneToMany(mappedBy = "educationDegree")
     private Set<Employee> employees;
 
-    public Division() {
+    public EducationDegree() {
     }
 
     public Long getId() {

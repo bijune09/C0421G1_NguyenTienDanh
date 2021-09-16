@@ -1,20 +1,21 @@
-package com.codegym.model.employee;
+package com.codegym.model.bean.customer;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Role {
+@Table(name = "customer_type")
+public class CustomerType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    @OneToMany(mappedBy = "customerType")
+    private Set<Customer> customers;
 
-    public Role() {
+    public CustomerType() {
     }
 
     public Long getId() {
@@ -33,11 +34,11 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public Set<Customer> getCustomers() {
+        return customers;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
     }
 }

@@ -1,29 +1,20 @@
-package com.codegym.model.employee;
+package com.codegym.model.bean.employee;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Position {
-
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    @OneToMany(mappedBy = "position")
-    private Set<Employee> employees;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
-    public Position() {
-    }
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+    public Role() {
     }
 
     public Long getId() {
@@ -42,5 +33,11 @@ public class Position {
         this.name = name;
     }
 
+    public Set<User> getUsers() {
+        return users;
+    }
 
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 }

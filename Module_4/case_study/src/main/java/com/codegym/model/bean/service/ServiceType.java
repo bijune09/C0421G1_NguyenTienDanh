@@ -1,4 +1,4 @@
-package com.codegym.model.service;
+package com.codegym.model.bean.service;
 
 import javax.persistence.*;
 import java.util.List;

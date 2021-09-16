@@ -1,6 +1,6 @@
-package com.codegym.model.customer;
+package com.codegym.model.bean.customer;
 
-import com.codegym.model.contract.Contract;
+import com.codegym.model.bean.contract.Contract;
 
 import javax.persistence.*;
 import java.util.List;
@@ -29,7 +29,17 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Contract> contracts;
 
+    private String code;
+
     public Customer() {
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public List<Contract> getContracts() {

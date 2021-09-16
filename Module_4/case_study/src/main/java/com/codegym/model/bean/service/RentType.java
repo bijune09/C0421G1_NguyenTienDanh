@@ -1,21 +1,21 @@
-package com.codegym.model.employee;
+package com.codegym.model.bean.service;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
-@Table(name = "education_degree")
-public class EducationDegree {
+@Table(name = "rent_type")
+public class RentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    @OneToMany(mappedBy = "educationDegree")
-    private Set<Employee> employees;
+    @OneToMany(mappedBy = "rentType")
+    private List<Service> services;
 
-    public EducationDegree() {
+    public RentType() {
     }
 
     public Long getId() {
@@ -34,11 +34,11 @@ public class EducationDegree {
         this.name = name;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
+    public List<Service> getServices() {
+        return services;
     }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
 }

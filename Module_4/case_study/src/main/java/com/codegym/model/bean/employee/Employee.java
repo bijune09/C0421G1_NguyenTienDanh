@@ -1,7 +1,6 @@
-package com.codegym.model.employee;
+package com.codegym.model.bean.employee;
 
-import com.codegym.model.contract.Contract;
-import com.sun.javafx.beans.IDProperty;
+import com.codegym.model.bean.contract.Contract;
 
 import javax.persistence.*;
 import java.util.List;

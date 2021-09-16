@@ -1,4 +1,4 @@
-package com.codegym.model.contract;
+package com.codegym.model.bean.contract;
 
 
 import javax.persistence.*;
@@ -13,7 +13,7 @@ public class AttachService {
 
     private String name;
     private double cost;
-    private int unit;
+    private String unit;
     private String status;
 
     @OneToMany(mappedBy = "attachService")
@@ -46,11 +46,11 @@ public class AttachService {
         this.cost = cost;
     }
 
-    public int getUnit() {
+    public String getUnit() {
         return unit;
     }
 
-    public void setUnit(int unit) {
+    public void setUnit(String unit) {
         this.unit = unit;
     }
 
