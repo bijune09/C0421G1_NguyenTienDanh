@@ -1,4 +1,4 @@
-package com.codegym.model.repository;
+package com.codegym.model.repository.customer;
 
 import com.codegym.model.bean.customer.Customer;
 import org.springframework.data.domain.Page;

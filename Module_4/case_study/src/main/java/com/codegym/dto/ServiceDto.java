@@ -1,45 +1,53 @@
-package com.codegym.model.bean.service;
+package com.codegym.dto;
 
-import com.codegym.model.bean.contract.Contract;
+import com.codegym.model.bean.service.RentType;
+import com.codegym.model.bean.service.ServiceType;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-@Entity
-public class Service {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ServiceDto {
     private Long id;
+    @NotBlank(message = "You must input something")
     private String name;
+    @NotNull(message = "You must input something")
+    @Min(value = 0, message = "Area must be positive")
     private int area;
+    @NotNull(message = "You must input something")
+    @Min(value = 0,message = "Cost must be positive")
     private double cost;
+    @NotNull(message = "You must input something")
+    @Min(value = 0,message = "Capacity must be positive")
     private int capacity;
-
-    @ManyToOne(targetEntity = RentType.class)
-    @JoinColumn(name = "rent_type_id",referencedColumnName = "id")
     private RentType rentType;
-
-    @ManyToOne(targetEntity = ServiceType.class)
-    @JoinColumn(name = "service_type_id",referencedColumnName = "id")
     private ServiceType serviceType;
-
+    @NotEmpty(message = "You must input something")
     private String standard;
+    @NotEmpty(message = "You must input something")
     private String description;
+    @NotNull(message = "You must input something")
+    @Min(value = 0, message = "Pool area must be positive")
     private double poolArea;
+    @NotNull(message = "You must input something")
+    @Min(value = 0, message = "Pool area must be positive")
     private int floor;
 
-    @OneToMany(mappedBy = "service")
-    private List<Contract> contracts;
-
-    public Service() {
+    public ServiceDto() {
     }
 
-    public List<Contract> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(List<Contract> contracts) {
-        this.contracts = contracts;
+    public ServiceDto(String name, int area, double cost, int capacity, RentType rentType, ServiceType serviceType, String standard, String description, double poolArea, int floor) {
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.capacity = capacity;
+        this.rentType = rentType;
+        this.serviceType = serviceType;
+        this.standard = standard;
+        this.description = description;
+        this.poolArea = poolArea;
+        this.floor = floor;
     }
 
     public Long getId() {

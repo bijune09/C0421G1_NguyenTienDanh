@@ -25,7 +25,7 @@ public class Contract {
     @JoinColumn(name = "employee_id",referencedColumnName = "id")
     private Employee employee;
 
-    @ManyToOne(targetEntity = Customer.class)
+    @ManyToOne(targetEntity = Customer.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id",referencedColumnName = "id")
     private Customer customer;
 
@@ -33,12 +33,11 @@ public class Contract {
     @JoinColumn(name = "service_id",referencedColumnName = "id")
     private Service service;
 
-    @OneToMany(mappedBy = "contract")
+    @OneToMany(mappedBy = "contract",cascade = CascadeType.ALL)
     private List<ContractDetail> contractDetails;
 
     public Contract() {
     }
-
 
     public List<ContractDetail> getContractDetails() {
         return contractDetails;

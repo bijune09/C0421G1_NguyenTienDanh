@@ -21,7 +21,7 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping(value = "")
-    public String homePage(Model model, @PageableDefault(value = 5) Pageable pageable){
+    public String homePage(Model model, @PageableDefault(value = 1) Pageable pageable){
         model.addAttribute("blogList",blogService.findAll(pageable));
         return "home";
     }
