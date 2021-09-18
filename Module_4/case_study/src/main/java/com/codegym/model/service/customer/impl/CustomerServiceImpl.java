@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 @Service
 @Transactional
@@ -39,5 +40,10 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public Page<Customer> findByName(String name, Pageable pageable) {
         return this.customerRepository.findAllByNameContaining(name,pageable);
+    }
+
+    @Override
+    public List<Customer> findAllList() {
+        return this.customerRepository.findAll();
     }
 }

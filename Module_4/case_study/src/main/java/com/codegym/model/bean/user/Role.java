@@ -1,4 +1,4 @@
-package com.codegym.model.bean.employee;
+package com.codegym.model.bean.user;
 
 import javax.persistence.*;
 import java.util.Set;

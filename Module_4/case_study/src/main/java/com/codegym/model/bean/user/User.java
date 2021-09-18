@@ -1,4 +1,6 @@
-package com.codegym.model.bean.employee;
+package com.codegym.model.bean.user;
+
+import com.codegym.model.bean.employee.Employee;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +21,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles;
+
+    @OneToOne(mappedBy = "user")
+    private Employee employee;
 
     public User() {
     }

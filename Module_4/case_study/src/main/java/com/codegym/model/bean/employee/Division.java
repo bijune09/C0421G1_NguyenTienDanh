@@ -11,7 +11,7 @@ public class Division {
 
     private String name;
 
-    @OneToMany(mappedBy = "division")
+    @OneToMany(mappedBy = "division",cascade = CascadeType.ALL)
     private Set<Employee> employees;
 
     public Division() {

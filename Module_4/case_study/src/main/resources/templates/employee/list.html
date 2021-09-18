@@ -54,10 +54,8 @@
             <td th:text="${employee.address}"></td>
             <td>
                 <a th:href="@{employees/{id}/edit(id=${employee.getId()})}" class="btn btn-info">Edit</a>
-                <button type="button" class="btn btn-danger"
-                        th:onclick="'deleteCustomer('+${employee.id}+')'"
-                        data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Delete
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" th:onclick="'deleteCustomer('+${employee.id}+')'">Delete
                 </button>
             </td>
         </tr>
@@ -69,34 +67,33 @@
         <a th:href="@{'/employees'(page=${employeeList.number + 1})}" th:if="${employeeList.hasNext()}">Next</a>
     </div>
 
-
 </div>
-<form th:action="@{/customers/remove}">
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Do you want delete?
-                </div>
-                <input type="hidden" name="id"  id="idCustomer">
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary">Yup</button>
-                </div>
+<!--modal-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want delete?
+                <input type="input" id="idEmployee" readonly>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="submit" class="btn btn-primary" id="removeEmployee">Yup</button>
             </div>
         </div>
     </div>
-</form>
+</div>
 
 
 <div th:replace="/home :: footer"></div>
 </body>
 </html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
@@ -106,6 +103,21 @@
 <script>
     function deleteCustomer(id) {
         console.log(id)
-        document.getElementById("idCustomer").value = id;
+        document.getElementById("idEmployee").value = id;
     }
+
+
+    $(document).ready(function () {
+        $("#removeEmployee").click(function () {
+            let id = $("#idEmployee").val();
+            $.ajax({
+                type: "DELETE",
+                url: `/employees/` + id,
+                success: function (data) {
+                    window.location("/employees?page=0")
+                }
+            })
+        })
+    })
+
 </script>

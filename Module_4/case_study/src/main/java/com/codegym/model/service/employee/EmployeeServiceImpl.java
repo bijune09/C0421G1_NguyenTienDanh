@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -34,4 +35,16 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public Page<Employee> findByName(String name, Pageable pageable) {
         return this.employeeRepository.findAllByNameContaining(name,pageable);
     }
+
+    @Override
+    public List<Employee> findAllList() {
+        return this.employeeRepository.findAll();
+    }
+
+    @Override
+    public void remove(Long id) {
+        this.employeeRepository.deleteById(id);
+    }
+
+
 }

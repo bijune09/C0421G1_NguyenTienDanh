@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Contract</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style th:replace="/home:: css"></style>
+</head>
+<body>
+<div th:replace="/home :: navbar"></div>
+<button class="btn btn-primary">
+    <a href="/contracts">Back to Contract Page</a>
+</button>
+<div class="p-md-3">
+    <form th:action="@{/contracts/createContract}" method="post" class="w-25" th:object="${contractDto}">
+        <div class="mb-3">
+            <strong>Deposit</strong>
+            <p th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}" class="text-danger"></p>
+            <input type="text" class="form-control" placeholder="Deposit" th:field="*{deposit}">
+        </div>
+        <div class="mb-3">
+            <strong class="form-label">Start Date:</strong>
+            <p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></p>
+            <input type="date" class="form-control" th:field="*{startDate}">
+        </div>
+        <div class="mb-3">
+            <strong class="form-label">End Date</strong>
+            <p th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></p>
+            <input type="date" class="form-control" th:field="*{endDate}">
+        </div>
+        <div class="mb-3">
+            <strong class="form-label">Customer Name:</strong>
+            <select th:field="*{customer}">
+                <option th:each="customer:${customerList}" th:value="${customer.id}" th:text="${customer.name}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <strong class="form-label">Employee Name:</strong>
+            <select th:field="*{employee}">
+                <option th:each="employee:${employeeList}" th:value="${employee.id}" th:text="${employee.name}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <strong class="form-label">Service Name:</strong>
+            <select th:field="*{service}">
+                <option th:each="service:${serviceList}" th:value="${service.id}" th:text="${service.name}"></option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Create</button>
+        </div>
+    </form>
+</div>
+
+<div th:replace="/home :: footer"></div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
