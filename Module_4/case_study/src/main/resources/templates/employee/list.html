@@ -83,7 +83,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <button type="submit" class="btn btn-primary" id="removeEmployee">Yup</button>
+                <button type="submit" class="btn btn-primary removeEmployee">Yup</button>
             </div>
         </div>
     </div>
@@ -108,13 +108,15 @@
 
 
     $(document).ready(function () {
-        $("#removeEmployee").click(function () {
+        $(".removeEmployee").on('click',function () {
             let id = $("#idEmployee").val();
             $.ajax({
-                type: "DELETE",
-                url: `/employees/` + id,
+                type: "GET",
+                url: `http://localhost:8080/employees/delete/` + id,
                 success: function (data) {
-                    window.location("/employees?page=0")
+                    window.setTimeout(function () {
+                        location.reload();
+                    },500)
                 }
             })
         })

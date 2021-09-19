@@ -1,5 +1,7 @@
 package com.codegym.model.bean.user;
 
+import com.codegym.model.bean.user.Role;
+import com.codegym.model.bean.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class MyUserDetail implements UserDetails {
-    private User user;
+    private final User user;
 
     public MyUserDetail(User user) {
         this.user = user;
@@ -36,17 +38,17 @@ public class MyUserDetail implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override

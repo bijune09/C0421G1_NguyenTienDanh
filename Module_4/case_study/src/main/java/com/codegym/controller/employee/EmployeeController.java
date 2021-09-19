@@ -101,4 +101,11 @@ public class EmployeeController {
         model.addAttribute("employeeList",employee);
         return "employee/list";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable Long id,RedirectAttributes redirectAttributes){
+        this.employeeService.remove(id);
+        redirectAttributes.addFlashAttribute("msg","xoa r");
+        return "redirect:/employees";
+    }
 }

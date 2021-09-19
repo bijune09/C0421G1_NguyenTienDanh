@@ -14,6 +14,7 @@ public class Customer {
 
     @ManyToOne(targetEntity = CustomerType.class)
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
+
     private CustomerType customerType;
 
     private String name;

@@ -22,30 +22,41 @@ public class Employee {
     private String email;
     private String address;
 
-    @JsonBackReference
     @ManyToOne(targetEntity = Position.class)
     @JoinColumn(name = "position_id",referencedColumnName = "id")
+    @JsonBackReference
     private Position position;
 
-    @JsonBackReference
+
     @ManyToOne(targetEntity = EducationDegree.class)
     @JoinColumn(name = "education_degree_id",referencedColumnName = "id")
+    @JsonBackReference
     private EducationDegree educationDegree;
 
-    @JsonBackReference
+
     @ManyToOne(targetEntity = Division.class)
     @JoinColumn(name = "division_id",referencedColumnName = "id")
+    @JsonBackReference
     private Division division;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "employee" ,cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Contract> contracts;
 
     @OneToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
     public Employee() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Long getId() {

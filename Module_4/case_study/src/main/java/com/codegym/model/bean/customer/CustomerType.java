@@ -13,6 +13,7 @@ public class CustomerType {
     private String name;
 
     @OneToMany(mappedBy = "customerType")
+
     private Set<Customer> customers;
 
     public CustomerType() {
