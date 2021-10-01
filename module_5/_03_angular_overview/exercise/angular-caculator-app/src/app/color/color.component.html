@@ -1,0 +1,18 @@
+<p>color works!</p>
+<div>
+  <label>Color Pick:</label>
+  <input type="text" [(ngModel)]="colorPick">
+</div>
+<div>
+  <label>Width Pick:</label>
+  <input type="text" [(ngModel)]="width">
+</div>
+<div>
+  <label>Height Pick:</label>
+  <input type="text" [(ngModel)]="height">
+</div>
+<br>
+
+<div style="background: {{colorPick}}; width: {{width}}; height: {{height}}">
+</div>
+
