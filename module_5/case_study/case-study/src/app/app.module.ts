@@ -9,6 +9,7 @@ import { ListCustomerComponent } from './customer/list-customer/list-customer.co
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
 import { ListEmployeeComponent } from './employee/list-employee/list-employee.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,11 @@ import { ListEmployeeComponent } from './employee/list-employee/list-employee.co
     EditEmployeeComponent,
     ListEmployeeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
