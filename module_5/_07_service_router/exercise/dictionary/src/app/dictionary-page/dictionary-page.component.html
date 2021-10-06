@@ -1,0 +1,7 @@
+<h2>Dictionary</h2>
+<table>
+  <tr  *ngFor="let word of dictionaryList">
+    <td>Word:</td>
+    <td><a [routerLink]="['/dictionary',word.word]">{{word.word}}</a></td>
+  </tr>
+</table>
