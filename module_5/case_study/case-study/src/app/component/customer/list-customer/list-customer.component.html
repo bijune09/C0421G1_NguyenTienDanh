@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <a class="btn btn-primary" routerLink="/customer/create">Create Customer</a>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table class="table table-dark table-striped align-middle table-responsive">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Customer Code</th>
+          <th scope="col">Name</th>
+          <th scope="col">Type Customer</th>
+          <th scope="col">Birthday</th>
+          <th scope="col">Gender</th>
+          <th scope="col">ID Card</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customer of customerList">
+          <td>{{customer.id}}</td>
+          <td>{{customer.code}}</td>
+          <td>{{customer.name}}</td>
+          <td>{{customer.customerType.name}}</td>
+          <td>{{customer.birthday}}</td>
+          <!--        <td>{{customer.gender}}</td>-->
+          <td>
+            <span *ngIf="customer.gender == 'Male'; else elseBlock">Nam</span>
+            <ng-template #elseBlock>
+              <span>Nữ</span>
+            </ng-template>
+          </td>
+          <td>{{customer.idCard}}</td>
+          <td>{{customer.phone}}</td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.address}}</td>
+          <td>
+            <button class="btn btn-primary" [routerLink]="['/customers/edit',customer.id]">Edit</button>
+            &nbsp;
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    (click)="sendId(customer.id)">Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you wanna delete {{stringName}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteCustomer(delId)">Yup
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
