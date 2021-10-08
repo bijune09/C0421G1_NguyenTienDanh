@@ -10,5 +10,5 @@ export interface Customer {
   idCard: string;
   phone: string;
   email: string;
-  address: string
+  address: string;
 }

@@ -16,19 +16,19 @@ export class CustomerService {
     return this.http.get(this.customer_url_api);
   }
 
-  createCustomer(customer: Customer):Observable<any>{
-    return this.http.post(this.customer_url_api,customer);
+  createCustomer(customer: Customer): Observable<any> {
+    return this.http.post(this.customer_url_api, customer);
   }
 
-  findById(id: number):Observable<Customer|any>{
-    return this.http.get(this.customer_url_api+"/"+id);
+  findById(id: number): Observable<Customer | any> {
+    return this.http.get(this.customer_url_api + '/' + id);
   }
 
-  delete(id: number):Observable<Customer|any>{
-    return this.http.delete(this.customer_url_api+"/"+id);
+  delete(id: number): Observable<Customer | any> {
+    return this.http.delete(this.customer_url_api + '/' + id);
   }
 
-  update(id:number,customer: Customer):Observable<Customer|any>{
-    return this.http.put(this.customer_url_api+"/"+id,customer);
+  update(id: number, editCustomer: Customer): Observable<Customer | any> {
+    return this.http.put(this.customer_url_api + '/' + id, editCustomer);
   }
 }
