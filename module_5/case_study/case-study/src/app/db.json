@@ -23,7 +23,7 @@
   ],
   "customers": [
     {
-      "code": "KH-0002",
+      "code": "KH-0001",
       "name": "Nguyen Tien Danh",
       "gender": "female",
       "idCard": "123456781",
@@ -66,6 +66,51 @@
       "email": "min@codegym.vn",
       "address": "Hue",
       "id": 3
+    },
+    {
+      "code": "KH-004",
+      "name": "John Smith",
+      "gender": "Male",
+      "idCard": "201482948",
+      "phone": "0903928172",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "birthday": "2021-07-03",
+      "email": "min@codegym.vn",
+      "address": "Quang Ngai",
+      "id": 4
+    },
+    {
+      "code": "KH-0005",
+      "name": "Kevin Lee",
+      "gender": "Female",
+      "idCard": "201482948",
+      "phone": "0903928172",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "birthday": "2021-07-03",
+      "email": "min@codegym.vn",
+      "address": "Moon",
+      "id": 5
+    },
+    {
+      "code": "KH-0008",
+      "name": "Nguyen Tien Dung",
+      "gender": "female",
+      "idCard": "123123123",
+      "phone": "+84932545644",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      },
+      "birthday": "1111-11-11",
+      "email": "ndanh9698@gmail.com",
+      "address": "80 Tran Xuan Le",
+      "id": 6
     }
   ],
   "educationDegrees": [

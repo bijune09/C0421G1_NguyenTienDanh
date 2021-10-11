@@ -1,0 +1,22 @@
+.mh{
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.mh {
+  min-height: 100vh;
+}
+
+strong {
+  color: white;
+}
+
+p {
+  font-family: "Courier New";
+  font-size: 50px;
+  padding-left: 100px;
+  padding-top: 60px;
+}

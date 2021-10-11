@@ -26,11 +26,11 @@ export class EditCustomerComponent implements OnInit {
       {type : 'minlength', message: 'length must be greater than 5'},
     ],
     gender: [
-      {type : 'required', message: 'Not null'},
+      {type: 'required', message: 'Not null'},
     ],
     idCard: [
-      {type : 'required', message: 'Not null'},
-      {type : 'pattern', message: 'Invalid, id card must contain 9 or 12 number'},
+      {type: 'required', message: 'Not null'},
+      {type: 'pattern', message: 'Invalid, id card must contain 9 or 12 number'},
     ],
     phone: [
       {type : 'required', message: 'Not null'},
@@ -45,12 +45,12 @@ export class EditCustomerComponent implements OnInit {
     ],
     email: [
       {type : 'required', message: 'Not null'},
-      {type : 'pattern', message: 'invalid'},
+      {type : 'email', message: 'invalid'},
     ],
     address: [
       {type : 'required', message: 'Not null'},
     ],
-  }
+  };
 
   editForm = new FormGroup({
     code: new FormControl('', [Validators.required, Validators.pattern(/^KH-[0-9]{4}$/)]),

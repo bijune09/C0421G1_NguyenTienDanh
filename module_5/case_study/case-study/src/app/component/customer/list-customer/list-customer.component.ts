@@ -11,6 +11,8 @@ export class ListCustomerComponent implements OnInit {
   customerList: Customer[];
   stringName: string;
   delId: number;
+  searchName: any;
+  page:number = 1;
 
   // customer: Customer[];
 
@@ -18,6 +20,16 @@ export class ListCustomerComponent implements OnInit {
     this.customerService.findAll().subscribe(list => {
       this.customerList = list;
     });
+  }
+
+  search(){
+    if (this.searchName == ""){
+      this.getAll();
+    } else {
+      this.customerList = this.customerList.filter( items => {
+        return items.name.toLocaleLowerCase().match(this.searchName.toLocaleLowerCase());
+      })
+    }
   }
 
   ngOnInit(): void {
@@ -40,5 +52,10 @@ export class ListCustomerComponent implements OnInit {
     this.customerService.delete(deleteId).subscribe(() => this.getAll());
   }
 
-
+  key:string = 'id';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 }
