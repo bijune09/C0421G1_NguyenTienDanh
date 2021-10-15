@@ -1,0 +1,46 @@
+{
+  "carTypes": [
+    {
+      "id": 1,
+      "name": "Giường nằm"
+    },
+    {
+      "id": 2,
+      "name": "Ghế ngồi"
+    }
+  ],
+  "station": [
+    {
+      "id": 1,
+      "name": "Mai Linh"
+    },
+    {
+      "id": 2,
+      "name": "Phương Trang"
+    },
+    {
+      "id": 3,
+      "name": "Hoàng Long"
+    }
+  ],
+  "car": [
+    {
+      "id": 1,
+      "code": 1231,
+      "carType": {
+        "id": 2,
+        "name": "Ghế ngồi"
+      },
+      "station": {
+        "id": 3,
+        "name": "Hoàng Long"
+      },
+      "startPoint": "Đà Nẵng",
+      "destination": "Quang Trị",
+      "phone": "0971234567",
+      "email": "mailinh@gmail.com",
+      "startTime": "04:00",
+      "endTime": "15:20"
+    }
+  ]
+}

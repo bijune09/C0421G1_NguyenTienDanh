@@ -1,0 +1,89 @@
+<h2>Create</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="p-md-3">
+        <form [formGroup]="createForm" (ngSubmit)="create()">
+          <div class="mb-3">
+            <strong class="form-label">Mã số xe:</strong>
+            <input type="text" class="form-control" formControlName="code" >
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Loại xe:</strong>
+            <select class="form-select" formControlName="carType">
+              <option *ngFor="let type of carTypeList" [ngValue]="type"
+                      [selected]="type.name == createForm.controls.carType.value.name">{{type.name}}</option>
+            </select>
+            <div class="alert-danger" *ngFor="let va of validationMessage.carType" [hidden]="va.valid">
+              <div
+                *ngIf="createForm.get('carType').hasError(va.type)&& createForm.get('carType').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Nhà xe</strong>
+            <select class="form-select" formControlName="station">
+              <option *ngFor="let type of stationList" [ngValue]="type"
+                      [selected]="type.name == createForm.controls.station.value.name">{{type.name}}</option>
+            </select>
+            <div class="alert-danger" *ngFor="let va of validationMessage.station" [hidden]="va.valid">
+              <div
+                *ngIf="createForm.get('station').hasError(va.type)&& createForm.get('station').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Điểm xuất phát</strong>
+            <input type="text" class="form-control" formControlName="startPoint">
+            <div class="alert-danger" *ngFor="let va of validationMessage.startPoint" [hidden]="va.valid">
+              <div *ngIf="createForm.get('startPoint').hasError(va.type)&& createForm.get('startPoint').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Điểm kết thúc</strong>
+            <input type="text" class="form-control" formControlName="destination">
+            <div class="alert-danger" *ngFor="let va of validationMessage.destination" [hidden]="va.valid">
+              <div
+                *ngIf="createForm.get('destination').hasError(va.type)&& createForm.get('destination').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Phone</strong>
+            <input type="text" class="form-control" placeholder="Phone" formControlName="phone">
+            <div class="alert-danger" *ngFor="let va of validationMessage.phone" [hidden]="va.valid">
+              <div *ngIf="createForm.get('phone').hasError(va.type)&& createForm.get('phone').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Email</strong>
+            <input type="email" class="form-control" formControlName="email">
+            <div class="alert-danger" *ngFor="let va of validationMessage.email" [hidden]="va.valid">
+              <div *ngIf="createForm.get('email').hasError(va.type)&& createForm.get('email').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Giờ đi</strong>
+            <input type="time" class="form-control" formControlName="startTime" min="5:00" max="23:00">
+            <div class="alert-danger" *ngFor="let va of validationMessage.startTime" [hidden]="va.valid">
+              <div
+                *ngIf="createForm.get('startTime').hasError(va.type)&& createForm.get('startTime').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong class="form-label">Giờ đến</strong>
+            <input type="time" class="form-control" formControlName="endTime" min="5:00" max="23:00">
+            <div class="alert-danger" *ngFor="let va of validationMessage.endTime" [hidden]="va.valid">
+              <div
+                *ngIf="createForm.get('endTime').hasError(va.type)&& createForm.get('endTime').dirty">{{va.message}}</div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Create</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+

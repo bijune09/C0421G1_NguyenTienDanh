@@ -1,0 +1,74 @@
+<div class="container-fluid" style="min-height: 100vh">
+  <div class="row">
+    <col-12>
+      <button type="button" class="btn btn-primary" routerLink="/car/create">Create</button>
+    </col-12>
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table class="table table-dark table-striped align-middle table-responsive">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th scope="col">Số xe</th>
+          <th scope="col">Loại xe</th>
+          <th scope="col">Tên nhà xe</th>
+          <th scope="col">Điểm đi</th>
+          <th scope="col">Điểm đến</th>
+          <th scope="col">Số điện thoại</th>
+          <th scope="col">Email</th>
+          <th scope="col">Giờ đi</th>
+          <th scope="col">Giờ đến</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr
+          *ngFor="let car of carList, let i = index ">
+          <td>{{i + 1}}</td>
+          <td>{{car.code}}</td>
+          <td>{{car.carType.name}}</td>
+          <td>{{car.station.name}}</td>
+          <td>{{car.startPoint}}</td>
+          <td>{{car.destination}}</td>
+          <td>{{car.phone}}</td>
+          <td>{{car.email}}</td>
+          <td>{{car.startTime}}</td>
+          <td>{{car.endTime}}</td>
+          <td>
+            <button class="btn btn-primary" [routerLink]="['/car/edit',car.id]">Edit</button>
+            &nbsp;
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    (click)="sendId(car.id)">Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" (click)="previousPage()">Previous</a></li>
+          <li class="page-item"><a class="page-link" (click)="nextPage()">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có đồng ý xoá thông tin của xe khách có số xe {{stringName}}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteCar(delId)">Yup
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
